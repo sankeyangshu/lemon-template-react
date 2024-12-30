@@ -1,12 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
-import './styles/index.less'; // 全局css
-import 'virtual:uno.css'; // 引入unocss
 import 'virtual:svg-icons-register'; // svg-icons注册导入
+import './styles/index.less'; // 导入默认样式
+import 'virtual:uno.css'; // 引入unocss
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
     <App />
-  </React.StrictMode>
+  </StrictMode>
 );

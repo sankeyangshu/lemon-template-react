@@ -1,97 +1,85 @@
 {
-  "name": "react-template",
-  "private": true,
-  "version": "0.1.0",
+  "name": "lemon-template-react",
+  "version": "0.0.0",
   "type": "module",
-  "description": "使用 React + TS 构建的基础项目模版",
-  "author": "sankeyangshu",
-  "license": "MIT",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint:lint-staged": "lint-staged",
-    "lint:eslint": "eslint --max-warnings 0 \"src/**/*.{js,jsx,ts,tsx}\" --fix",
-    "lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,ts,json,jsx,tsx,css,less,scss,vue,html,md}\"",
-    "lint:stylelint": "stylelint --cache --fix \"**/*.{less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
-    "preview": "vite preview",
-    "prepare": "husky"
+  "private": true,
+  "packageManager": "pnpm@9.15.0",
+  "description": "An mobile web apps template based on the React ecosystem",
+  "author": {
+    "name": "sankeyangshu",
+    "email": "sankeyangshu@gmail.com",
+    "url": "https://github.com/sankeyangshu"
   },
+  "license": "MIT",
+  "homepage": "https://github.com/sankeyangshu/lemon-template-react#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sankeyangshu/react-template.git"
+    "url": "git+https://github.com/sankeyangshu/lemon-template-react.git"
   },
-  "keywords": [
-    "react",
-    "typescript"
-  ],
   "bugs": {
-    "url": "https://github.com/sankeyangshu/react-template/issues"
-  },
-  "homepage": "https://github.com/sankeyangshu/react-template#readme",
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "{!(package)*.json,*.code-snippets,.!(browserslist)*rc}": [
-      "prettier --write--parser json"
-    ],
-    "package.json": [
-      "prettier --write"
-    ],
-    "*.{scss,less,styl}": [
-      "stylelint --fix",
-      "prettier --write"
-    ],
-    "*.md": [
-      "prettier --write"
-    ]
+    "url": "https://github.com/sankeyangshu/lemon-template-react/issues"
   },
   "engines": {
-    "node": ">=18.12.0",
-    "pnpm": ">=9.0.2"
+    "node": "^18.18.0 || >=20.0.0",
+    "pnpm": ">=8.15.4"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "build:dev": "vite build --mode development",
+    "build:prod": "vite build --mode production",
+    "build:test": "vite build --mode test",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "vitest",
+    "preview": "vite preview",
+    "clean:cache": "rimraf node_modules/.cache/ && rimraf node_modules/.vite",
+    "clean:lib": "rimraf node_modules",
+    "prepare": "simple-git-hooks"
   },
   "dependencies": {
-    "axios": "^1.7.2",
+    "ahooks": "^3.8.4",
+    "dayjs": "^1.11.13",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.23.1",
+    "react-router": "^7.1.1",
     "react-vant": "^3.3.5",
-    "zustand": "^4.5.2"
+    "zustand": "^5.0.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.3.0",
-    "@commitlint/config-conventional": "^19.2.2",
-    "@iconify/react": "^5.0.1",
-    "@types/node": "^20.14.2",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "@typescript-eslint/eslint-plugin": "^7.13.0",
-    "@typescript-eslint/parser": "^7.13.0",
-    "@unocss/preset-rem-to-px": "^0.61.0",
-    "@vitejs/plugin-react": "^4.3.1",
-    "autoprefixer": "^10.4.19",
-    "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.1.3",
-    "eslint-plugin-react": "^7.34.2",
-    "eslint-plugin-react-hooks": "^4.6.2",
-    "eslint-plugin-react-refresh": "^0.4.7",
-    "eslint-plugin-simple-import-sort": "^12.1.0",
-    "husky": "^9.1.1",
-    "less": "^4.2.0",
-    "lint-staged": "^15.2.7",
-    "postcss": "^8.4.38",
-    "postcss-mobile-forever": "^4.1.4",
-    "prettier": "^3.3.2",
-    "stylelint": "^16.6.1",
-    "stylelint-config-recess-order": "^5.0.1",
-    "stylelint-config-standard": "^36.0.0",
-    "stylelint-less": "^3.0.1",
-    "stylelint-prettier": "^5.0.0",
-    "typescript": "^5.4.5",
-    "unocss": "^0.61.0",
-    "vite": "^5.3.1",
-    "vite-plugin-svg-icons": "^2.0.1"
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@sankeyangshu/eslint-config": "^0.2.2",
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@unocss/eslint-plugin": "^0.65.3",
+    "@unocss/preset-rem-to-px": "^0.65.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react": "^7.37.3",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "less": "^4.2.1",
+    "lint-staged": "^15.3.0",
+    "postcss": "^8.4.49",
+    "postcss-mobile-forever": "^4.3.1",
+    "rimraf": "^6.0.1",
+    "simple-git-hooks": "^2.11.1",
+    "typescript": "~5.7.2",
+    "unocss": "^0.65.3",
+    "vite": "^6.0.5",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-mock-dev-server": "^1.8.3",
+    "vite-plugin-svg-icons": "^2.0.1",
+    "vitest": "^2.1.8"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged",
+    "commit-msg": "npx --no-install commitlint --edit $1"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   }
 }

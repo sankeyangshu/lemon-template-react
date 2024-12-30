@@ -1,35 +1,21 @@
-import { useEffect } from 'react';
-import SvgIcon from '@/components/SvgIcon';
+import { Switch } from 'react-vant';
 import { useTheme } from '@/hooks/useTheme';
 import { useSettingStore } from '@/store/setting';
 
 const SwitchDark = () => {
-  // 获取全局状态管理仓库中系统设置状态
-  const [isDark, setThemeDark] = useSettingStore((state) => [state.isDark, state.setThemeDark]);
+  const darkMode = useSettingStore((state) => state.darkMode);
+  const setThemeDark = useSettingStore((state) => state.setThemeDark);
 
-  // 获取切换暗黑模式hooks
-  const { switchDark } = useTheme();
+  const isDark = darkMode === 'dark';
 
-  // 切换暗黑模式
-  const onClickToggleDark = () => {
-    setThemeDark(!isDark);
-    switchDark();
+  const { switchDarkMode } = useTheme();
+
+  const onChangeDarkMode = () => {
+    setThemeDark(isDark ? 'light' : 'dark');
+    switchDarkMode();
   };
 
-  // 初始化主题
-  useEffect(() => {
-    switchDark();
-  }, [isDark]);
-
-  return (
-    <div className="cursor-pointer transition-all duration-300" onClick={onClickToggleDark}>
-      {isDark ? (
-        <SvgIcon icon="Moon" className="text-[20px]"></SvgIcon>
-      ) : (
-        <SvgIcon icon="Sunny" className="text-[20px]"></SvgIcon>
-      )}
-    </div>
-  );
+  return <Switch size="20" checked={!isDark} onClick={onChangeDarkMode} />;
 };
 
 export default SwitchDark;

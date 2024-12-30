@@ -1,0 +1,20 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
+  "eslint.useFlatConfig": true,
+  "editor.formatOnSave": false,
+  "eslint.validate": [
+    "html",
+    "css",
+    "less",
+    "postcss",
+    "json",
+    "jsonc",
+    "yaml",
+    "yml",
+    "markdown"
+  ],
+  "prettier.enable": false
+}

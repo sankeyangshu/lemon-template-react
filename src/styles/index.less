@@ -1,13 +1,17 @@
-@import url('./reset.less');
+@import './variables.less';
+@import './theme.less';
+@import './transition.less';
 
 html,
 body {
   height: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizelegibility;
+  text-rendering: optimizeLegibility;
   font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
     Arial, sans-serif;
+  color: var(--van-text-color);
+  background-color: var(--color-background);
 }
 
 html {
@@ -17,22 +21,14 @@ html {
 
 #root {
   height: 100%;
+  width: 100%;
+  position: relative;
 }
 
-:root {
-  --color-text: #323233;
-  --color-background: #fff;
-  --color-block-background: #ebedf0;
-}
-
-/* 自定义暗黑模式样式 */
-html.dark {
-  --color-text: #d9d9d9;
-  --color-background: #1f1f1f;
-  --color-block-background: #3a3a3c;
-
-  body {
-    color: var(--color-text);
-    background-color: var(--color-background);
-  }
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
 }

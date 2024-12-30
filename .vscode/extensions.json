@@ -1,10 +1,8 @@
 {
   "recommendations": [
-    "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
-    "stylelint.vscode-stylelint",
-    "sankeyangshu.vscode-react-collection-snippets",
     "sankeyangshu.vscode-javascript-typescript-snippets",
-    "antfu.unocss"
+    "sankeyangshu.vscode-react-collection-snippets",
+    "antfu.unocss",
+    "dbaeumer.vscode-eslint"
   ]
 }
