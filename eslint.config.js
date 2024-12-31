@@ -7,6 +7,7 @@ export default defineConfig(
   },
   {
     rules: {
+      'react/no-unknown-property': ['error', { ignore: ['flex'] }],
       // '@typescript-eslint/ban-types': 'off',
       // '@typescript-eslint/no-explicit-any': 'off',
       // '@typescript-eslint/promise-function-async': 'off',

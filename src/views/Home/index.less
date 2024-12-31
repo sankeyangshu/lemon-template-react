@@ -1,0 +1,39 @@
+/* 首页动画效果 */
+.animated-item {
+  opacity: 0;
+  transform: scale(0.8);
+  transition:
+    opacity 0.5s,
+    transform 0.5s;
+}
+
+.animated-item.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.scale-in-enter {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.scale-in-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    opacity 0.5s,
+    transform 0.5s;
+}
+
+.scale-in-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.scale-in-exit-active {
+  opacity: 0;
+  transform: scale(0.8);
+  transition:
+    opacity 0.5s,
+    transform 0.5s;
+}

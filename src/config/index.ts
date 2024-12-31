@@ -13,4 +13,4 @@ export const LOGIN_URL = '/login';
 /**
  * 默认主题颜色
  */
-export const DEFAULT_THEMECOLOR = '#3f45ff;';
+export const DEFAULT_THEMECOLOR = '#3f45ff';

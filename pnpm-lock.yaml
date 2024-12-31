@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@react-vant/icons':
+        specifier: ^0.1.0
+        version: 0.1.0(react@18.3.1)
       ahooks:
         specifier: ^3.8.4
         version: 3.8.4(react@18.3.1)
@@ -23,6 +26,9 @@ importers:
       react-router:
         specifier: ^7.1.1
         version: 7.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-transition-group:
+        specifier: ^4.4.5
+        version: 4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-vant:
         specifier: ^3.3.5
         version: 3.3.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -36,6 +42,9 @@ importers:
       '@commitlint/config-conventional':
         specifier: ^19.6.0
         version: 19.6.0
+      '@iconify/react':
+        specifier: ^5.1.0
+        version: 5.1.0(react@18.3.1)
       '@sankeyangshu/eslint-config':
         specifier: ^0.2.2
         version: 0.2.2(@unocss/eslint-plugin@0.65.3(eslint@9.17.0(jiti@2.4.2))(typescript@5.7.2))(eslint-plugin-react-hooks@5.1.0(eslint@9.17.0(jiti@2.4.2)))(eslint-plugin-react-refresh@0.4.16(eslint@9.17.0(jiti@2.4.2)))(eslint-plugin-react@7.37.3(eslint@9.17.0(jiti@2.4.2)))(eslint@9.17.0(jiti@2.4.2))(typescript@5.7.2)
@@ -48,6 +57,9 @@ importers:
       '@types/react-dom':
         specifier: ^18.3.5
         version: 18.3.5(@types/react@18.3.18)
+      '@types/react-transition-group':
+        specifier: ^4.4.12
+        version: 4.4.12(@types/react@18.3.18)
       '@unocss/eslint-plugin':
         specifier: ^0.65.3
         version: 0.65.3(eslint@9.17.0(jiti@2.4.2))(typescript@5.7.2)
@@ -785,6 +797,11 @@ packages:
     resolution: {integrity: sha512-c7hNEllBlenFTHBky65mhq8WD2kbN9Q6gk0bTk8lSBvc554jpXSkST1iePudpt7+A/AQvuHs9EMqjHDXMY1lrA==}
     engines: {node: '>=18.18'}
 
+  '@iconify/react@5.1.0':
+    resolution: {integrity: sha512-vj2wzalywy23DR37AnsogMPIkDa1nKEqITjxpH4z44tiLV869Mh7VyydD4/t0yJLEs9tsxlrPWtXvMOe1Lcd5g==}
+    peerDependencies:
+      react: '>=16'
+
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
 
@@ -1075,6 +1092,11 @@ packages:
     resolution: {integrity: sha512-P4t6saawp+b/dFrUr2cvkVsfvPguwsxtH6dNIYRllMsefqFzkZk5UIjzyDOv5g1dXIPdG4Sp1yCR4Z6RCUsG/Q==}
     peerDependencies:
       '@types/react': ^18.0.0
+
+  '@types/react-transition-group@4.4.12':
+    resolution: {integrity: sha512-8TV6R3h2j7a91c+1DXdJi3Syo69zzIZbz7Lg5tORM5LEJG7X/E6a1V3drRyBRZq7/utz7A+c4OgYLiLcYGHG6w==}
+    peerDependencies:
+      '@types/react': '*'
 
   '@types/react@18.3.18':
     resolution: {integrity: sha512-t4yC+vtgnkYjNSKlFx1jkAhH8LgTo2N/7Qvi83kdEaUtMDiwpbLAktKDaAMlRcJ5eSxZkH74eEGt1ky31d7kfQ==}
@@ -3344,6 +3366,12 @@ packages:
       react: '>=16.6.0'
       react-dom: '>=16.6.0'
 
+  react-transition-group@4.4.5:
+    resolution: {integrity: sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==}
+    peerDependencies:
+      react: '>=16.6.0'
+      react-dom: '>=16.6.0'
+
   react-vant@3.3.5:
     resolution: {integrity: sha512-Uzod3tMmFdL5/W2CH75NI2q02gTgNCsAJ8ons2nPhVxDX1eC92HqxVLzK5QUNEcJaubnjWMX/BEMo4U5A6c0yQ==}
     peerDependencies:
@@ -4712,6 +4740,11 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.1': {}
 
+  '@iconify/react@5.1.0(react@18.3.1)':
+    dependencies:
+      '@iconify/types': 2.0.0
+      react: 18.3.1
+
   '@iconify/types@2.0.0': {}
 
   '@iconify/utils@2.2.1':
@@ -4953,6 +4986,10 @@ snapshots:
   '@types/prop-types@15.7.14': {}
 
   '@types/react-dom@18.3.5(@types/react@18.3.18)':
+    dependencies:
+      '@types/react': 18.3.18
+
+  '@types/react-transition-group@4.4.12(@types/react@18.3.18)':
     dependencies:
       '@types/react': 18.3.18
 
@@ -7611,6 +7648,15 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
 
   react-transition-group@4.4.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      '@babel/runtime': 7.26.0
+      dom-helpers: 5.2.1
+      loose-envify: 1.4.0
+      prop-types: 15.8.1
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
+  react-transition-group@4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.26.0
       dom-helpers: 5.2.1
