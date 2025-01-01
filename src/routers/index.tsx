@@ -25,6 +25,21 @@ export const constantRoutes: RouteObjectType[] = [
     element: <Layout />,
     children: [
       {
+        path: '/login',
+        element: lazyLoad(lazy(() => import('@/views/Login'))),
+        meta: { title: '登录', key: 'Login' },
+      },
+      {
+        path: '/register',
+        element: lazyLoad(lazy(() => import('@/views/Login/register'))),
+        meta: { title: '注册', key: 'Register' },
+      },
+      {
+        path: '/forgetPassword',
+        element: lazyLoad(lazy(() => import('@/views/Login/forgotPassword'))),
+        meta: { title: '忘记密码', key: 'ForgetPassword' },
+      },
+      {
         path: '/home',
         element: lazyLoad(lazy(() => import('@/views/Home'))),
         meta: { title: '首页', key: 'Home', icon: 'HomeO', iconType: 'react-vant', tabBar: true },
@@ -56,6 +71,21 @@ export const constantRoutes: RouteObjectType[] = [
         path: '/theme',
         element: lazyLoad(lazy(() => import('@/views/ThemeSetting'))),
         meta: { title: '主题设置', key: 'ThemeSetting' },
+      },
+    ],
+  },
+  {
+    element: <Layout />,
+    children: [
+      {
+        path: '/mock',
+        element: lazyLoad(lazy(() => import('@/views/Example/mockDemo'))),
+        meta: { title: 'Mock 指南' },
+      },
+      {
+        path: '/icon',
+        element: lazyLoad(lazy(() => import('@/views/Example/iconDemo'))),
+        meta: { title: 'Icon 示例' },
       },
     ],
   },

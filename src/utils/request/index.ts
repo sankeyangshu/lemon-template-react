@@ -1,5 +1,5 @@
-import { AxiosRequestConfig } from 'axios';
 import request from './request';
+import type { AxiosRequestConfig } from 'axios';
 
 /**
  * 网络请求响应格式，T 是具体的接口返回类型数据
@@ -17,7 +17,7 @@ interface CustomSuccessData<T> {
  * @param {string} url url 请求地址
  * @param {string | object} params 请求参数
  * @param {AxiosRequestConfig} config 请求配置
- * @return {Promise<CustomSuccessData<T>>} 返回的接口数据
+ * @returns {Promise<CustomSuccessData<T>>} 返回的接口数据
  */
 const get = <T>(
   url: string,
@@ -40,7 +40,7 @@ const get = <T>(
  * @param {string} url url 请求地址
  * @param {string | object} data 请求参数
  * @param {AxiosRequestConfig} config 请求配置
- * @return {Promise<CustomSuccessData<T>>} 返回的接口数据
+ * @returns {Promise<CustomSuccessData<T>>} 返回的接口数据
  */
 const post = <T>(
   url: string,
@@ -63,7 +63,7 @@ const post = <T>(
  * @param {string} url url 请求地址
  * @param {string | object} data 请求参数
  * @param {AxiosRequestConfig} config 请求配置
- * @return {Promise<CustomSuccessData<T>>} 返回的接口数据
+ * @returns {Promise<CustomSuccessData<T>>} 返回的接口数据
  */
 const patch = <T>(
   url: string,
@@ -86,7 +86,7 @@ const patch = <T>(
  * @param {string} url url 请求地址
  * @param {string | object} params 请求参数
  * @param {AxiosRequestConfig} config 请求配置
- * @return {Promise<CustomSuccessData<T>>} 返回的接口数据
+ * @returns {Promise<CustomSuccessData<T>>} 返回的接口数据
  */
 const remove = <T>(
   url: string,

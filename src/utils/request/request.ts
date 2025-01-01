@@ -1,6 +1,7 @@
-import axios, { AxiosError, AxiosResponse } from 'axios';
+import axios from 'axios';
 import { Toast } from 'react-vant';
-import { checkStatus } from './status';
+import { checkStatus } from './CheckStatus';
+import type { AxiosError, AxiosResponse } from 'axios';
 
 // 创建新的axios实例
 const service = axios.create({
@@ -25,9 +26,8 @@ service.interceptors.request.use(
   },
   (error: AxiosError) => {
     // 请求错误，这里可以用全局提示框进行提示
-    Toast.info({
+    Toast.fail({
       message: '请求错误，请稍后再试',
-      duration: 5000,
     });
     return Promise.reject(error);
   }
@@ -55,7 +55,6 @@ service.interceptors.response.use(
     if (JSON.stringify(error).includes('Network Error')) {
       Toast.fail({
         message: '网络超时',
-        duration: 5000,
       });
     }
     // 根据响应的错误状态码，做不同的处理

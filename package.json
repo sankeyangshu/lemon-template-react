@@ -40,6 +40,7 @@
   "dependencies": {
     "@react-vant/icons": "^0.1.0",
     "ahooks": "^3.8.4",
+    "axios": "^1.7.9",
     "dayjs": "^1.11.13",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -53,6 +54,7 @@
     "@commitlint/config-conventional": "^19.6.0",
     "@iconify/react": "^5.1.0",
     "@sankeyangshu/eslint-config": "^0.2.2",
+    "@types/mockjs": "^1.0.10",
     "@types/node": "^22.10.2",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
@@ -67,6 +69,7 @@
     "eslint-plugin-react-refresh": "^0.4.16",
     "less": "^4.2.1",
     "lint-staged": "^15.3.0",
+    "mockjs": "^1.1.0",
     "postcss": "^8.4.49",
     "postcss-mobile-forever": "^4.3.1",
     "rimraf": "^6.0.1",
