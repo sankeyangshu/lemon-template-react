@@ -11,7 +11,7 @@ export const useTheme = () => {
   const switchDarkMode = () => {
     const body = document.documentElement;
 
-    if (darkMode !== 'dark') {
+    if (darkMode === 'dark') {
       body.setAttribute('class', 'dark');
     } else {
       body.setAttribute('class', '');

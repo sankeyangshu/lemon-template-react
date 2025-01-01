@@ -1,5 +1,4 @@
 import { Switch } from 'react-vant';
-import { useTheme } from '@/hooks/useTheme';
 import { useSettingStore } from '@/store/setting';
 
 const SwitchDark = () => {
@@ -8,14 +7,11 @@ const SwitchDark = () => {
 
   const isDark = darkMode === 'dark';
 
-  const { switchDarkMode } = useTheme();
-
-  const onChangeDarkMode = () => {
-    setThemeDark(isDark ? 'light' : 'dark');
-    switchDarkMode();
+  const onChangeDarkMode = (checked: boolean) => {
+    setThemeDark(checked ? 'dark' : 'light');
   };
 
-  return <Switch size="20" checked={!isDark} onClick={onChangeDarkMode} />;
+  return <Switch size="20" checked={isDark} onChange={onChangeDarkMode} />;
 };
 
 export default SwitchDark;
