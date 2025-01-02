@@ -83,6 +83,11 @@ export const constantRoutes: RouteObjectType[] = [
         meta: { title: 'Mock 指南' },
       },
       {
+        path: '/echarts',
+        element: lazyLoad(lazy(() => import('@/views/Example/echartsDemo'))),
+        meta: { title: 'Echarts 演示' },
+      },
+      {
         path: '/icon',
         element: lazyLoad(lazy(() => import('@/views/Example/iconDemo'))),
         meta: { title: 'Icon 示例' },
