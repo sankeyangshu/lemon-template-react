@@ -4,6 +4,9 @@ export default defineConfig(
   {
     react: true,
     unocss: true,
+    formatter: {
+      markdown: true,
+    },
   },
   {
     rules: {

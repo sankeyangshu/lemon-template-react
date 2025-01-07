@@ -1,116 +1,157 @@
+<div align="center">
 <h1 align="center">
-  react-template
+  lemon-template-react
 </h1>
-<h4 align="center">使用 React + TS 构建的基础项目模版</h4>
 
-<p align="center">
-  <img src="https://img.shields.io/github/license/sankeyangshu/react-template" alt="license" />
-  <img src="https://img.shields.io/github/package-json/v/sankeyangshu/react-template" alt="version" />
-  <img src="https://img.shields.io/github/languages/top/sankeyangshu/react-template" alt="languages" />
+English / [简体中文](./README.zh-CN.md)
+
+An mobile web apps template based on the React ecosystem.
+
+<p>
+  <img src="https://img.shields.io/github/license/sankeyangshu/lemon-template-react" alt="license" />
+  <img src="https://img.shields.io/github/package-json/v/sankeyangshu/lemon-template-react" alt="version" />
+  <img src="https://img.shields.io/github/languages/top/sankeyangshu/lemon-template-react" alt="languages" />
+  <img src="https://img.shields.io/github/repo-size/sankeyangshu/lemon-template-react" alt="repo-size" />
+  <img src="https://img.shields.io/github/issues-closed/sankeyangshu/lemon-template-react" alt="issues" />
 </p>
+
+[Docs]() / [Discussion]() / [Feedback](https://github.com/sankeyangshu/lemon-template-react/issues)
+
+</div>
 
 ---
 
-## 简介
+## Introduction
 
-🚀🚀🚀 **react-template** 使用了最新的`React18`、`React-Router v6`、`React-Hooks`、`Vite4`、`Zustand`、`Typescript`等主流技术开发，集成 `Dark Mode`(暗黑)模式，并且持久化保存，集成了代码规范检查工具`Eslint`、`Prettier`、`Stylelint`。你可以在此之上直接开发你的业务代码！希望你能喜欢。👋👋👋
+🚀🚀🚀 **lemon-template-react** is built using the latest technologies, including `React18`, `Vite6`, `Vant4`, `Pinia`, `TypeScript`, and `UnoCSS`. It integrates features like `Dark Mode`, system theme colors, and Mock data.
 
-**注：如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！**
+You can directly start developing your business logic on this template! Hope you enjoy it. 👋👋👋
 
-## ✨ 项目功能
+**Note: If this project is helpful to you, please click the "Star" button in the top-right corner. Thank you!**
 
-- 🚀 采用最新技术栈开发：React18、React-Router v6、React-Hooks、TypeScript、Vite4
-- 🚀 采用 Vite4 作为项目开发、打包工具（配置 Gzip 打包、TSX 语法、跨域代理…）
-- 🚀 整个项目集成了 TypeScript
-- 🚀 使用 Zustand 做状态管理，轻量、简单、易用
-- 🚀 使用 Prettier 统一格式化代码，集成 Eslint、Stylelint 代码校验规范（项目规范配置）
-- 🚀 使用 husky、lint-staged、commitlint 规范提交信息（项目规范配置）
+## Preview
 
-## 基础知识
+👓 [Click Demo]() (Switch to mobile view on PC browsers)
 
-提前了解和学习这些知识会对使用本项目有很大的帮助。
+## Features
 
-- [React](https://react.dev/) - 熟悉 `React` 基础语法
-- [React-Router](https://reactrouter.com/en/main) - 熟悉 `React-Router`基本使用
-- [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) - 熟悉 `Zustand` 基本使用
-- [Vite](https://cn.vitejs.dev/) - 熟悉 `Vite` 特性
-- [TypeScript](https://www.typescriptlang.org/) - 熟悉 `TypeScript` 基本语法
-- [Icones](https://icones.js.org/) - 本项目推荐图标库，当然你也可以使用其他图标库
-- [Es6+](http://es6.ruanyifeng.com/) - 熟悉 `ES6` 基本语法
+- ⚡️ Developed with React + Hooks
+- ✨ Uses Vite 6 as the development and build tool (includes Gzip packaging, TSX syntax, proxy support, etc.)
+- 🍕 Fully integrates TypeScript
+- 🍍 Use Zustand for state management, lightweight, simple and easy to use
+- 📦 ahooks High quality and reliable React Hooks library
+- 🎨 Vant 4 component library
+- 🌀 UnoCSS for instant atomic CSS
+- 👏 Integrates multiple icon solutions
+- 🌓 Supports Dark Mode
+- 🌍 Multi-language support with i18n
+- 🔥 ECharts for data visualization, with useECharts Hooks
+- ⚙️ Unit testing using Vitest
+- ☁️ Axios encapsulation
+- 💾 Local Mock data support
+- 📱 Browser compatibility with viewport vw/vh units for layouts
+- 📥 Gzip compression for packaged resources
+- 🛡️ Splash screen animation for first load
+- 💪 Eslint for code linting, with Prettier for formatting
+- 🌈 Uses simple-git-hooks, lint-staged, and commitlint for commit message standards
 
-## 环境准备
+## Prerequisites
 
-本地环境需要安装 [pnpm7.x](https://www.pnpm.cn/)、[Node.js](http://nodejs.org/) 和 [Git](https://git-scm.com/)
+Familiarity with the following concepts will help you use this template effectively:
 
-- 必须使用[pnpm7.x](https://www.pnpm.cn/)，否则依赖可能安装不上。
-- [Node.js](http://nodejs.org/) 版本要求`12.x`以上，这里推荐 `16.x` 及以上。
+- [React](https://react.dev/) - Familiar with `React` basic syntax
+- [Vite](https://cn.vitejs.dev/) - Understand `Vite` features
+- [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) - Proficient in using `Zustand`
+- [TypeScript](https://www.typescriptlang.org/) - Master basic `TypeScript` syntax
+- [React-Router](https://reactrouter.com/en/main) - Understand `React-Router` usage
+- [Icones](https://icones.js.org/) - Recommended icon library for the project, but `IconSVG` is also an option
+- [UnoCSS](https://github.com/antfu/unocss) - High-performance and flexible atomic CSS engine
+- [ahooks](https://ahooks.js.org/zh-CN/) - A reliable and high-quality React Hooks library
+- [React Vant](https://react-vant.3lang.dev/) - Lightweight and reliable mobile React component library
+- [ECharts5](https://echarts.apache.org/handbook/zh/get-started/) - Familiar with basic `ECharts` usage
+- [Mock.js](https://github.com/nuysoft/Mock) - Understand basic `Mock.js` syntax
+- [ES6+](http://es6.ruanyifeng.com/) - Proficient in `ES6+` syntax
 
-## Vscode 配套插件
+## Environment Setup
 
-如果你使用的 IDE 是[vscode](https://code.visualstudio.com/)(推荐)的话，可以安装以下工具来提高开发效率及代码格式化
+Ensure the following tools are installed locally: [Pnpm](https://pnpm.io/), [Node.js](http://nodejs.org/), and [Git](https://git-scm.com/).
 
-- [ES7+ React/Redux/React-Native snippets](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets) - react 开发必备
-- [CSS Modules](https://marketplace.visualstudio.com/items?itemName=clinyong.vscode-css-modules) - css 模块化支持
-- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - 脚本代码检查
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - 代码格式化
-- [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) - css 格式化
+- Use [pnpm >= 8.15.4](https://pnpm.io/) to avoid dependency installation and build errors.
+- [Node.js](http://nodejs.org/) version `18.x` or above is required. Recommended: `^18.18.0 || >=20.0.0`.
 
-## 安装和使用
+## VSCode Extensions
 
-### 克隆使用
+If you use [VSCode](https://code.visualstudio.com/) (recommended), install the following extensions for improved efficiency and code formatting:
+
+- [UnoCSS](https://marketplace.visualstudio.com/items?itemName=antfu.unocss) - UnoCSS support
+- [DotENV](https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv) - `.env` file highlighting
+- [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens) - Better error visualization
+- [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) - Maintain consistent coding styles across IDEs
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - Script linting
+- [i18n Ally](https://marketplace.visualstudio.com/items?itemName=lokalise.i18n-ally) - All-in-one i18n support
+- [JavaScript and TypeScript VSCode Snippets](https://marketplace.visualstudio.com/items?itemName=sankeyangshu.vscode-javascript-typescript-snippets) - Visual Studio Code snippets for JavaScript and TypeScript
+- [React Collection VSCode Snippets](https://marketplace.visualstudio.com/items?itemName=sankeyangshu.vscode-react-collection-snippets) - A React Code Snippets Extension
+
+## Usage
+
+### Use the Scaffold
+
+> In development
+
+### GitHub Template
+
+[Use this template to create a repository](https://github.com/sankeyangshu/lemon-template-react/generate)
+
+### Clone
 
 ```bash
-# 克隆项目
-git clone https://github.com/sankeyangshu/react-template.git
+# Clone the project
+git clone https://github.com/sankeyangshu/lemon-template-react.git
 
-# 进入项目目录
-cd react-template
+# Enter the project directory
+cd lemon-template-react
 
-# 安装依赖 - 推荐使用pnpm
+# Install dependencies (use pnpm)
 pnpm install
 
-# 启动服务
+# Start the development server
 pnpm dev
 
-# 打包发布
+# Build for production
 pnpm build
 ```
 
-## 如何贡献
+## Git Commit Guidelines
 
-你可以[提一个 issue](https://github.com/sankeyangshu/react-template/issues) 或者提交一个 Pull Request。
+### Commit Standards
 
-**Pull Request:**
+The project enforces Git commit messages using `simple-git-hooks` and `commitlint`, adhering to the widely adopted [Angular](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular) guidelines.
 
-1. Fork 代码
-2. 创建自己的分支: `git checkout -b feat/xxxx`
-3. 提交你的修改: `git commit -am 'feat(function): add xxxxx'`
-4. 推送您的分支: `git push origin feat/xxxx`
-5. 提交 `pull request`
+- `feat`: Add new features
+- `fix`: Fix bugs
+- `docs`: Documentation changes
+- `style`: Code formatting (does not affect functionality, e.g., spacing, semicolons, etc.)
+- `refactor`: Code refactoring (neither bug fixes nor new features)
+- `perf`: Performance optimizations
+- `test`: Add or update test cases
+- `build`: Changes to build process or external dependencies (e.g., updating npm packages, modifying webpack configuration)
+- `ci`: Changes to CI configuration or scripts
+- `chore`: Changes to build tools or auxiliary libraries (does not affect source files or tests)
+- `revert`: Revert a previous commit
 
-## Git 贡献提交规范
+## Community
 
-- `feat`: 新增功能
-- `fix`: 修复 bug
-- `docs`: 文档变更
-- `style`: 代码格式（不影响功能，例如空格、分号等格式修正）
-- `refactor`: 代码重构（不包括 bug 修复、功能新增）
-- `perf`: 性能优化
-- `test`: 添加、修改测试用例
-- `build`: 构建流程、外部依赖变更（如升级 npm 包、修改 webpack 配置等）
-- `ci`: 修改 CI 配置、脚本
-- `chore`: 对构建过程或辅助工具和库的更改（不影响源文件、测试用例）
-- `revert`: 回滚 commit
+You can use [issues](https://github.com/sankeyangshu/lemon-template-react/issues) to report problems or submit a Pull Request.
 
-## 浏览器支持
+## Browser Support
 
-- 本地开发推荐使用 Chrome 最新版浏览器 [Download](https://www.google.com/intl/zh-CN/chrome/)。
-- 生产环境支持现代浏览器，不在支持 IE 浏览器，更多浏览器可以查看 [Can I Use Es Module](https://caniuse.com/?search=ESModule)。
+- For local development, we recommend using the latest version of Chrome. [Download](https://www.google.com/intl/en/chrome/).
+- The production environment supports modern browsers. IE is no longer supported. For more details on browser support, check [Can I Use ES Module](https://caniuse.com/?search=ESModule).
 
 | [<img src="https://i.imgtg.com/2023/04/11/8z7ot.png" alt=" IE" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt=" Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari |
 | :----------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 |                                                                      not support                                                                       |                                                                                            last 2 versions                                                                                             |                                                                                                  last 2 versions                                                                                                  |                                                                                                last 2 versions                                                                                                |                                                                                                last 2 versions                                                                                                |
 
-## 许可证
+## License
 
-[MIT License](https://github.com/sankeyangshu/react-template/blob/master/LICENSE)
+[MIT](./LICENSE) License © 2023-PRESENT [sankeyangshu](https://github.com/sankeyangshu)
