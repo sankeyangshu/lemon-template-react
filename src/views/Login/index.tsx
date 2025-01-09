@@ -6,7 +6,7 @@ import { useUserStore } from '@/store/user';
 import type { loginDataType } from '@/api/System/user';
 import PasswordInput from './components/PasswordInput';
 
-const src = 'https://img.yzcdn.cn/vant/cat.jpeg';
+const src = '/src/assets/images/logo.png';
 
 const Login = () => {
   // 表单数据

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import IconifyIcon from '@/components/Icon/IconifyIcon';
+import SvgIcon from '@/components/Icon/SvgIcon';
 import './index.less';
 
 const Home = () => {
@@ -50,7 +51,9 @@ const Home = () => {
   return (
     <div className="box-border wh-full flex-center px-12">
       <div className="wh-full">
-        <div className="mx-auto mb-40 mt-100 h-100 w-100">logo</div>
+        <div className="mx-auto mb-40 mt-100 h-100 w-100">
+          <SvgIcon icon="logo" className="wh-full" />
+        </div>
         <div className="my-10 box-border w-full rounded-12 bg-[var(--color-block-background)] px-20 py-12 text-18">
           <a
             className="flex-center leading-35"

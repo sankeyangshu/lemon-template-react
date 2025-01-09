@@ -3,6 +3,8 @@ import { Button, Form, Image, Input } from 'react-vant';
 import { validPhone } from '@/utils/validate';
 import PasswordInput from './components/PasswordInput';
 
+const src = '/src/assets/images/logo.png';
+
 const ForgotPassword = () => {
   // 表单数据
   const [form] = Form.useForm();
@@ -13,12 +15,7 @@ const ForgotPassword = () => {
   return (
     <div className="box-border wh-full flex-y-center flex-col p-20">
       <div className="mb-30 mt-20">
-        <Image
-          className="h-100 w-100"
-          round
-          fit="cover"
-          src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"
-        />
+        <Image className="h-100 w-100" round fit="cover" src={src} />
       </div>
 
       <Form
