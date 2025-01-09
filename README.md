@@ -1,4 +1,8 @@
 <div align="center">
+<a href="https://github.com/sankeyangshu/lemon-template-react">
+  <img alt="Lemon-Template-Vue" width="200" height="200" src="./public/logo.png">
+</a>
+
 <h1 align="center">
   lemon-template-react
 </h1>
