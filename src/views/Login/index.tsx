@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { Button, Form, Image, Input } from 'react-vant';
+import logoImg from '@/assets/images/logo.png';
 import IconifyIcon from '@/components/Icon/IconifyIcon';
 import { useUserStore } from '@/store/user';
 import type { loginDataType } from '@/api/System/user';
 import PasswordInput from './components/PasswordInput';
 
-const src = '/src/assets/images/logo.png';
+const src = logoImg;
 
 const Login = () => {
   // 表单数据
@@ -32,7 +33,7 @@ const Login = () => {
   return (
     <div className="box-border wh-full flex-y-center flex-col p-20">
       <div className="mb-30 mt-20">
-        <Image className="h-100 w-100" round fit="cover" src={src} />
+        <Image width="100" height="100" round fit="cover" src={src} />
       </div>
 
       <Form

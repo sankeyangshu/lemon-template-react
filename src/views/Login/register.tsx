@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { Button, Checkbox, Form, Image, Input } from 'react-vant';
+import logoImg from '@/assets/images/logo.png';
 import PasswordInput from './components/PasswordInput';
 
-const src = '/src/assets/images/logo.png';
+const src = logoImg;
 
 const Register = () => {
   // 表单数据
@@ -16,7 +17,7 @@ const Register = () => {
   return (
     <div className="box-border wh-full flex-y-center flex-col p-20">
       <div className="mb-30 mt-20">
-        <Image className="h-100 w-100" round fit="cover" src={src} />
+        <Image width="100" height="100" round fit="cover" src={src} />
       </div>
       <Form
         form={form}

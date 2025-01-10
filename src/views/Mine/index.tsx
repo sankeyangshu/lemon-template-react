@@ -26,7 +26,7 @@ const Mine = () => {
       <Image width="100%" src={src} />
 
       <div className="relative mx-16 mb-10 flex-y-center rounded-10 bg-[--color-background-2] p-15 -mt-40">
-        <Image className="h-50 w-50" round fit="cover" src={isLogin ? userInfo.avatar : src} />
+        <Image width="50" height="50" round fit="cover" src={isLogin ? userInfo.avatar : src} />
         {!isLogin ? (
           <div className="ml-10 flex-1" onClick={() => navigate('/login')}>
             <div className="mb-2 text-20">登录/注册</div>
