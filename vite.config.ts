@@ -73,7 +73,8 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
 
     esbuild: {
       // 使用 esbuild 压缩 剔除 console.log
-      pure: VITE_DROP_CONSOLE ? ['console', 'debugger'] : [],
+      pure: VITE_DROP_CONSOLE ? ['console'] : [],
+      drop: VITE_DROP_CONSOLE ? ['debugger'] : [],
     },
 
     build: {
