@@ -25,7 +25,6 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
     "build:dev": "vite build --mode development",
     "build:prod": "vite build --mode production",
     "build:test": "vite build --mode test",
@@ -35,6 +34,8 @@
     "preview": "vite preview",
     "clean:cache": "rimraf node_modules/.cache/ && rimraf node_modules/.vite",
     "clean:lib": "rimraf node_modules",
+    "release": "bumpp",
+    "preinstall": "npx only-allow pnpm",
     "prepare": "simple-git-hooks"
   },
   "dependencies": {
@@ -64,6 +65,7 @@
     "@unocss/preset-rem-to-px": "^0.65.3",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
+    "bumpp": "^9.9.3",
     "eslint": "^9.17.0",
     "eslint-plugin-react": "^7.37.3",
     "eslint-plugin-react-hooks": "^5.1.0",
