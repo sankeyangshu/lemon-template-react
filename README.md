@@ -35,7 +35,7 @@ You can directly start developing your business logic on this template! Hope you
 
 ## Preview
 
-👓 [Click Demo]() (Switch to mobile view on PC browsers)
+👓 [Click Demo](https://lemon-template-react.vercel.app) (Switch to mobile view on PC browsers)
 
 ## Features
 
