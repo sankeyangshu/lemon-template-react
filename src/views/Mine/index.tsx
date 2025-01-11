@@ -1,6 +1,6 @@
 import { version } from '~root/package.json';
 import { useNavigate } from 'react-router';
-import { Cell, Dialog, Image } from 'react-vant';
+import { Cell, Dialog } from 'react-vant';
 import IconifyIcon from '@/components/Icon/IconifyIcon';
 import { useUserStore } from '@/store/user';
 
@@ -22,11 +22,15 @@ const Mine = () => {
     });
   };
   return (
-    <div className="w-full">
-      <Image width="100%" src={src} />
+    <div className="wh-full">
+      <img className="w-full object-fill" src={src} alt="banner" />
 
       <div className="relative mx-16 mb-10 flex-y-center rounded-10 bg-[--color-background-2] p-15 -mt-40">
-        <Image width="50" height="50" round fit="cover" src={isLogin ? userInfo.avatar : src} />
+        <img
+          className="h-50 w-50 rounded-[50%] object-cover"
+          src={isLogin ? userInfo.avatar : src}
+          alt="avatar"
+        />
         {!isLogin ? (
           <div className="ml-10 flex-1" onClick={() => navigate('/login')}>
             <div className="mb-2 text-20">登录/注册</div>

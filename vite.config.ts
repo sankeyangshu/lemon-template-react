@@ -51,7 +51,7 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
             viewportWidth: 375,
             maxDisplayWidth: 600,
             selectorBlackList: ['.ignore', 'keep-px'],
-            rootContainingBlockSelectorList: ['van-tabbar', 'van-popup'],
+            rootContainingBlockSelectorList: ['rv-tabbar', 'rv-popup'],
             valueBlackList: ['1px solid'],
           }),
         ],
