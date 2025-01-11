@@ -47,7 +47,7 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
           autoprefixer(),
           // https://github.com/wswmsword/postcss-mobile-forever
           viewport({
-            appSelector: '#app',
+            appSelector: '#root',
             viewportWidth: 375,
             maxDisplayWidth: 600,
             selectorBlackList: ['.ignore', 'keep-px'],
