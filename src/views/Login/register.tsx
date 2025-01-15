@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button, Checkbox, Form, Image, Input } from 'react-vant';
 import logoImg from '@/assets/images/logo.png';
 import PasswordInput from './components/PasswordInput';
@@ -6,6 +7,9 @@ import PasswordInput from './components/PasswordInput';
 const src = logoImg;
 
 const Register = () => {
+  // 使用i18n全局函数
+  const { t } = useTranslation();
+
   // 表单数据
   const [form] = Form.useForm();
 
@@ -31,26 +35,26 @@ const Register = () => {
             type="primary"
             block
           >
-            注册
+            {t('login.register')}
           </Button>
         }
       >
         <div className="mb-20 overflow-hidden rounded-20 shadow-[0_0_30px_0_#2B56701A] dark:shadow-[0_0_30px_0_#18181c1A]">
           <Form.Item
             required={false}
-            rules={[{ required: true, message: '请填写用户名' }]}
+            rules={[{ required: true, message: t('login.usernameError') }]}
             name="username"
           >
-            <Input placeholder="请输入用户名" />
+            <Input placeholder={t('login.usernameError')} />
           </Form.Item>
         </div>
         <div className="mb-20 overflow-hidden rounded-20 shadow-[0_0_30px_0_#2B56701A] dark:shadow-[0_0_30px_0_#18181c1A]">
           <Form.Item
             required={false}
-            rules={[{ required: true, message: '请填写密码' }]}
+            rules={[{ required: true, message: t('login.passwordError') }]}
             name="password"
           >
-            <PasswordInput placeholder="请输入密码" />
+            <PasswordInput placeholder={t('login.passwordError')} />
           </Form.Item>
         </div>
         <div className="mb-20 overflow-hidden rounded-20 shadow-[0_0_30px_0_#2B56701A] dark:shadow-[0_0_30px_0_#18181c1A]">
@@ -58,28 +62,29 @@ const Register = () => {
             required={false}
             name="confirmPassword"
             rules={[
-              { required: true, message: '请再次输入密码' },
+              { required: true, message: t('login.againEnterPassword') },
               {
                 validator: (_, value) => {
                   if (form.getFieldValue('password') === value) {
                     return Promise.resolve(true);
                   }
-                  return Promise.reject(new Error('两次输入密码不一致'));
+                  return Promise.reject(new Error(t('login.passwordInconsistent')));
                 },
               },
             ]}
           >
-            <PasswordInput name="confirmPassword" placeholder="请再次输入密码" />
+            <PasswordInput name="confirmPassword" placeholder={t('login.againEnterPassword')} />
           </Form.Item>
         </div>
       </Form>
 
-      <div className="fixed bottom-40 h-20 flex-center text-14 leading-20">
+      <div className="fixed bottom-40 mx-20 h-20 flex-center text-14 leading-20">
         <Checkbox checked={isAgreeLicense} shape="square" onChange={setIsAgreeLicense}>
           <div>
-            我已阅读并同意
-            <span className="color-[var(--rv-primary-color)]">《隐私条款》</span>及
-            <span className="color-[var(--rv-primary-color)]">《用户协议》</span>
+            {t('login.readAgreement')}
+            <span className="color-[var(--rv-primary-color)]">《{t('login.privacyPolicy')}》</span>
+            {t('login.and')}
+            <span className="color-[var(--rv-primary-color)]">《{t('login.userAgreement')}》</span>
           </div>
         </Checkbox>
       </div>

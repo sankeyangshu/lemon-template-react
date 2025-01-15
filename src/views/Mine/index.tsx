@@ -1,4 +1,5 @@
 import { version } from '~root/package.json';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { Cell, Dialog } from 'react-vant';
 import IconifyIcon from '@/components/Icon/IconifyIcon';
@@ -7,6 +8,9 @@ import { useUserStore } from '@/store/user';
 const src = 'https://img.yzcdn.cn/vant/cat.jpeg';
 
 const Mine = () => {
+  // 使用i18n全局函数
+  const { t } = useTranslation();
+
   const navigate = useNavigate();
 
   const userInfo = useUserStore((state) => state.userInfo);
@@ -15,8 +19,8 @@ const Mine = () => {
   const logout = useUserStore((state) => state.logout);
   const onClickLogout = () => {
     Dialog.confirm({
-      title: '温馨提示',
-      message: '确定要退出登录吗？',
+      title: t('mine.tips'),
+      message: t('mine.logoutTips'),
       onCancel: () => {},
       onConfirm: () => logout(),
     });
@@ -33,7 +37,9 @@ const Mine = () => {
         />
         {!isLogin ? (
           <div className="ml-10 flex-1" onClick={() => navigate('/login')}>
-            <div className="mb-2 text-20">登录/注册</div>
+            <div className="mb-2 text-20">
+              {t('login.login')}/{t('login.register')}
+            </div>
           </div>
         ) : (
           <div className="ml-10 flex-1">
@@ -45,7 +51,7 @@ const Mine = () => {
 
       <Cell.Group card>
         <Cell
-          title="主题设置"
+          title={t('route.themeSetting')}
           isLink
           icon={
             <div className="leading-24">
@@ -55,7 +61,7 @@ const Mine = () => {
           onClick={() => navigate('/theme')}
         />
         <Cell
-          title="项目文档"
+          title={t('mine.projectDocs')}
           isLink
           icon={
             <div className="leading-24">
@@ -64,7 +70,7 @@ const Mine = () => {
           }
         />
         <Cell
-          title="系统版本"
+          title={t('mine.systemVersion')}
           value={`v${version}`}
           icon={
             <div className="leading-24">
@@ -74,7 +80,7 @@ const Mine = () => {
         />
         {isLogin && (
           <Cell
-            title="退出登录"
+            title={t('mine.logout')}
             isLink
             icon={
               <div className="leading-24">

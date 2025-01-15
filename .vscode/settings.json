@@ -16,5 +16,11 @@
     "yml",
     "markdown"
   ],
-  "prettier.enable": false
+  "prettier.enable": false,
+
+  "i18n-ally.displayLanguage": "zh-CN",
+  "i18n-ally.localesPaths": [
+    "src/locales/modules"
+  ],
+  "i18n-ally.keystyle": "nested"
 }

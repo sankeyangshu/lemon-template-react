@@ -1,5 +1,6 @@
 import { Success } from '@react-vant/icons';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Cell, Divider, Field, Picker, Popup, Switch } from 'react-vant';
 import SwitchDark from '@/components/SwitchDark';
 import { DEFAULT_THEMECOLOR } from '@/config';
@@ -11,6 +12,9 @@ type selectedOptionsType = {
 };
 
 const ThemeSetting = () => {
+  // 使用i18n全局函数
+  const { t } = useTranslation();
+
   // 预定义主题颜色
   const themeColorList = [
     DEFAULT_THEMECOLOR,
@@ -42,14 +46,17 @@ const ThemeSetting = () => {
   };
 
   // 动画选项
-  const animateColumns = [
-    { value: 'zoom-fade', text: '渐变' },
-    { value: 'zoom-out', text: '闪现' },
-    { value: 'fade-slide', text: '滑动' },
-    { value: 'fade', text: '消退' },
-    { value: 'fade-bottom', text: '底部消退' },
-    { value: 'fade-scale', text: '缩放消退' },
-  ];
+  const animateColumns = useMemo(
+    () => [
+      { value: 'zoom-fade', text: t('themeSetting.themeGradient') },
+      { value: 'zoom-out', text: t('themeSetting.themeFlash') },
+      { value: 'fade-slide', text: t('themeSetting.themeSlide') },
+      { value: 'fade', text: t('themeSetting.themeFade') },
+      { value: 'fade-bottom', text: t('themeSetting.themeBottom') },
+      { value: 'fade-scale', text: t('themeSetting.themeScale') },
+    ],
+    [t]
+  );
 
   const getCurrentAnimateText = () => {
     return animateColumns.find((item) => item.value === pageAnimateType)?.text;
@@ -68,12 +75,12 @@ const ThemeSetting = () => {
 
   return (
     <>
-      <Divider>主题模式</Divider>
-      <Cell.Group card title="基础设置">
-        <Cell center title="暗黑模式" rightIcon={<SwitchDark />} />
+      <Divider>{t('themeSetting.themeMode')}</Divider>
+      <Cell.Group card>
+        <Cell center title={t('example.darkMode')} rightIcon={<SwitchDark />} />
       </Cell.Group>
 
-      <Divider>系统主题色</Divider>
+      <Divider>{t('themeSetting.systemTheme')}</Divider>
       <div className="flex-x-center">
         <div className="grid cols-8 gap-8">
           {themeColorList.map((item) => (
@@ -89,14 +96,14 @@ const ThemeSetting = () => {
         </div>
       </div>
 
-      <Divider>页面切换动画</Divider>
+      <Divider>{t('themeSetting.pageAnimation')}</Divider>
       <Cell.Group card>
         <Cell
           center
-          title="开启动画"
+          title={t('themeSetting.enableAnimation')}
           rightIcon={<Switch size="22" checked={isPageAnimate} onChange={setPageAnimate} />}
         />
-        <Cell center title="动画类型">
+        <Cell center title={t('themeSetting.animationType')}>
           <Field
             value={currentAnimate.text}
             disabled={!isPageAnimate}

@@ -15,10 +15,12 @@ export interface settingsStoreType {
   themeColor: string;
   isPageAnimate: boolean;
   pageAnimateType: string;
+  language: string;
   setThemeDark: (value: darkModeThemeType) => void;
   setThemeColor: (value: string) => void;
   setPageAnimate: (value: boolean) => void;
   setPageAnimateType: (value: string) => void;
+  setLanguage: (value: string) => void;
 }
 
 const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -30,6 +32,7 @@ export const useSettingStore = create<settingsStoreType>()(
       darkMode: prefersDark ? 'dark' : 'light', // 暗黑模式
       isPageAnimate: true, // 是否开启路由动画
       pageAnimateType: 'zoom-fade', // 路由动画类型
+      language: localStorage.getItem('language') || 'zh-CN', // 语言
 
       // 设置暗黑模式
       setThemeDark: (value: darkModeThemeType) => set({ darkMode: value }),
@@ -42,6 +45,12 @@ export const useSettingStore = create<settingsStoreType>()(
 
       // 设置路由动画类型
       setPageAnimateType: (value: string) => set({ pageAnimateType: value }),
+
+      // 设置语言
+      setLanguage: (value: string) => {
+        set({ language: value });
+        localStorage.setItem('language', value);
+      },
     }),
     {
       // 进行持久化存储

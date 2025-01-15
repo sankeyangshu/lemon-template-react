@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { HashRouter } from 'react-router';
 import { ConfigProvider } from 'react-vant';
+import { useLanguage } from './hooks/useLanguage';
 import { useTheme } from './hooks/useTheme';
 import Router from './routers';
 import { useSettingStore } from './store/setting';
@@ -40,8 +41,10 @@ function App() {
   const { initTheme } = useTheme();
   initTheme();
 
+  const { currentLocale } = useLanguage();
+
   return (
-    <ConfigProvider className="wh-full" themeVars={vantTheme}>
+    <ConfigProvider className="wh-full" locale={currentLocale} themeVars={vantTheme}>
       <HashRouter>
         <Router />
       </HashRouter>

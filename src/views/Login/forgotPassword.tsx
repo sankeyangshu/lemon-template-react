@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button, Form, Image, Input } from 'react-vant';
 import logoImg from '@/assets/images/logo.png';
 import { validPhone } from '@/utils/validate';
@@ -7,6 +8,9 @@ import PasswordInput from './components/PasswordInput';
 const src = logoImg;
 
 const ForgotPassword = () => {
+  // 使用i18n全局函数
+  const { t } = useTranslation();
+
   // 表单数据
   const [form] = Form.useForm();
 
@@ -31,30 +35,30 @@ const ForgotPassword = () => {
             type="primary"
             block
           >
-            确认重置
+            {t('login.confirmReset')}
           </Button>
         }
       >
         <div className="mb-20 overflow-hidden rounded-20 shadow-[0_0_30px_0_#2B56701A] dark:shadow-[0_0_30px_0_#18181c1A]">
           <Form.Item
             required={false}
-            rules={[{ required: true, message: '请输入手机号' }]}
+            rules={[{ required: true, message: t('login.pleaseEnterPhone') }]}
             name="phone"
           >
-            <Input type="tel" placeholder="请输入手机号" />
+            <Input type="tel" placeholder={t('login.pleaseEnterPhone')} />
           </Form.Item>
         </div>
         <div className="mb-20 overflow-hidden rounded-20 shadow-[0_0_30px_0_#2B56701A] dark:shadow-[0_0_30px_0_#18181c1A]">
           <Form.Item
             required={false}
             rules={[
-              { required: true, message: '请输入短信验证码' },
+              { required: true, message: t('login.pleaseEnterVerificationCode') },
               {
                 validator: (_, value) => {
                   if (validPhone(value)) {
                     return Promise.resolve(true);
                   }
-                  return Promise.reject(new Error('请输入正确的手机号'));
+                  return Promise.reject(new Error(t('login.pleaseEnterValidPhone')));
                 },
               },
             ]}
@@ -62,10 +66,10 @@ const ForgotPassword = () => {
           >
             <Input
               type="tel"
-              placeholder="请输入短信验证码"
+              placeholder={t('login.pleaseEnterVerificationCode')}
               suffix={
                 <Button size="small" type="primary">
-                  获取验证码
+                  {t('login.code')}
                 </Button>
               }
             />
@@ -74,29 +78,32 @@ const ForgotPassword = () => {
         <div className="mb-20 overflow-hidden rounded-20 shadow-[0_0_30px_0_#2B56701A] dark:shadow-[0_0_30px_0_#18181c1A]">
           <Form.Item
             required={false}
-            rules={[{ required: true, message: '请输入新密码' }]}
+            rules={[{ required: true, message: t('login.pleaseEnterNewPassword') }]}
             name="password"
           >
-            <PasswordInput name="password" placeholder="请输入新密码" />
+            <PasswordInput name="password" placeholder={t('login.pleaseEnterNewPassword')} />
           </Form.Item>
         </div>
         <div className="mb-20 overflow-hidden rounded-20 shadow-[0_0_30px_0_#2B56701A] dark:shadow-[0_0_30px_0_#18181c1A]">
           <Form.Item
             required={false}
             rules={[
-              { required: true, message: '请输入新密码' },
+              { required: true, message: t('login.pleaseEnterNewPasswordAgain') },
               {
                 validator: (_, value) => {
                   if (form.getFieldValue('password') === value) {
                     return Promise.resolve(true);
                   }
-                  return Promise.reject(new Error('两次输入密码不一致'));
+                  return Promise.reject(new Error(t('login.passwordInconsistent')));
                 },
               },
             ]}
             name="confirmPassword"
           >
-            <PasswordInput name="confirmPassword" placeholder="请再次输入新密码" />
+            <PasswordInput
+              name="confirmPassword"
+              placeholder={t('login.pleaseEnterNewPasswordAgain')}
+            />
           </Form.Item>
         </div>
       </Form>

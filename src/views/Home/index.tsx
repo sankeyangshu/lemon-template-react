@@ -1,28 +1,32 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import IconifyIcon from '@/components/Icon/IconifyIcon';
 import SvgIcon from '@/components/Icon/SvgIcon';
 import './index.less';
 
 const Home = () => {
+  // 使用i18n全局函数
+  const { t } = useTranslation();
+
   const [contentList] = useState([
-    '👑 React18 + Vite6',
-    '🍕 TypeScript',
-    '✨ React Vant 组件库',
-    '🌀 UnoCSS 原子类框架',
-    '🔥 Zustand 状态管理',
-    '🚀 React-Router v7',
-    '🌠 React Hooks',
-    '🎉 内置 Echarts aHooks',
-    '👏 集成多种图标方案',
-    '🔧 零配置 ESlint，集成Prettier',
-    '🎨 使用 Git Hook 进行规范化提交',
-    '🌓 主题配置，支持深色模式',
-    '👓 vmin 视口适配',
-    '🎨 Axios 封装',
-    '🎁 打包资源 gzip 压缩',
-    '🚀 首屏加载动画',
-    '🔒 完善的登录系统',
+    `👑 ${t('home.react')}`,
+    `🍕 ${t('home.typescript')}`,
+    `✨ ${t('home.reactVant')}`,
+    `🌀 ${t('home.unocss')}`,
+    `🔥 ${t('home.zustand')}`,
+    `🚀 ${t('home.router')}`,
+    `🌠 ${t('home.hooks')}`,
+    `🎉 ${t('home.utils')}`,
+    `👏 ${t('home.icons')}`,
+    `🔧 ${t('home.eslint')}`,
+    `🎨 ${t('home.git')}`,
+    `🌓 ${t('home.theme')}`,
+    `👓 ${t('home.viewport')}`,
+    `🎨 ${t('home.axios')}`,
+    `🎁 ${t('home.gzip')}`,
+    `🚀 ${t('home.loading')}`,
+    `🔒 ${t('home.auth')}`,
   ]);
 
   // 加载首页动画效果
@@ -62,9 +66,7 @@ const Home = () => {
             <div className="font-bold">Lemon-Template-React</div>
             <IconifyIcon icon="mdi:github" className="ml-8 text-22" />
           </a>
-          <div className="mb-6 mt-12 text-14 leading-24">
-            基于 React 生态系统的移动 Web 应用模板
-          </div>
+          <div className="mb-6 mt-12 text-14 leading-24">{t('home.info')}</div>
         </div>
 
         <TransitionGroup className="grid mt-16 gap-12 pb-24 text-center text-14">

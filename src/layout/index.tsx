@@ -1,6 +1,7 @@
 import * as vantIcons from '@react-vant/icons';
 import { ArrowLeft } from '@react-vant/icons';
 import { createElement, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Outlet, useLocation, useNavigate } from 'react-router';
 import { CSSTransition } from 'react-transition-group';
 import { NavBar, Tabbar } from 'react-vant';
@@ -50,11 +51,18 @@ const Layout = () => {
     navigate(path as string);
   };
 
+  // 使用i18n全局函数
+  const { t } = useTranslation();
+
   return (
     <div className="h-screen flex flex-col">
       {isShowNavBar && (
         <NavBar
-          title={currentRoute.meta?.title}
+          title={
+            currentRoute.meta?.i18n
+              ? t(`route.${currentRoute.meta.i18n}`)
+              : currentRoute.meta?.title
+          }
           fixed
           placeholder
           border={false}
@@ -93,7 +101,7 @@ const Layout = () => {
                   )
                 }
               >
-                {item.meta?.title}
+                {item.meta?.i18n ? t(`route.${item.meta.i18n}`) : item.meta?.title}
               </Tabbar.Item>
             ))}
         </Tabbar>

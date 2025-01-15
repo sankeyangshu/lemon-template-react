@@ -27,22 +27,29 @@ export const constantRoutes: RouteObjectType[] = [
       {
         path: '/login',
         element: lazyLoad(lazy(() => import('@/views/Login'))),
-        meta: { title: '登录', key: 'Login' },
+        meta: { title: '登录', key: 'Login', i18n: 'login' },
       },
       {
         path: '/register',
         element: lazyLoad(lazy(() => import('@/views/Login/register'))),
-        meta: { title: '注册', key: 'Register' },
+        meta: { title: '注册', key: 'Register', i18n: 'register' },
       },
       {
         path: '/forgetPassword',
         element: lazyLoad(lazy(() => import('@/views/Login/forgotPassword'))),
-        meta: { title: '忘记密码', key: 'ForgetPassword' },
+        meta: { title: '忘记密码', key: 'ForgetPassword', i18n: 'forgotPassword' },
       },
       {
         path: '/home',
         element: lazyLoad(lazy(() => import('@/views/Home'))),
-        meta: { title: '首页', key: 'Home', icon: 'HomeO', iconType: 'react-vant', tabBar: true },
+        meta: {
+          title: '首页',
+          key: 'Home',
+          icon: 'HomeO',
+          iconType: 'react-vant',
+          tabBar: true,
+          i18n: 'home',
+        },
       },
       {
         path: '/example',
@@ -53,6 +60,7 @@ export const constantRoutes: RouteObjectType[] = [
           icon: 'GemO',
           iconType: 'react-vant',
           tabBar: true,
+          i18n: 'example',
         },
       },
       {
@@ -65,12 +73,13 @@ export const constantRoutes: RouteObjectType[] = [
           iconType: 'react-vant',
           tabBar: true,
           hiddenNavBar: true,
+          i18n: 'mine',
         },
       },
       {
         path: '/theme',
         element: lazyLoad(lazy(() => import('@/views/ThemeSetting'))),
-        meta: { title: '主题设置', key: 'ThemeSetting' },
+        meta: { title: '主题设置', key: 'ThemeSetting', i18n: 'themeSetting' },
       },
     ],
   },
@@ -80,17 +89,17 @@ export const constantRoutes: RouteObjectType[] = [
       {
         path: '/mock',
         element: lazyLoad(lazy(() => import('@/views/Example/mockDemo'))),
-        meta: { title: 'Mock 指南' },
+        meta: { title: 'Mock 指南', i18n: 'mock' },
       },
       {
         path: '/echarts',
         element: lazyLoad(lazy(() => import('@/views/Example/echartsDemo'))),
-        meta: { title: 'Echarts 演示' },
+        meta: { title: 'Echarts 演示', i18n: 'echarts' },
       },
       {
         path: '/icon',
         element: lazyLoad(lazy(() => import('@/views/Example/iconDemo'))),
-        meta: { title: 'Icon 示例' },
+        meta: { title: 'Icon 示例', i18n: 'icon' },
       },
     ],
   },

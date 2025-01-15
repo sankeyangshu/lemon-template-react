@@ -38,6 +38,11 @@ export interface MetaType {
    * keepAlive ==> 设为true 缓存
    */
   keepAlive?: boolean;
+
+  /**
+   * 国际化 key
+   */
+  i18n?: string;
 }
 
 /**

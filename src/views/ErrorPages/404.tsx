@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { Button } from 'react-vant';
 import notFoundImg from '@/assets/images/404.png';
@@ -10,15 +11,18 @@ const NotFound = () => {
     navigate('/');
   };
 
+  // 使用i18n全局函数
+  const { t } = useTranslation();
+
   return (
     <div className="wh-full flex-center flex-col">
       <div className="text-center">
         <img className="w-350" src={notFoundImg} alt="404" />
       </div>
       <div className="text-center">
-        <div className="m-20 text-18">抱歉，你访问的页面不存在</div>
+        <div className="m-20 text-18">{t('errorPages.404')}</div>
         <Button type="primary" onClick={onClickGoHome}>
-          回到首页
+          {t('errorPages.back')}
         </Button>
       </div>
     </div>
