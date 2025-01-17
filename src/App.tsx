@@ -4,6 +4,7 @@ import { ConfigProvider } from 'react-vant';
 import { useLanguage } from './hooks/useLanguage';
 import { useTheme } from './hooks/useTheme';
 import Router from './routers';
+import AuthGuard from './routers/utils/authGuard';
 import { useSettingStore } from './store/setting';
 
 function App() {
@@ -46,7 +47,9 @@ function App() {
   return (
     <ConfigProvider className="wh-full" locale={currentLocale} themeVars={vantTheme}>
       <HashRouter>
-        <Router />
+        <AuthGuard>
+          <Router />
+        </AuthGuard>
       </HashRouter>
     </ConfigProvider>
   );
