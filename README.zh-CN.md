@@ -37,6 +37,10 @@
 
 👓 [点击这里](https://lemon-template-react.vercel.app)（PC浏览器请切换手机端模式）
 
+## 其他模版
+
+- [lemon-template-vue](https://github.com/sankeyangshu/lemon-template-vue) - 基于 Vue 3 生态系统的移动 web 应用模板
+
 ## 项目功能
 
 - ⚡️ 使用 React + Hooks 开发
