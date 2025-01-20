@@ -19,6 +19,17 @@
   "bugs": {
     "url": "https://github.com/sankeyangshu/lemon-template-react/issues"
   },
+  "keywords": [
+    "react",
+    "template",
+    "typescript",
+    "axios",
+    "react-router",
+    "react-vant",
+    "i18n-react",
+    "zustand",
+    "unocss"
+  ],
   "engines": {
     "node": "^18.18.0 || >=20.0.0",
     "pnpm": ">=8.15.4"

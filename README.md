@@ -19,7 +19,7 @@ An mobile web apps template based on the React ecosystem.
   <img src="https://img.shields.io/github/issues-closed/sankeyangshu/lemon-template-react" alt="issues" />
 </p>
 
-[Docs]() / [Discussion]() / [Feedback](https://github.com/sankeyangshu/lemon-template-react/issues)
+[Docs]() / [Feedback](https://github.com/sankeyangshu/lemon-template-react/issues)
 
 </div>
 
