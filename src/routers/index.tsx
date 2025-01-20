@@ -101,6 +101,11 @@ export const constantRoutes: RouteObjectType[] = [
         element: lazyLoad(lazy(() => import('@/views/Example/iconDemo'))),
         meta: { title: 'Icon 示例', i18n: 'icon' },
       },
+      {
+        path: '/keepAlive',
+        element: lazyLoad(lazy(() => import('@/views/Example/keepAliveDemo'))),
+        meta: { title: 'KeepAlive 演示', i18n: 'keepAlive', keepAlive: true },
+      },
     ],
   },
   notFoundRouter,

@@ -1,13 +1,14 @@
 import * as vantIcons from '@react-vant/icons';
 import { ArrowLeft } from '@react-vant/icons';
-import { createElement, useRef } from 'react';
+import { KeepAlive, useKeepAliveRef } from 'keepalive-for-react';
+import { createElement, useMemo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Outlet, useLocation, useNavigate } from 'react-router';
-import { CSSTransition } from 'react-transition-group';
+import { useLocation, useNavigate, useOutlet } from 'react-router';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { NavBar, Tabbar } from 'react-vant';
 import IconifyIcon from '@/components/Icon/IconifyIcon';
 import { constantRoutes } from '@/routers';
-import { filterTabBar, searchRoute } from '@/routers/utils';
+import { filterKeepAlive, filterTabBar, searchRoute } from '@/routers/utils';
 import { useSettingStore } from '@/store/setting';
 
 const Layout = () => {
@@ -34,7 +35,7 @@ const Layout = () => {
   };
 
   // 获取路由对象
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
   const currentRoute = searchRoute(pathname, constantRoutes);
 
   const isShowNavBar = !currentRoute.meta?.hiddenNavBar;
@@ -54,6 +55,16 @@ const Layout = () => {
   // 使用i18n全局函数
   const { t } = useTranslation();
 
+  const outlet = useOutlet();
+
+  const aliveRef = useKeepAliveRef();
+
+  const cacheKey = useMemo(() => {
+    return pathname + search;
+  }, [pathname, search]);
+
+  const cacheKeys = filterKeepAlive(constantRoutes);
+
   return (
     <div className="h-screen flex flex-col">
       {isShowNavBar && (
@@ -71,19 +82,26 @@ const Layout = () => {
         />
       )}
 
-      <div className="relative flex-1 overflow-x-hidden">
-        <CSSTransition
-          key={pathname}
-          nodeRef={nodeRef}
-          appear
-          in={isPageAnimate}
-          timeout={400}
-          classNames={getTransitionName()}
-        >
-          <div ref={nodeRef} className="absolute inset-0 w-full">
-            <Outlet />
-          </div>
-        </CSSTransition>
+      <div className="relative flex-1 overflow-hidden">
+        <KeepAlive activeCacheKey={cacheKey} aliveRef={aliveRef} include={cacheKeys}>
+          <TransitionGroup component={null}>
+            <CSSTransition
+              key={pathname}
+              nodeRef={nodeRef}
+              appear
+              in={isPageAnimate}
+              timeout={400}
+              classNames={getTransitionName()}
+            >
+              <div
+                ref={nodeRef}
+                className="absolute inset-0 w-full overflow-x-hidden overflow-y-auto"
+              >
+                {outlet}
+              </div>
+            </CSSTransition>
+          </TransitionGroup>
+        </KeepAlive>
       </div>
 
       {isShowTabBar && (

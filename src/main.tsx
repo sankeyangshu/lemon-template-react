@@ -1,4 +1,3 @@
-import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
 import { setupI18n } from './locales'; // 引入国际化配置
@@ -12,11 +11,7 @@ function bootstrap() {
   const container = document.getElementById('root');
   if (!container) return;
   const root = createRoot(container);
-  root.render(
-    <StrictMode>
-      <App />
-    </StrictMode>
-  );
+  root.render(<App />);
 }
 
 bootstrap();

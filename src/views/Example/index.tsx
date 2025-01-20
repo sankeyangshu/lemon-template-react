@@ -17,6 +17,7 @@ const Example = () => {
       { title: `📊 ${t('route.echarts')}`, route: 'echarts' },
       { title: `🎨 ${t('route.icon')}`, route: 'icon' },
       { title: `🙅 ${t('route.notFound')}`, route: '404' },
+      { title: `🧡 ${t('route.keepAlive')}`, route: 'keepAlive' },
     ],
     [t]
   );

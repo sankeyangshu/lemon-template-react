@@ -38,3 +38,24 @@ export const searchRoute = (path: string, routes: RouteObjectType[] = []): Route
   }
   return result;
 };
+
+/**
+ * 过滤需要缓存的路由
+ * @param routers 异步路由表
+ * @returns 需要缓存的路由数组
+ */
+export const filterKeepAlive = (routers: RouteObjectType[]) => {
+  const cacheRouter: string[] = [];
+  const deep = (routerList: RouteObjectType[]) => {
+    routerList.forEach((item) => {
+      if (item.meta?.keepAlive && item.path) {
+        cacheRouter.push(item.path as string);
+      }
+      if (item.children && item.children.length) {
+        deep(item.children);
+      }
+    });
+  };
+  deep(routers);
+  return cacheRouter;
+};
