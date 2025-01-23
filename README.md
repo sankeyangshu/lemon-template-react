@@ -31,7 +31,8 @@ An mobile web apps template based on the React ecosystem.
 
 You can directly start developing your business logic on this template! Hope you enjoy it. 👋👋👋
 
-**Note: If this project is helpful to you, please click the "Star" button in the top-right corner. Thank you!**
+> [!NOTE]
+> If this project is helpful to you, please click the "Star" button in the top-right corner. Thank you!
 
 ## Preview
 
