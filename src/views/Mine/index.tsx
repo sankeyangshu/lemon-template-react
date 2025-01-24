@@ -68,6 +68,9 @@ const Mine = () => {
               <IconifyIcon icon="mdi:book-open-variant" className="text-18" />
             </div>
           }
+          onClick={() =>
+            window.open('https://sankeyangshu.github.io/lemon-template-docs/react/', '_blank')
+          }
         />
         <Cell
           title={t('mine.systemVersion')}

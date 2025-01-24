@@ -5,14 +5,22 @@ import { Input } from 'react-vant';
 interface PropsType {
   name?: string;
   placeholder?: string;
+  value?: string;
+  defaultValue?: string;
   onChange?: (value: string) => void;
 }
 
-const PasswordInput = ({ name = 'password', placeholder = '请输入密码', onChange }: PropsType) => {
+const PasswordInput = ({
+  name = 'password',
+  placeholder = '请输入密码',
+  value,
+  defaultValue,
+  onChange,
+}: PropsType) => {
   const [isShowPassword, setIsShowPassword] = useState(false);
 
-  const onPasswordChange = (value: string) => {
-    onChange?.(value);
+  const onPasswordChange = (val: string) => {
+    onChange?.(val);
   };
 
   return (
@@ -20,6 +28,8 @@ const PasswordInput = ({ name = 'password', placeholder = '请输入密码', onC
       name={name}
       type={isShowPassword ? 'text' : 'password'}
       placeholder={placeholder}
+      value={value}
+      defaultValue={defaultValue}
       suffix={
         isShowPassword ? (
           <EyeO onClick={() => setIsShowPassword(false)} />

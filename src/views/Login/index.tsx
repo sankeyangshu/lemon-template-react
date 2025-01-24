@@ -42,6 +42,10 @@ const Login = () => {
 
       <Form
         form={form}
+        initialValues={{
+          username: 'admin',
+          password: '123456',
+        }}
         className="w-full"
         onFinish={onFinish}
         footer={
