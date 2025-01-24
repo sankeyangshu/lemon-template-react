@@ -1,6 +1,6 @@
 <div align="center">
 <a href="https://github.com/sankeyangshu/lemon-template-react">
-  <img alt="Lemon-Template-Vue" width="200" height="200" src="./public/logo.png">
+  <img alt="Lemon-Template-React" width="200" height="200" src="./public/logo.png">
 </a>
 
 <h1 align="center">
@@ -27,7 +27,7 @@ An mobile web apps template based on the React ecosystem.
 
 ## Introduction
 
-🚀🚀🚀 **lemon-template-react** is built using the latest technologies, including `React18`, `Vite6`, `Vant4`, `Pinia`, `TypeScript`, and `UnoCSS`. It integrates features like `Dark Mode`, system theme colors, and Mock data.
+🚀🚀🚀 **lemon-template-react** is built using the latest technologies, including `React18`, `Vite6`, `react-vant`, `Zustand`, `TypeScript`, and `UnoCSS`. It integrates features like `Dark Mode`, system theme colors, and Mock data.
 
 You can directly start developing your business logic on this template! Hope you enjoy it. 👋👋👋
 
@@ -49,7 +49,7 @@ You can directly start developing your business logic on this template! Hope you
 - 🍕 Fully integrates TypeScript
 - 🍍 Use Zustand for state management, lightweight, simple and easy to use
 - 📦 ahooks High quality and reliable React Hooks library
-- 🎨 Vant 4 component library
+- 🎨 react-vant component library
 - 🌀 UnoCSS for instant atomic CSS
 - 👏 Integrates multiple icon solutions
 - 🌓 Supports Dark Mode

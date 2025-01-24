@@ -1,6 +1,6 @@
 <div align="center">
 <a href="https://github.com/sankeyangshu/lemon-template-react">
-  <img alt="Lemon-Template-Vue" width="200" height="200" src="./public/logo.png">
+  <img alt="Lemon-Template-React" width="200" height="200" src="./public/logo.png">
 </a>
 
 <h1 align="center">
@@ -27,7 +27,7 @@
 
 ## 简介
 
-🚀🚀🚀 **lemon-template-react** 使用了最新的`React18`、`Vite6`、`Vant4`、`Zustand`、`Typescript`、`UnoCSS`等主流技术开发，集成 `Dark Mode`（暗黑）模式和系统主题色、Mock数据等功能。
+🚀🚀🚀 **lemon-template-react** 使用了最新的`React18`、`Vite6`、`react-vant`、`Zustand`、`Typescript`、`UnoCSS`等主流技术开发，集成 `Dark Mode`（暗黑）模式和系统主题色、Mock数据等功能。
 
 你可以在此之上直接开发你的业务代码！希望你能喜欢。👋👋👋
 
@@ -49,7 +49,7 @@
 - 🍕 整个项目集成了 TypeScript
 - 🍍 使用 Zustand 做状态管理，轻量、简单、易用
 - 📦 ahooks 高质量可靠的 React Hooks 库
-- 🎨 Vant4 组件库
+- 🎨 react-vant 组件库
 - 🌀 UnoCSS 即时原子化 CSS 引擎
 - 👏 集成多种图标方案
 - 🌓 支持深色模式
