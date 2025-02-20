@@ -19,7 +19,7 @@
   <img src="https://img.shields.io/github/issues-closed/sankeyangshu/lemon-template-react" alt="issues" />
 </p>
 
-[文档](https://sankeyangshu.github.io/lemon-template-docs/react/) / [反馈](https://github.com/sankeyangshu/lemon-template-react/issues)
+[文档](https://sankeyangshu.github.io/lemon-template-docs/zh/react/) / [反馈](https://github.com/sankeyangshu/lemon-template-react/issues)
 
 </div>
 
