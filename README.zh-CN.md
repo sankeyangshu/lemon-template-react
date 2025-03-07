@@ -41,6 +41,7 @@
 ## 其他模版
 
 - [lemon-template-vue](https://github.com/sankeyangshu/lemon-template-vue) - 基于 Vue 3 生态系统的移动 web 应用模板
+- [lemon-template-uniapp](https://github.com/sankeyangshu/lemon-template-uniapp) - 基于 UniApp 生态系统的移动小程序应用模板
 
 ## 项目功能
 
