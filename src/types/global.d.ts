@@ -22,6 +22,7 @@ declare global {
     VITE_USER_NODE_ENV: 'development' | 'production' | 'test';
     VITE_APP_TITLE: string;
     VITE_PORT: number;
+    VITE_USE_MOCK: boolean;
     VITE_OPEN: boolean;
     VITE_REPORT: boolean;
     VITE_BUILD_COMPRESS: 'gzip' | 'brotli' | 'gzip,brotli' | 'none';

@@ -1,6 +1,7 @@
 import React from '@vitejs/plugin-react';
 import UnoCSS from 'unocss/vite';
 import mockDevServerPlugin from 'vite-plugin-mock-dev-server';
+import ViteRestart from 'vite-plugin-restart';
 import { configCompressPlugin } from './compress';
 import { configSvgIconsPlugin } from './svgPlugin';
 import type { PluginOption } from 'vite';
@@ -12,14 +13,23 @@ import type { PluginOption } from 'vite';
  * @returns vitePlugins[]
  */
 export const createVitePlugins = (viteEnv: ViteEnv, isBuild: boolean) => {
+  const { VITE_USE_MOCK } = viteEnv;
+
   const vitePlugins: (PluginOption | PluginOption[])[] = [
     React(),
 
-    // https://github.com/pengzhanbo/vite-plugin-mock-dev-server
-    mockDevServerPlugin(),
-
     UnoCSS(),
+
+    // 通过这个插件，在修改vite.config.ts文件则不需要重新运行也生效配置
+    ViteRestart({
+      restart: ['vite.config.ts'],
+    }),
   ];
+
+  // 是否开启 mock 服务  https://github.com/pengzhanbo/vite-plugin-mock-dev-server
+  if (VITE_USE_MOCK) {
+    vitePlugins.push(mockDevServerPlugin());
+  }
 
   vitePlugins.push(configSvgIconsPlugin(isBuild));
 

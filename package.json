@@ -101,6 +101,7 @@
     "vite": "^6.2.0",
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-mock-dev-server": "^1.8.4",
+    "vite-plugin-restart": "^0.4.2",
     "vite-plugin-svg-icons": "^2.0.1",
     "vitest": "^3.0.7"
   },
