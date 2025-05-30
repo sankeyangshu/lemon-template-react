@@ -21,12 +21,12 @@ export function isReportMode(): boolean {
 }
 
 /**
- * Read all environment variable configuration files to process.env (读取并处理所有环境变量配置文件 .env)
- *
+ * Read all environment variable configuration files to process.env
+ * @descCN 读取并处理所有环境变量配置文件 .env
  * @param envConf - A record of environment variables to be processed.
  * @returns An object containing the processed environment variables with appropriate types.
  */
-export function wrapperEnv(envConf: Recordable): ViteEnv {
+export function wrapperEnv(envConf: Env.ImportMeta): Env.ImportMeta {
   const ret: any = {};
 
   for (const envName of Object.keys(envConf)) {
@@ -46,6 +46,7 @@ export function wrapperEnv(envConf: Recordable): ViteEnv {
     ret[envName] = realName;
     process.env[envName] = realName;
   }
+
   return ret;
 }
 

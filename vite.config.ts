@@ -1,5 +1,4 @@
 import process from 'node:process';
-import { fileURLToPath, URL } from 'node:url';
 import autoprefixer from 'autoprefixer';
 import dayjs from 'dayjs';
 import viewport from 'postcss-mobile-forever';
@@ -20,26 +19,18 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
   const root = process.cwd();
   const { mode, command } = config;
 
-  const env = loadEnv(mode, root);
+  const env = loadEnv(mode, root) as unknown as Env.ImportMeta;
   const viteEnv = wrapperEnv(env);
 
-  const { VITE_PUBLIC_PATH, VITE_DROP_CONSOLE, VITE_PORT, VITE_PROXY, VITE_OPEN } = viteEnv;
+  const { VITE_BASE_URL, VITE_DROP_CONSOLE, VITE_PORT, VITE_PROXY, VITE_OPEN } = viteEnv;
   const isBuild = command === 'build';
 
   return {
-    base: VITE_PUBLIC_PATH,
+    base: VITE_BASE_URL || '/',
     root,
 
     // 加载插件
     plugins: createVitePlugins(viteEnv, isBuild),
-
-    // 配置别名
-    resolve: {
-      alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url)),
-        '~root': fileURLToPath(new URL('.', import.meta.url)),
-      },
-    },
 
     css: {
       postcss: {
@@ -51,7 +42,7 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
             viewportWidth: 375,
             maxDisplayWidth: 600,
             selectorBlackList: ['.ignore', 'keep-px'],
-            rootContainingBlockSelectorList: ['rv-tabbar', 'rv-popup'],
+            rootContainingBlockSelectorList: [], // TODO: 需要替换成antd mobile的组件
             valueBlackList: ['1px solid'],
           }),
         ],
