@@ -1,4 +1,4 @@
-import { Button } from 'antd-mobile';
+import { Button } from '@nutui/nutui-react';
 import { m } from 'motion/react';
 import { memo, useMemo, type FC } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -19,7 +19,7 @@ const ErrorBase: FC<ErrorBaseProps> = ({ title, errorBg }) => {
       {
         id: 'title',
         content: (
-          <div className="text-primary mb-20 text-20 font-bold leading-40">
+          <div className="mb-20 text-20 text-primary font-bold leading-40">
             {t(`system.${title}`)}
           </div>
         ),
@@ -32,7 +32,7 @@ const ErrorBase: FC<ErrorBaseProps> = ({ title, errorBg }) => {
         id: 'link',
         content: (
           <NavLink to="/">
-            <Button color="primary">{t('system.goHome')}</Button>
+            <Button type="primary">{t('system.goHome')}</Button>
           </NavLink>
         ),
       },
@@ -41,7 +41,7 @@ const ErrorBase: FC<ErrorBaseProps> = ({ title, errorBg }) => {
   );
 
   return (
-    <div className="bg-layout box-border wh-full p-10">
+    <div className="box-border wh-full bg-layout p-10">
       <MotionContainer className="flex-center flex-col">
         <img className="w-full" src={errorBg} alt={title} />
         <div className="text-center">

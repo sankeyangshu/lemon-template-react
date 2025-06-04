@@ -11,11 +11,11 @@ export const LangContext = createContext<LangContextType>({
   locale: defaultLanguage,
   localeOptions: [
     {
-      key: 'zh-CN',
+      value: 'zh-CN',
       label: '中文',
     },
     {
-      key: 'en-US',
+      value: 'en-US',
       label: 'English',
     },
   ],

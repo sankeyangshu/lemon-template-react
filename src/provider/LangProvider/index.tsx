@@ -5,11 +5,11 @@ import { LangContext } from './utils';
 
 const localeOptions: App.I18n.LangOption[] = [
   {
-    key: 'zh-CN',
+    value: 'zh-CN',
     label: '中文',
   },
   {
-    key: 'en-US',
+    value: 'en-US',
     label: 'English',
   },
 ];
