@@ -1,120 +1,73 @@
-import { lazy } from 'react';
-import { Navigate, useRoutes } from 'react-router';
-import Layout from '@/layout';
-import lazyLoad from './utils/lazyLoad';
-import type { RouteObjectType } from './utils/routeType';
+import { lazy, Suspense } from 'react';
+import { createHashRouter, Navigate, Outlet, RouterProvider } from 'react-router';
+import AdminLayout from '@/layout';
+import { usePermissionRoutes } from './hooks';
+import Loading from './utils/Loading';
+import type { RouteObject } from 'react-router';
+
+const { VITE_APP_HOMEPAGE: HOMEPAGE } = import.meta.env;
+
+const Page403 = lazy(() => import('@/pages/ErrorPages/403'));
+const Page404 = lazy(() => import('@/pages/ErrorPages/404'));
+const Page500 = lazy(() => import('@/pages/ErrorPages/500'));
 
 /**
- * notFoundRouter(找不到路由)
+ * error routes
+ * @descCN 错误路由 - 403, 404, 500
  */
-export const notFoundRouter = {
-  path: '*',
-  id: 'notFound',
-  element: lazyLoad(lazy(() => import('@/views/ErrorPages/404'))),
+const ErrorRoutes: App.Global.AppRouteObject = {
+  element: (
+    <Suspense fallback={<Loading />}>
+      <Outlet />
+    </Suspense>
+  ),
+  children: [
+    {
+      path: '403',
+      element: <Page403 />,
+      meta: { title: '403', key: '/403' },
+    },
+    {
+      path: '404',
+      element: <Page404 />,
+      meta: { title: '404', key: '/404' },
+    },
+    {
+      path: '500',
+      element: <Page500 />,
+      meta: { title: '500', key: '/500' },
+    },
+  ],
 };
 
 /**
- * 公共路由
+ * notFoundRouter
+ * @descCN 找不到路由 - 404
  */
-export const constantRoutes: RouteObjectType[] = [
-  {
-    path: '/',
-    element: <Navigate to="/home" />,
-  },
-  {
-    element: <Layout />,
-    children: [
-      {
-        path: '/login',
-        element: lazyLoad(lazy(() => import('@/views/Login'))),
-        meta: { title: '登录', key: 'Login', i18n: 'login' },
-      },
-      {
-        path: '/register',
-        element: lazyLoad(lazy(() => import('@/views/Login/register'))),
-        meta: { title: '注册', key: 'Register', i18n: 'register' },
-      },
-      {
-        path: '/forgetPassword',
-        element: lazyLoad(lazy(() => import('@/views/Login/forgotPassword'))),
-        meta: { title: '忘记密码', key: 'ForgetPassword', i18n: 'forgotPassword' },
-      },
-      {
-        path: '/home',
-        element: lazyLoad(lazy(() => import('@/views/Home'))),
-        meta: {
-          title: '首页',
-          key: 'Home',
-          icon: 'HomeO',
-          iconType: 'react-vant',
-          tabBar: true,
-          i18n: 'home',
-        },
-      },
-      {
-        path: '/example',
-        element: lazyLoad(lazy(() => import('@/views/Example'))),
-        meta: {
-          title: '示例',
-          key: 'Example',
-          icon: 'GemO',
-          iconType: 'react-vant',
-          tabBar: true,
-          i18n: 'example',
-        },
-      },
-      {
-        path: '/mine',
-        element: lazyLoad(lazy(() => import('@/views/Mine'))),
-        meta: {
-          title: '我的',
-          key: 'Mine',
-          icon: 'Contact',
-          iconType: 'react-vant',
-          tabBar: true,
-          hiddenNavBar: true,
-          i18n: 'mine',
-        },
-      },
-      {
-        path: '/theme',
-        element: lazyLoad(lazy(() => import('@/views/ThemeSetting'))),
-        meta: { title: '主题设置', key: 'ThemeSetting', i18n: 'themeSetting' },
-      },
-    ],
-  },
-  {
-    element: <Layout />,
-    children: [
-      {
-        path: '/mock',
-        element: lazyLoad(lazy(() => import('@/views/Example/mockDemo'))),
-        meta: { title: 'Mock 指南', i18n: 'mock' },
-      },
-      {
-        path: '/echarts',
-        element: lazyLoad(lazy(() => import('@/views/Example/echartsDemo'))),
-        meta: { title: 'Echarts 演示', i18n: 'echarts' },
-      },
-      {
-        path: '/icon',
-        element: lazyLoad(lazy(() => import('@/views/Example/iconDemo'))),
-        meta: { title: 'Icon 示例', i18n: 'icon' },
-      },
-      {
-        path: '/keepAlive',
-        element: lazyLoad(lazy(() => import('@/views/Example/keepAliveDemo'))),
-        meta: { title: 'KeepAlive 演示', i18n: 'keepAlive', keepAlive: true },
-      },
-    ],
-  },
-  notFoundRouter,
-];
+const NotFoundRouter = {
+  path: '*',
+  id: 'notFound',
+  element: <Navigate to="/404" replace />,
+};
 
-// 创建一个可以被 React 应用程序使用的路由实例
+/**
+ * Router
+ * @descCN 创建一个可以被 React 应用程序使用的路由实例
+ */
 const Router = () => {
-  const routes = useRoutes(constantRoutes);
-  return routes;
+  const permissionRoutes = usePermissionRoutes();
+
+  const ProtectedRoute: App.Global.AppRouteObject = {
+    path: '/',
+    element: <AdminLayout />,
+    children: [{ index: true, element: <Navigate to={HOMEPAGE} replace /> }, ...permissionRoutes],
+  };
+
+  const routes = [ProtectedRoute, ErrorRoutes, NotFoundRouter] as RouteObject[];
+
+  const router = createHashRouter(routes);
+
+  return <RouterProvider router={router} />;
 };
 
 export default Router;
