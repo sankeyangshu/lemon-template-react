@@ -1,4 +1,4 @@
-import { Button } from 'antd-mobile';
+import { Button } from '@nutui/nutui-react';
 import { useTranslation } from 'react-i18next';
 import SvgIcon from '../SvgIcon';
 import type { FallbackProps } from 'react-error-boundary';

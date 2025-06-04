@@ -1,60 +1,49 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { DEFAULT_THEMECOLOR } from '@/config';
-
-/**
- * 暗黑主题配置类型
- */
-export type darkModeThemeType = 'light' | 'dark';
+import { themeSettings } from '@/theme';
+import { addPrefix } from '@/utils/storage';
 
 /**
  * 系统设置store类型
  */
 export interface settingsStoreType {
-  darkMode: darkModeThemeType;
-  themeColor: string;
-  isPageAnimate: boolean;
-  pageAnimateType: string;
-  language: string;
-  setThemeDark: (value: darkModeThemeType) => void;
-  setThemeColor: (value: string) => void;
-  setPageAnimate: (value: boolean) => void;
-  setPageAnimateType: (value: string) => void;
-  setLanguage: (value: string) => void;
-}
+  /**
+   * Theme color
+   * @descCN 主题颜色
+   */
+  themeColor: App.Theme.ThemeColor;
 
-const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  /**
+   * Set theme color
+   * @descCN 设置主题颜色
+   */
+  setThemeColor: (key: App.Theme.ThemeColorKey, val: string) => void;
+}
 
 export const useSettingStore = create<settingsStoreType>()(
   persist(
-    (set) => ({
-      themeColor: DEFAULT_THEMECOLOR, // 主题颜色
-      darkMode: prefersDark ? 'dark' : 'light', // 暗黑模式
-      isPageAnimate: true, // 是否开启路由动画
-      pageAnimateType: 'zoom-fade', // 路由动画类型
-      language: localStorage.getItem('language') || 'zh-CN', // 语言
+    (set, get) => ({
+      themeColor: {
+        primary: themeSettings.themeColor,
+        ...themeSettings.otherColor,
+      },
 
-      // 设置暗黑模式
-      setThemeDark: (value: darkModeThemeType) => set({ darkMode: value }),
+      setThemeColor: (key: App.Theme.ThemeColorKey, val: string) => {
+        const { themeColor } = get();
+        const newThemeColor = { ...themeColor, [key]: val };
 
-      // 设置主题颜色
-      setThemeColor: (value: string) => set({ themeColor: value }),
-
-      // 设置路由动画
-      setPageAnimate: (value: boolean) => set({ isPageAnimate: value }),
-
-      // 设置路由动画类型
-      setPageAnimateType: (value: string) => set({ pageAnimateType: value }),
-
-      // 设置语言
-      setLanguage: (value: string) => {
-        set({ language: value });
-        localStorage.setItem('language', value);
+        set({ themeColor: newThemeColor });
       },
     }),
     {
       // 进行持久化存储
-      name: 'settingStorage', // 本地存储的名称
+      name: addPrefix('settingStorage'), // 本地存储的名称
     }
   )
 );
+
+/**
+ * use theme color config store hook
+ * @descCN 使用主题颜色配置 store hook
+ */
+export const useThemeColorConfig = () => useSettingStore((state) => state.themeColor);

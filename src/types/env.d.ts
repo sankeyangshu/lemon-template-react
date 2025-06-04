@@ -55,6 +55,11 @@ declare namespace Env {
      */
     readonly VITE_SERVICE_BASE_URL: string;
     /**
+     * The homepage of the application
+     * @descCN 应用首页
+     */
+    readonly VITE_APP_HOMEPAGE: string;
+    /**
      * The prefix of the local icon
      * @descCN 本地图标前缀
      */

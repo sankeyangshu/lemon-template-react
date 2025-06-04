@@ -1,74 +1,140 @@
-import { Toast } from 'react-vant';
-import { isArray } from './is';
+import { colord, extend } from 'colord';
+import labPlugin from 'colord/plugins/lab';
+import mixPlugin from 'colord/plugins/mix';
+import namesPlugin from 'colord/plugins/names';
+import type { AnyColor, HslColor, RgbColor } from 'colord';
+
+extend([namesPlugin, mixPlugin, labPlugin]);
 
 /**
- * hex颜色转rgb颜色
- * @param {string} str 颜色值字符串
- * @returns {number[]} 返回RGB颜色数组
+ * Check if a color is valid
+ * @descCN 检查一个颜色是否有效
+ * @param color - Color
+ * @returns True if the color is valid, false otherwise
  */
-export function hexToRgb(str: string) {
-  let hexs: number[] = [];
-  const reg = /^#?[0-9A-Fa-f]{6}$/;
-  if (!reg.test(str)) return Toast.fail('请输入正确的hex颜色值');
-
-  str = str.replace('#', '');
-  hexs = str.match(/../g)?.map((val) => Number.parseInt(val, 16)) || [];
-  return hexs;
-}
+export const isValidColor = (color: AnyColor) => {
+  return colord(color).isValid();
+};
 
 /**
- * rgb颜色转Hex颜色
- * @param {number} r 代表红色 0-255
- * @param {number} g 代表绿色 0-255
- * @param {number} b 代表蓝色 0-255
- * @returns {string} 返回hex颜色值
+ * Get the hex value of a color
+ * @descCN 获取一个颜色的十六进制值
+ * @param color - Color
+ * @returns The hex value of the color
  */
-export function rgbToHex(r: number, g: number, b: number) {
-  const reg = /^([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/;
-  if (!reg.test(String(r)) || !reg.test(String(g)) || !reg.test(String(b))) {
-    return Toast.fail('请输入正确的RGB颜色值(0-255)');
-  }
-  const hexs = [r.toString(16), g.toString(16), b.toString(16)];
-  for (let i = 0; i < 3; i++) {
-    if (hexs[i].length === 1) hexs[i] = `0${hexs[i]}`;
-  }
-  return `#${hexs.join('')}`;
-}
+export const getHex = (color: AnyColor) => {
+  return colord(color).toHex();
+};
 
 /**
- * 加深颜色值
- * @param {string} color 颜色值字符串
- * @param {number} level 加深的程度，限0-1之间
- * @returns {string} 返回处理后的颜色值
+ * Get the RGB value of a color
+ * @descCN 获取一个颜色的RGB值
+ * @param color - Color
+ * @returns The RGB value of the color
  */
-export function getDarkColor(color: string, level: number) {
-  const reg = /^#?[0-9A-Fa-f]{6}$/;
-  if (!reg.test(color)) return Toast.fail('请输入正确的hex颜色值');
-
-  const rgb = hexToRgb(color);
-  if (!rgb || !isArray(rgb)) return;
-
-  for (let i = 0; i < 3; i++) {
-    rgb[i] = Math.floor(rgb[i] * (1 - level));
-  }
-  return rgbToHex(rgb[0], rgb[1], rgb[2]);
-}
+export const getRgb = (color: AnyColor) => {
+  return colord(color).toRgb();
+};
 
 /**
- * 变浅颜色值
- * @param {string} color 颜色值字符串
- * @param {number} level 加深的程度，限0-1之间
- * @returns {string} 返回处理后的颜色值
+ * Get the HSL value of a color
+ * @descCN 获取一个颜色的HSL值
+ * @param color - Color
+ * @returns The HSL value of the color
  */
-export function getLightColor(color: string, level: number) {
-  const reg = /^#?[0-9A-Fa-f]{6}$/;
-  if (!reg.test(color)) return Toast.fail('请输入正确的hex颜色值');
+export const getHsl = (color: AnyColor) => {
+  return colord(color).toHsl();
+};
 
-  const rgb = hexToRgb(color);
-  if (!rgb || !isArray(rgb)) return;
+/**
+ * Get the HSV value of a color
+ * @descCN 获取一个颜色的HSV值
+ * @param color - Color
+ * @returns The HSV value of the color
+ */
+export const getHsv = (color: AnyColor) => {
+  return colord(color).toHsv();
+};
 
-  for (let i = 0; i < 3; i++) {
-    rgb[i] = Math.floor(255 * level + rgb[i] * (1 - level));
-  }
-  return rgbToHex(rgb[0], rgb[1], rgb[2]);
-}
+/**
+ * Get the delta E value of two colors
+ * @descCN 获取两个颜色的Delta E值
+ * @param color1 - First color
+ * @param color2 - Second color
+ * @returns The delta E value of the two colors
+ */
+export const getDeltaE = (color1: AnyColor, color2: AnyColor) => {
+  return colord(color1).delta(color2);
+};
+
+/**
+ * Transform an HSL color to a hex color
+ * @descCN 将HSL颜色转换为十六进制颜色
+ * @param color - HSL color
+ * @returns The hex value of the HSL color
+ */
+export const transformHslToHex = (color: HslColor) => {
+  return colord(color).toHex();
+};
+
+/**
+ * Add color alpha
+ * @descCN 添加颜色透明度
+ * @param color - Color
+ * @param alpha - Alpha (0 - 1)
+ * @returns The hex value of the color with the alpha value
+ */
+export const addColorAlpha = (color: AnyColor, alpha: number) => {
+  return colord(color).alpha(alpha).toHex();
+};
+
+/**
+ * Mix color
+ * @descCN 混合颜色
+ * @param firstColor - First color
+ * @param secondColor - Second color
+ * @param ratio - The ratio of the second color (0 - 1)
+ * @returns The hex value of the mixed color
+ */
+export const mixColor = (firstColor: AnyColor, secondColor: AnyColor, ratio: number) => {
+  return colord(firstColor).mix(secondColor, ratio).toHex();
+};
+
+/**
+ * Transform color with opacity to similar color without opacity
+ * @descCN 将颜色透明度转换为不透明颜色
+ * @param color - Color
+ * @param alpha - Alpha (0 - 1)
+ * @param bgColor Background color (usually white or black)
+ * @returns The hex value of the color with the opacity
+ */
+export const transformColorWithOpacity = (color: string, alpha: number, bgColor = '#ffffff') => {
+  const originColor = addColorAlpha(color, alpha);
+  const { b: oB, g: oG, r: oR } = colord(originColor).toRgb();
+
+  const { b: bgB, g: bgG, r: bgR } = colord(bgColor).toRgb();
+
+  const calRgb = (or: number, bg: number, al: number) => {
+    return bg + (or - bg) * al;
+  };
+
+  const resultRgb: RgbColor = {
+    b: calRgb(oB, bgB, alpha),
+    g: calRgb(oG, bgG, alpha),
+    r: calRgb(oR, bgR, alpha),
+  };
+
+  return colord(resultRgb).toHex();
+};
+
+/**
+ * Is white color
+ * @descCN 判断一个颜色是否为白色
+ * @param color - Color
+ * @returns True if the color is white, false otherwise
+ */
+export const isWhiteColor = (color: AnyColor) => {
+  return colord(color).isEqual('#ffffff');
+};
+
+export { colord };

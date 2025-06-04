@@ -1,34 +1,20 @@
-@import './variables.less';
-@import './theme.less';
-@import './transition.less';
+@import './reset.less';
 
 html,
-body {
+body,
+#root {
   height: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
-    Arial, sans-serif;
-  color: var(--rv-text-color);
-  background-color: var(--color-background);
 }
 
 html {
-  box-sizing: border-box;
-  height: 100%;
+  overflow-x: hidden;
 }
 
-#root {
-  height: 100%;
-  width: 100%;
-  position: relative;
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
 }
 
-a,
-a:focus,
-a:hover {
-  cursor: pointer;
-  color: inherit;
-  text-decoration: none;
+html.grayscale {
+  filter: grayscale(100%);
 }
