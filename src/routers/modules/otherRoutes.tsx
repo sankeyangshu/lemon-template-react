@@ -3,8 +3,9 @@ const otherRoutes: App.Global.AppRouteObject[] = [
     path: 'home',
     meta: {
       title: '首页',
+      key: 'home',
+      pagePath: 'Home/index.tsx',
       icon: 'mdi:home-outline',
-      key: 'Home/index.tsx',
       hiddenNavBar: true,
       tabBar: true,
       i18n: 'home',
@@ -14,8 +15,9 @@ const otherRoutes: App.Global.AppRouteObject[] = [
     path: 'example',
     meta: {
       title: '示例',
+      key: 'example',
+      pagePath: 'Example/index.tsx',
       icon: 'mdi:home-outline',
-      key: 'Example/index.tsx',
       tabBar: true,
       i18n: 'example',
     },
@@ -25,7 +27,8 @@ const otherRoutes: App.Global.AppRouteObject[] = [
     meta: {
       title: '我的',
       icon: 'mdi:home-outline',
-      key: 'Mine/index.tsx',
+      pagePath: 'Mine/index.tsx',
+      key: 'mine',
       hiddenNavBar: true,
       tabBar: true,
       i18n: 'mine',

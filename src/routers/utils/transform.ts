@@ -1,17 +1,20 @@
 import { lazy } from 'react';
 import type { RouteObject } from 'react-router';
 
+/**
+ * 加载中组件
+ */
 const Loading = lazy(() => import('./Loading'));
-
-const pages = import.meta.glob('/src/pages/**/*.tsx');
 
 /**
  * 获取错误边界组件
  */
-const getErrorBoundary = async () => {
-  const ErrorModule = await import('./ErrorPage');
-  return ErrorModule.default;
-};
+const ErrorBoundary = lazy(() => import('./ErrorPage'));
+
+/**
+ * 页面
+ */
+const pages = import.meta.glob('/src/pages/**/*.tsx');
 
 /**
  * transform route to react-router route object
@@ -31,16 +34,11 @@ export const transformToReactRoutes = (route: App.Global.AppRouteObject) => {
     };
   };
 
-  const getConfig = async (index = false) => {
-    let pageName = meta?.key;
+  const getConfig = async () => {
+    const { pagePath } = meta as App.Global.RouteMeta;
 
-    if (!pageName) {
-      pageName = 'ErrorPages/404.tsx';
-    }
-
-    if (!children?.length || index) {
-      const config = await pages[`/src/pages/${pageName}`]();
-
+    if (pagePath) {
+      const config = await pages[`/src/pages/${pagePath}`]();
       return convertConfig(config);
     }
 
@@ -53,11 +51,9 @@ export const transformToReactRoutes = (route: App.Global.AppRouteObject) => {
     path,
     HydrateFallback: Loading,
     handle: meta,
+    ErrorBoundary,
     lazy: async () => {
-      const ErrorBoundary = await getErrorBoundary();
-
       return {
-        ErrorBoundary,
         ...(await getConfig()),
       };
     },
@@ -65,23 +61,7 @@ export const transformToReactRoutes = (route: App.Global.AppRouteObject) => {
 
   // 处理子路由
   if (children?.length) {
-    reactRoute.children = children.flatMap((child) => transformToReactRoutes(child));
-
-    // 如果当前路由有组件且有子路由，需要添加索引路由
-    if (restRoute.index) {
-      reactRoute.children.unshift({
-        index: true,
-        handle: meta,
-        lazy: async () => {
-          const ErrorBoundary = await getErrorBoundary();
-
-          return {
-            ErrorBoundary,
-            ...(await getConfig(restRoute.index)),
-          };
-        },
-      });
-    }
+    reactRoute.children = children.map((child) => transformToReactRoutes(child));
   }
 
   return reactRoute;

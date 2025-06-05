@@ -7,7 +7,7 @@ import { transformToReactRoutes } from './transform';
  * @returns 转换后的路由列表
  */
 export const generateReactRoutes = (routes: App.Global.AppRouteObject[]) => {
-  return routes.flatMap((route) => transformToReactRoutes(route));
+  return routes.map((route) => transformToReactRoutes(route));
 };
 
 /**
@@ -16,12 +16,12 @@ export const generateReactRoutes = (routes: App.Global.AppRouteObject[]) => {
  * @param routers 异步路由表
  * @returns 需要显示tabBar的路由数组
  */
-export const filterTabBar = (routers: App.Global.AppRouteObject[]) => {
+export const filterTabBarRoutes = (routers: App.Global.AppRouteObject[]) => {
   const tabBarRouter: App.Global.AppRouteObject[] = [];
 
   const deep = (routerList: App.Global.AppRouteObject[]) => {
     routerList.forEach((item) => {
-      if (item.handle?.tabBar) {
+      if (item.meta?.tabBar) {
         tabBarRouter.push(item);
       }
       if (item.children && item.children.length) {

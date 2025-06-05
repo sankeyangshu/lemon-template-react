@@ -55,7 +55,7 @@ const NotFoundRouter = {
  * @descCN 创建一个可以被 React 应用程序使用的路由实例
  */
 const Router = () => {
-  const permissionRoutes = usePermissionRoutes();
+  const { permissionRoutes } = usePermissionRoutes();
 
   const ProtectedRoute: App.Global.AppRouteObject = {
     path: '/',

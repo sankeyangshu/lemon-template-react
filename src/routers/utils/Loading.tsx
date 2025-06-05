@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
-import SvgIcon from '@/components/SvgIcon';
 import { toggleCssDarkMode } from '@/provider/Theme/utils';
 import { getRgb } from '@/utils/color';
 import { localStg } from '@/utils/storage';
@@ -33,7 +32,6 @@ const Loading = () => {
       className="fixed left-0 top-0 wh-full flex-center flex-col bg-layout"
       style={{ '--primary-color': `${r} ${g} ${b}` } as React.CSSProperties}
     >
-      <SvgIcon className="text-primary" size={128} localIcon="logo" />
       <div className="my-36 h-56 w-56">
         <div className="relative h-full animate-spin">
           {loadingClasses.map((item) => {
@@ -46,7 +44,7 @@ const Loading = () => {
           })}
         </div>
       </div>
-      <h2 className="text-28 text-primary font-500">{t('system.title')}</h2>
+      <div className="text-24 text-primary font-500">{t('system.loading')}</div>
     </div>
   );
 };
