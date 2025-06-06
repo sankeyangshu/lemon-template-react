@@ -1,131 +1,101 @@
-import * as vantIcons from '@react-vant/icons';
-import { ArrowLeft } from '@react-vant/icons';
-import { KeepAlive, useKeepAliveRef } from 'keepalive-for-react';
-import { createElement, useMemo, useRef } from 'react';
+import { ArrowLeft } from '@nutui/icons-react';
+import { NavBar, Tabbar } from '@nutui/nutui-react';
+import { AnimatePresence, m } from 'motion/react';
 import { useTranslation } from 'react-i18next';
-import { useLocation, useNavigate, useOutlet } from 'react-router';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { NavBar, Tabbar } from 'react-vant';
-import IconifyIcon from '@/components/Icon/IconifyIcon';
-import { constantRoutes } from '@/routers';
-import { filterKeepAlive, filterTabBar, searchRoute } from '@/routers/utils';
+import { useOutlet } from 'react-router';
+import { getPageAnimateVariants } from '@/components/Animate/variants/page';
+import SvgIcon from '@/components/SvgIcon';
+import { usePermissionRoutes, useRoute, useRouter } from '@/routers/hooks';
 import { useSettingStore } from '@/store/setting';
 
-const Layout = () => {
-  // vant icons
-  const customIcons: { [key: string]: any } = vantIcons;
-
-  // 获取全局配置
-  const isPageAnimate = useSettingStore((state) => state.isPageAnimate);
-  const pageAnimateType = useSettingStore((state) => state.pageAnimateType);
-
-  const getTransitionName = () => {
-    if (isPageAnimate) {
-      return {
-        appear: `${pageAnimateType}-enter`,
-        appearActive: `${pageAnimateType}-enter-active`,
-        enter: `${pageAnimateType}-enter`,
-        enterActive: `${pageAnimateType}-enter-active`,
-        exit: `${pageAnimateType}-exit`,
-        exitActive: `${pageAnimateType}-exit-active`,
-      };
-    } else {
-      return '';
-    }
-  };
-
+const AdminLayout = () => {
   // 获取路由对象
-  const { pathname, search } = useLocation();
-  const currentRoute = searchRoute(pathname, constantRoutes);
+  const route = useRoute();
+  const router = useRouter();
 
-  const isShowNavBar = !currentRoute.meta?.hiddenNavBar;
-  const isShowTabBar = !!currentRoute.meta?.tabBar;
-
-  const tabbarList = filterTabBar(constantRoutes);
-
-  // 动画节点
-  const nodeRef = useRef(null);
-
-  const navigate = useNavigate();
-
-  const onChangeTabbar = (path: string | number) => {
-    navigate(path as string);
-  };
+  const isShowNavBar = !route.handle?.hiddenNavBar;
+  const isShowTabBar = !!route.handle?.tabBar;
 
   // 使用i18n全局函数
   const { t } = useTranslation();
 
   const outlet = useOutlet();
 
-  const aliveRef = useKeepAliveRef();
+  const { tabbarRoutes } = usePermissionRoutes();
 
-  const cacheKey = useMemo(() => {
-    return pathname + search;
-  }, [pathname, search]);
+  const currentTabbarIndex = () => {
+    return tabbarRoutes.findIndex((item) => item.meta?.key === route.handle.key);
+  };
 
-  const cacheKeys = filterKeepAlive(constantRoutes);
+  const onChangeTabbar = (index: number) => {
+    const path = tabbarRoutes[index].path!;
+    router.push(path);
+  };
+
+  // const aliveRef = useKeepAliveRef();
+
+  // const cacheKey = useMemo(() => {
+  //   return pathname + search;
+  // }, [pathname, search]);
+
+  // const cacheKeys = filterKeepAlive(constantRoutes);
+
+  const isPageAnimate = useSettingStore((state) => state.isPageAnimate);
+  const pageAnimate = useSettingStore((state) => state.pageAnimate);
 
   return (
-    <div className="h-screen flex flex-col">
+    <div className="h-full flex flex-col">
       {isShowNavBar && (
         <NavBar
-          title={
-            currentRoute.meta?.i18n
-              ? t(`route.${currentRoute.meta.i18n}`)
-              : currentRoute.meta?.title
-          }
+          title={route.handle?.i18n ? t(`router.${route.handle.i18n}`) : route.handle?.title}
+          back={!isShowTabBar ? <ArrowLeft /> : undefined}
           fixed
-          placeholder
-          border={false}
-          leftArrow={!isShowTabBar ? <ArrowLeft /> : undefined}
-          onClickLeft={() => navigate(-1)}
+          placeholder={true}
+          className="bg-container"
+          onBackClick={() => router.back()}
         />
       )}
 
-      <div className="relative flex-1 overflow-hidden">
-        <KeepAlive activeCacheKey={cacheKey} aliveRef={aliveRef} include={cacheKeys}>
-          <TransitionGroup component={null}>
-            <CSSTransition
-              key={pathname}
-              nodeRef={nodeRef}
-              appear
-              in={isPageAnimate}
-              timeout={400}
-              classNames={getTransitionName()}
+      <div className="flex-1 overflow-y-auto bg-layout text-base-text">
+        {isPageAnimate ? (
+          <AnimatePresence mode="wait" initial={false}>
+            <m.div
+              key={route.fullPath}
+              variants={getPageAnimateVariants(pageAnimate)}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className="h-full"
+              style={{
+                willChange: 'opacity, transform',
+                backfaceVisibility: 'hidden',
+                perspective: 1000,
+              }}
             >
-              <div
-                ref={nodeRef}
-                className="absolute inset-0 w-full overflow-x-hidden overflow-y-auto"
-              >
-                {outlet}
-              </div>
-            </CSSTransition>
-          </TransitionGroup>
-        </KeepAlive>
+              {outlet}
+            </m.div>
+          </AnimatePresence>
+        ) : (
+          outlet
+        )}
       </div>
 
       {isShowTabBar && (
-        <Tabbar value={currentRoute.path} border={false} placeholder onChange={onChangeTabbar}>
-          {tabbarList &&
-            tabbarList.map((item) => (
-              <Tabbar.Item
-                key={item.path}
-                name={item.path}
-                icon={
-                  item.meta?.iconType === 'react-vant' ? (
-                    createElement(customIcons[item.meta!.icon!])
-                  ) : (
-                    <IconifyIcon icon={item.meta!.icon!} />
-                  )
-                }
-              >
-                {item.meta?.i18n ? t(`route.${item.meta.i18n}`) : item.meta?.title}
-              </Tabbar.Item>
-            ))}
+        <Tabbar fixed value={currentTabbarIndex()} onSwitch={onChangeTabbar}>
+          {tabbarRoutes &&
+            tabbarRoutes.map((item) => {
+              return (
+                <Tabbar.Item
+                  key={item.path}
+                  title={item.meta?.i18n ? t(`router.${item.meta?.i18n}`) : item.meta?.title}
+                  icon={<SvgIcon icon={item.meta?.icon} size={24} />}
+                />
+              );
+            })}
         </Tabbar>
       )}
     </div>
   );
 };
 
-export default Layout;
+export default AdminLayout;
