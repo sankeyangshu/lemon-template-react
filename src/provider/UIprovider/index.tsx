@@ -7,7 +7,7 @@ import { localStg } from '@/utils/storage';
 import { useLanguageContext } from '../LangProvider/utils';
 import { getUIComponentsTheme, setupThemeVarsToHtml } from './utils';
 import '@nutui/nutui-react/dist/styles/themes/default.css'; // 默认主题
-import '@nutui/nutui-react/dist/styles/themes/dark.css'; // 默认暗黑主题
+// import '@nutui/nutui-react/dist/styles/themes/dark.css'; // 默认暗黑主题
 
 const useUIComponentsTheme = () => {
   const themeColors = useThemeColorConfig();

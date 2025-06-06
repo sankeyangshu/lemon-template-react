@@ -36,6 +36,7 @@ export const themeVars: App.Theme.ThemeTokenCSSVars = {
     'base-text': 'rgb(var(--base-text-color))',
     'base-border': 'rgb(var(--base-border-color))',
     layout: 'rgb(var(--layout-bg-color))',
+    container: 'rgb(var(--container-bg-color))',
     nprogress: 'rgb(var(--nprogress-color))',
   },
 };

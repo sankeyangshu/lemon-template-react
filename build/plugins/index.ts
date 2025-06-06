@@ -1,6 +1,7 @@
 import React from '@vitejs/plugin-react';
 import UnoCSS from 'unocss/vite';
-import mockDevServerPlugin from 'vite-plugin-mock-dev-server';
+import VitePluginImp from 'vite-plugin-imp';
+import { mockDevServerPlugin } from 'vite-plugin-mock-dev-server';
 import ViteRestart from 'vite-plugin-restart';
 import TsconfigPaths from 'vite-tsconfig-paths';
 import { configCompressPlugin } from './compress';
@@ -23,6 +24,19 @@ export const createVitePlugins = (viteEnv: Env.ImportMeta, isBuild: boolean) => 
     UnoCSS(),
 
     TsconfigPaths(),
+
+    VitePluginImp({
+      libList: [
+        {
+          libName: '@nutui/nutui-react',
+          style: (name) => {
+            return `@nutui/nutui-react/dist/es/packages/${name.toLowerCase()}/style/css`;
+          },
+          replaceOldImport: false,
+          camel2DashComponentName: false,
+        },
+      ],
+    }),
 
     // 通过这个插件，在修改vite.config.ts文件则不需要重新运行也生效配置
     ViteRestart({

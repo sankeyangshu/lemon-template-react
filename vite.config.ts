@@ -41,8 +41,8 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
             appSelector: '#root',
             viewportWidth: 375,
             maxDisplayWidth: 600,
-            selectorBlackList: ['.ignore', 'keep-px'],
-            rootContainingBlockSelectorList: [], // TODO: 需要替换成antd mobile的组件
+            selectorBlackList: ['.ignore', 'keep-px', 'nut-'],
+            rootContainingBlockSelectorList: [],
             valueBlackList: ['1px solid'],
           }),
         ],

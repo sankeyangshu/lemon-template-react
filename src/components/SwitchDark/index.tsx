@@ -1,17 +1,50 @@
-import { Switch } from 'react-vant';
-import { useSettingStore } from '@/store/setting';
+import { Segmented, Switch } from '@nutui/nutui-react';
+import { ThemeMode } from 'ahooks/lib/useTheme';
+import { useThemeContext } from '@/provider/Theme/utils';
+import SvgIcon from '../SvgIcon';
+import type { ThemeModeType } from 'ahooks/lib/useTheme';
+import type { FC } from 'react';
 
-const SwitchDark = () => {
-  const darkMode = useSettingStore((state) => state.darkMode);
-  const setThemeDark = useSettingStore((state) => state.setThemeDark);
+interface Props {
+  mode?: 'Switch' | 'Segmented';
+}
 
-  const isDark = darkMode === 'dark';
+export const icons: Record<ThemeModeType, string> = {
+  dark: 'moon',
+  light: 'sunny',
+  system: 'sun-moon',
+};
+
+const options = Object.values(ThemeMode).map((item) => {
+  return {
+    label: (
+      <div className="w-70 flex justify-center">
+        <SvgIcon className="h-32 text-22" localIcon={icons[item]} />
+      </div>
+    ),
+    value: item,
+  };
+});
+
+const SwitchDark: FC<Props> = ({ mode = 'Switch' }) => {
+  const { themeScheme, darkMode, setThemeScheme } = useThemeContext();
+
+  if (mode === 'Segmented') {
+    return (
+      <Segmented
+        className="bg-layout"
+        options={options}
+        value={themeScheme}
+        onChange={(val) => setThemeScheme(val as ThemeMode)}
+      />
+    );
+  }
 
   const onChangeDarkMode = (checked: boolean) => {
-    setThemeDark(checked ? 'dark' : 'light');
+    setThemeScheme(checked ? 'dark' : 'light');
   };
 
-  return <Switch size="20" checked={isDark} onChange={onChangeDarkMode} />;
+  return <Switch checked={darkMode} onChange={onChangeDarkMode} />;
 };
 
 export default SwitchDark;

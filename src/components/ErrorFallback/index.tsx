@@ -13,7 +13,9 @@ const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
       <img className="w-full" src={errorBg} alt="error" />
 
       {isDev ? (
-        <div className="text-red-500">{error.message}</div>
+        <div className="max-w-full break-words px-4 text-red-500 leading-relaxed">
+          {error.message}
+        </div>
       ) : (
         <h3>{t('system.errorFallback')}</h3>
       )}

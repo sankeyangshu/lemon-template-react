@@ -1,4 +1,9 @@
+import page from './page';
+import router from './router';
+
 const local = {
+  router,
+  page,
   api: {
     errMsg400: 'Request failed! Please try again later',
     errMsg401: 'Login failed! Please log in again',
@@ -14,6 +19,7 @@ const local = {
     errMsgDefault: 'Request failed!',
   },
   system: {
+    title: 'Lemon Template',
     goHome: 'Go Home',
     checkUrl: 'Please check if the URL address is correct, or click to go back to the home page.',
     forbidden: 'You do not have access to this page!',
@@ -21,6 +27,7 @@ const local = {
     serverError: 'The server is experiencing a small problem, please try again later!',
     errorFallback: 'Sorry, an error occurred, please try again later!',
     refreshAgain: 'Refresh again',
+    loading: 'Loading...',
   },
 };
 

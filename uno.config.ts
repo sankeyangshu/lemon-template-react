@@ -10,6 +10,7 @@ import {
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss';
+import { themeVars } from './src/theme';
 
 export default defineConfig({
   presets: [
@@ -36,6 +37,10 @@ export default defineConfig({
     'flex-y-center': 'flex items-center',
     'text-overflow': 'overflow-hidden whitespace-nowrap text-ellipsis',
     'text-break': 'whitespace-normal break-all break-words',
+  },
+
+  theme: {
+    ...themeVars,
   },
 
   transformers: [transformerDirectives(), transformerVariantGroup(), transformerAttributifyJsx()],

@@ -6,7 +6,7 @@ import Mock from 'mockjs';
  * @param param1 message 消息
  * @returns result
  */
-export function resultSuccess<T = Recordable>(result: T, { message = 'success' } = {}) {
+export function resultSuccess<T>(result: Record<string, T>, { message = 'success' } = {}) {
   return Mock.mock({
     code: 0,
     data: result,

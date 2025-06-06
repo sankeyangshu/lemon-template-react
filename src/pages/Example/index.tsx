@@ -2,12 +2,16 @@ import { ArrowRight } from '@nutui/icons-react';
 import { Cell, Picker } from '@nutui/nutui-react';
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import SwitchDark from '@/components/SwitchDark';
 import { useLanguageContext } from '@/provider/LangProvider/utils';
+import { useRouter } from '@/routers/hooks';
 import type { PickerValue } from '@nutui/nutui-react';
 
 const Example = () => {
   // 使用i18n全局函数
   const { t } = useTranslation();
+
+  const router = useRouter();
 
   const { locale, localeOptions, setLocale } = useLanguageContext();
 
@@ -35,7 +39,7 @@ const Example = () => {
   return (
     <div className="box-border p-20">
       <Cell.Group title={t('page.example.basicSetting')}>
-        <Cell title={`🌓 ${t('page.example.darkMode')}`} extra="描述文字" />
+        <Cell title={`🌓 ${t('page.example.darkMode')}`} extra={<SwitchDark />} />
         <Cell
           title={`📚 ${t('page.example.language')}`}
           clickable
@@ -46,7 +50,13 @@ const Example = () => {
 
       <Cell.Group title={t('page.example.exampleComponent')}>
         {menuItems.map((item) => (
-          <Cell key={item.route} title={item.title} clickable extra={<ArrowRight />} />
+          <Cell
+            key={item.route}
+            title={item.title}
+            clickable
+            extra={<ArrowRight />}
+            onClick={() => router.push(`/${item.route}`)}
+          />
         ))}
       </Cell.Group>
 

@@ -1,4 +1,9 @@
+import page from './page';
+import router from './router';
+
 const local = {
+  router,
+  page,
   api: {
     errMsg400: '请求失败！请您稍后重试',
     errMsg401: '登录失效！请您重新登录',
@@ -14,6 +19,7 @@ const local = {
     errMsgDefault: '请求失败！',
   },
   system: {
+    title: 'Lemon 模版',
     goHome: '回到首页',
     checkUrl: '请检查URL地址是否正确, 或点击回到首页。',
     forbidden: '您没有访问权限！',
@@ -21,6 +27,7 @@ const local = {
     serverError: '服务器出小差了，请稍后再试！',
     errorFallback: '抱歉，出错了，请稍后再试！',
     refreshAgain: '刷新重试',
+    loading: '加载中...',
   },
 };
 

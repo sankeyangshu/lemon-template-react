@@ -16,6 +16,7 @@ export const themeSettings: App.Theme.ThemeSetting = {
         'base-text': 'rgb(217, 217, 217)',
         'base-border': 'rgb(65, 66, 67)',
         layout: 'rgb(20, 20, 20)',
+        container: 'rgb(31, 31, 31)',
       },
     },
     light: {
@@ -23,6 +24,7 @@ export const themeSettings: App.Theme.ThemeSetting = {
         'base-text': 'rgb(31, 31, 31)',
         'base-border': 'rgb(246, 246, 246)',
         layout: 'rgb(240, 242, 245)',
+        container: 'rgb(255, 255, 255)',
       },
     },
   },
