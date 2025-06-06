@@ -1,5 +1,5 @@
+import { Toast } from '@nutui/nutui-react';
 import axios from 'axios';
-import { Toast } from 'react-vant';
 import { useUserStore } from '@/store/user';
 import { checkStatus } from './CheckStatus';
 import type { AxiosError, AxiosResponse } from 'axios';
@@ -27,8 +27,9 @@ service.interceptors.request.use(
   },
   (error: AxiosError) => {
     // 请求错误，这里可以用全局提示框进行提示
-    Toast.fail({
-      message: '请求错误，请稍后再试',
+    Toast.show({
+      content: '请求错误，请稍后再试',
+      icon: 'fail',
     });
     return Promise.reject(error);
   }
@@ -54,8 +55,9 @@ service.interceptors.response.use(
     // 响应失败，关闭等待提示
     // 提示错误信息
     if (JSON.stringify(error).includes('Network Error')) {
-      Toast.fail({
-        message: '网络超时',
+      Toast.show({
+        content: '网络超时',
+        icon: 'fail',
       });
     }
     // 根据响应的错误状态码，做不同的处理

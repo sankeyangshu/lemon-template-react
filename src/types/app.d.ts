@@ -8,8 +8,6 @@ declare namespace App {
 
     type RouteObject = import('react-router').RouteObject;
 
-    type LazyComponent = import('react').LazyExoticComponent<React.ComponentType<any>>;
-
     /**
      * route meta info
      * @descCN 路由元信息
@@ -22,10 +20,16 @@ declare namespace App {
       title: string;
 
       /**
-       * fullPath - src/pages/(fullPath)
-       * @descCN 完整路径 - src/pages/(完整路径)
+       * router key - fullPath
+       * @descCN 路由key
        */
       key: string;
+
+      /**
+       * page path - /src/pages/(pagePath)
+       * @descCN 页面路径 - /src/pages/(页面路径)
+       */
+      pagePath?: string;
 
       /**
        * menu icon
@@ -71,10 +75,9 @@ declare namespace App {
      * @descCN 路由对象
      */
     type AppRouteObject = {
-      element?: LazyComponent | React.ReactNode;
       meta?: RouteMeta;
       children?: AppRouteObject[];
-    } & Omit<RouteObject, 'children' | 'element'>;
+    } & Omit<RouteObject, 'children'>;
 
     type Route<
       T = unknown,
@@ -144,6 +147,7 @@ declare namespace App {
       'base-text': string;
       'base-border': string;
       layout: string;
+      container: string;
       nprogress?: string;
     }
 
@@ -211,7 +215,7 @@ declare namespace App {
      * @descCN 语言选项
      */
     type LangOption = {
-      key: LangType;
+      value: LangType;
       label: string;
     };
   }

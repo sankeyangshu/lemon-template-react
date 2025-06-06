@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { postLoginAPI, type loginDataType, type userInfoType } from '@/api/System/user';
+import { addPrefix } from '@/utils/storage';
 
 /**
  * 用户信息store类型
@@ -38,7 +39,7 @@ export const useUserStore = create<usersStoreType>()(
     }),
     {
       // 进行持久化存储
-      name: 'userStorage', // 本地存储的名称
+      name: addPrefix('userStorage'), // 本地存储的名称
     }
   )
 );

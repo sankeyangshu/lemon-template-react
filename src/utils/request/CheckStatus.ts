@@ -1,4 +1,4 @@
-import { Toast } from 'react-vant';
+import { Toast } from '@nutui/nutui-react';
 import { i18n } from '@/locales';
 
 /**
@@ -14,39 +14,75 @@ export const checkStatus = (status: number, msg?: string | Array<string>): void 
 
   switch (status) {
     case 400:
-      Toast.fail(errMsg || i18n.t('api.errMsg400'));
+      Toast.show({
+        content: errMsg || i18n.t('api.errMsg400'),
+        icon: 'fail',
+      });
       break;
     case 401:
-      Toast.fail(errMsg || i18n.t('api.errMsg401'));
+      Toast.show({
+        content: errMsg || i18n.t('api.errMsg401'),
+        icon: 'fail',
+      });
       break;
     case 403:
-      Toast.fail(errMsg || i18n.t('api.errMsg403'));
+      Toast.show({
+        content: errMsg || i18n.t('api.errMsg403'),
+        icon: 'fail',
+      });
       break;
     case 404:
-      Toast.fail(errMsg || i18n.t('api.errMsg404'));
+      Toast.show({
+        content: errMsg || i18n.t('api.errMsg404'),
+        icon: 'fail',
+      });
       break;
     case 405:
-      Toast.fail(errMsg || i18n.t('api.errMsg405'));
+      Toast.show({
+        content: errMsg || i18n.t('api.errMsg405'),
+        icon: 'fail',
+      });
       break;
     case 408:
-      Toast.fail(errMsg || i18n.t('api.errMsg408'));
+      Toast.show({
+        content: errMsg || i18n.t('api.errMsg408'),
+        icon: 'fail',
+      });
       break;
     case 500:
-      Toast.fail(errMsg || i18n.t('api.errMsg500'));
+      Toast.show({
+        content: errMsg || i18n.t('api.errMsg500'),
+        icon: 'fail',
+      });
       break;
     case 501:
-      Toast.fail(errMsg || i18n.t('api.errMsg501'));
+      Toast.show({
+        content: errMsg || i18n.t('api.errMsg501'),
+        icon: 'fail',
+      });
       break;
     case 502:
-      Toast.fail(errMsg || i18n.t('api.errMsg502'));
+      Toast.show({
+        content: errMsg || i18n.t('api.errMsg502'),
+        icon: 'fail',
+      });
       break;
     case 503:
-      Toast.fail(errMsg || i18n.t('api.errMsg503'));
+      Toast.show({
+        content: errMsg || i18n.t('api.errMsg503'),
+        icon: 'fail',
+      });
       break;
     case 504:
-      Toast.fail(errMsg || i18n.t('api.errMsg504'));
+      Toast.show({
+        content: errMsg || i18n.t('api.errMsg504'),
+        icon: 'fail',
+      });
       break;
     default:
-      Toast.fail(errMsg || i18n.t('api.errMsgDefault'));
+      Toast.show({
+        content: errMsg || i18n.t('api.errMsgDefault'),
+        icon: 'fail',
+      });
   }
 };
