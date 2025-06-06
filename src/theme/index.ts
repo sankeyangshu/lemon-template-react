@@ -9,7 +9,7 @@ export const themeSettings: App.Theme.ThemeSetting = {
     success: '#52c41a',
     warning: '#faad14',
   },
-  themeColor: '#16a085',
+  themeColor: '#009688',
   tokens: {
     dark: {
       colors: {

@@ -10,7 +10,7 @@ import { localStg } from '@/utils/storage';
 const Loading = () => {
   const { t } = useTranslation();
 
-  const themeColor = localStg.getItem('themeColor') || '#16a085';
+  const themeColor = localStg.getItem('themeColor') || '#009688';
 
   const darkMode = localStg.getItem('darkMode') || false;
 

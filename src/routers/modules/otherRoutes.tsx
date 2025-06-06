@@ -35,15 +35,24 @@ const otherRoutes: App.Global.AppRouteObject[] = [
     },
   },
   {
-    path: '/login',
+    path: 'theme',
+    meta: {
+      title: '主题设置',
+      key: 'ThemeSetting',
+      pagePath: 'ThemeSetting/index.tsx',
+      i18n: 'themeSetting',
+    },
+  },
+  {
+    path: 'login',
     meta: { title: '登录', key: 'Login', pagePath: 'Login/index.tsx', i18n: 'login' },
   },
   {
-    path: '/register',
+    path: 'register',
     meta: { title: '注册', key: 'Register', pagePath: 'Login/register.tsx', i18n: 'register' },
   },
   {
-    path: '/forgetPassword',
+    path: 'forgetPassword',
     meta: {
       title: '忘记密码',
       key: 'ForgetPassword',

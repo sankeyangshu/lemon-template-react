@@ -1,7 +1,7 @@
 import { useDebounceFn, useSize } from 'ahooks';
-import { useEffect, useMemo, useRef, useState, type RefObject } from 'react';
+import { useEffect, useRef, useState, type RefObject } from 'react';
 import echarts from '@/plugins/ECharts';
-import { useSettingStore } from '@/store/setting';
+import { useThemeContext } from '@/provider/Theme/utils';
 import type { EChartsCoreOption, EChartsInitOpts, SetOptionOpts } from 'echarts';
 
 interface ConfigPropsType {
@@ -35,11 +35,6 @@ interface ConfigPropsType {
    * @default 500
    */
   maxResizeDebounceWait?: number;
-  /**
-   * 主题模式
-   * @default 'default'
-   */
-  themeMode?: 'dark' | 'light' | 'default';
 }
 
 /**
@@ -59,15 +54,9 @@ export const useECharts = (
     autoResize = true,
     resizeDebounceWait = 300,
     maxResizeDebounceWait = 500,
-    themeMode = 'default',
   } = config;
 
-  const darkMode = useSettingStore((state) => state.darkMode);
-
-  /** 当前主题 */
-  const currentTheme = useMemo(() => {
-    return themeMode === 'default' ? darkMode : themeMode;
-  }, [themeMode, darkMode]);
+  const { themeScheme: currentTheme } = useThemeContext();
 
   /** 图表实例 */
   const chartInstance = useRef<echarts.ECharts | null>(null);

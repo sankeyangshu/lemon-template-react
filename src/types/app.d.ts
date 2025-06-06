@@ -197,6 +197,18 @@ declare namespace App {
         light: ThemeSettingToken;
       };
     }
+
+    /**
+     * page animate
+     * @descCN 动画设置
+     */
+    type PageAnimate =
+      | 'zoom-fade'
+      | 'zoom-out'
+      | 'fade-slide'
+      | 'fade'
+      | 'fade-bottom'
+      | 'fade-scale';
   }
 
   /**

@@ -1,6 +1,7 @@
-import { Segmented, Switch } from '@nutui/nutui-react';
+import { Switch } from '@nutui/nutui-react';
 import { ThemeMode } from 'ahooks/lib/useTheme';
 import { useThemeContext } from '@/provider/Theme/utils';
+import Segmented from '../Segmented';
 import SvgIcon from '../SvgIcon';
 import type { ThemeModeType } from 'ahooks/lib/useTheme';
 import type { FC } from 'react';
@@ -32,7 +33,6 @@ const SwitchDark: FC<Props> = ({ mode = 'Switch' }) => {
   if (mode === 'Segmented') {
     return (
       <Segmented
-        className="bg-layout"
         options={options}
         value={themeScheme}
         onChange={(val) => setThemeScheme(val as ThemeMode)}

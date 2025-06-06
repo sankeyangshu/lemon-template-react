@@ -18,6 +18,30 @@ export interface settingsStoreType {
    * @descCN 设置主题颜色
    */
   setThemeColor: (key: App.Theme.ThemeColorKey, val: string) => void;
+
+  /**
+   * 是否开启页面动画
+   * @descCN 是否开启页面动画
+   */
+  isPageAnimate: boolean;
+
+  /**
+   * 页面动画类型
+   * @descCN 页面动画类型
+   */
+  pageAnimate: App.Theme.PageAnimate;
+
+  /**
+   * 设置是否开启页面动画
+   * @descCN 设置是否开启页面动画
+   */
+  setIsPageAnimate: (val: boolean) => void;
+
+  /**
+   * 设置页面动画类型
+   * @descCN 设置页面动画类型
+   */
+  setPageAnimate: (val: App.Theme.PageAnimate) => void;
 }
 
 export const useSettingStore = create<settingsStoreType>()(
@@ -33,6 +57,18 @@ export const useSettingStore = create<settingsStoreType>()(
         const newThemeColor = { ...themeColor, [key]: val };
 
         set({ themeColor: newThemeColor });
+      },
+
+      isPageAnimate: true,
+
+      pageAnimate: 'zoom-fade',
+
+      setIsPageAnimate: (val: boolean) => {
+        set({ isPageAnimate: val });
+      },
+
+      setPageAnimate: (val: App.Theme.PageAnimate) => {
+        set({ pageAnimate: val });
       },
     }),
     {
