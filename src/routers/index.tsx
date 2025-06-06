@@ -2,11 +2,11 @@ import { lazy, Suspense } from 'react';
 import { createHashRouter, Navigate, Outlet, RouterProvider } from 'react-router';
 import AdminLayout from '@/layout';
 import { usePermissionRoutes } from './hooks';
-import Loading from './utils/Loading';
 import type { RouteObject } from 'react-router';
 
 const { VITE_APP_HOMEPAGE: HOMEPAGE } = import.meta.env;
 
+const Loading = lazy(() => import('./utils/Loading'));
 const Page403 = lazy(() => import('@/pages/ErrorPages/403'));
 const Page404 = lazy(() => import('@/pages/ErrorPages/404'));
 const Page500 = lazy(() => import('@/pages/ErrorPages/500'));
