@@ -23,6 +23,10 @@ const LangProvider: FC<PropsWithChildren> = ({ children }) => {
     setLocale(lang);
 
     localStg.setItem('language', lang);
+
+    if (!import.meta.env.DEV) {
+      window.pluginWebUpdateNotice_.setLocale(lang);
+    }
   };
 
   return (

@@ -58,7 +58,7 @@ const page = {
     tips: 'Tips',
     logout: 'Log Out',
     systemVersion: 'System Version',
-    projectDocs: 'Project Documentation',
+    projectDocs: 'Project Docs',
   },
   themeSetting: {
     themeMode: 'Theme Mode',

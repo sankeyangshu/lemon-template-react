@@ -20,6 +20,11 @@ declare namespace Env {
      */
     readonly VITE_BASE_URL: string;
     /**
+     * The output directory of the application
+     * @descCN 打包应用输出目录
+     */
+    readonly VITE_OUTPUT_DIR: string;
+    /**
      * The port of the application
      * @descCN 应用端口
      */

@@ -22,7 +22,8 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
   const env = loadEnv(mode, root) as unknown as Env.ImportMeta;
   const viteEnv = wrapperEnv(env);
 
-  const { VITE_BASE_URL, VITE_DROP_CONSOLE, VITE_PORT, VITE_PROXY, VITE_OPEN } = viteEnv;
+  const { VITE_BASE_URL, VITE_OUTPUT_DIR, VITE_DROP_CONSOLE, VITE_PORT, VITE_PROXY, VITE_OPEN } =
+    viteEnv;
   const isBuild = command === 'build';
 
   return {
@@ -71,7 +72,7 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
     build: {
       minify: 'esbuild',
       sourcemap: false,
-      outDir: 'dist',
+      outDir: VITE_OUTPUT_DIR || 'dist',
       reportCompressedSize: false,
       chunkSizeWarningLimit: 2000,
       rollupOptions: {

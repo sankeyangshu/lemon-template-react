@@ -1,5 +1,4 @@
 import { createHtmlPlugin } from 'vite-plugin-html';
-import pkg from '../../package.json';
 import type { PluginOption } from 'vite';
 
 /**
@@ -11,15 +10,7 @@ import type { PluginOption } from 'vite';
  * @see https://github.com/vbenjs/vite-plugin-html
  */
 export function configHtmlPlugin(env: Env.ImportMeta, isBuild: boolean) {
-  const { VITE_APP_TITLE, VITE_BASE_URL } = env;
-
-  const path = VITE_BASE_URL.endsWith('/') ? VITE_BASE_URL : `${VITE_BASE_URL}/`;
-
-  const GLOB_CONFIG_FILE_NAME = 'app.config.js';
-
-  const getAppConfigSrc = () => {
-    return `${path || '/'}${GLOB_CONFIG_FILE_NAME}?v=${pkg.version}-${new Date().getTime()}`;
-  };
+  const { VITE_APP_TITLE } = env;
 
   const htmlPlugin: PluginOption[] = createHtmlPlugin({
     minify: isBuild,
@@ -30,17 +21,30 @@ export function configHtmlPlugin(env: Env.ImportMeta, isBuild: boolean) {
         title: VITE_APP_TITLE,
       },
 
-      // Embed the generated app.config.js file 需要注入的标签列表
-      tags: isBuild
-        ? [
-            {
-              tag: 'script',
-              attrs: {
-                src: getAppConfigSrc(),
-              },
-            },
-          ]
-        : [],
+      // 需要注入的标签列表
+      tags: [
+        {
+          tag: 'meta',
+          attrs: {
+            'http-equiv': 'Cache-Control',
+            content: 'no-cache, no-store, must-revalidate',
+          },
+        },
+        {
+          tag: 'meta',
+          attrs: {
+            'http-equiv': 'Pragma',
+            content: 'no-cache',
+          },
+        },
+        {
+          tag: 'meta',
+          attrs: {
+            'http-equiv': 'Expires',
+            content: '0',
+          },
+        },
+      ],
     },
   });
 

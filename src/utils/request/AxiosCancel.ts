@@ -1,13 +1,14 @@
 import axios from 'axios';
+import { isFunction } from 'es-toolkit';
 import qs from 'qs';
-import { isFunction } from '@/utils/is';
 import type { AxiosRequestConfig, Canceler } from 'axios';
 
 // Store pending requests
 let pendingMap = new Map<string, Canceler>();
 
 /**
- * Get the unique identifier for the request (获取请求的唯一标识)
+ * Get the unique identifier for the request
+ * @descCN 获取请求的唯一标识
  * @param {AxiosRequestConfig} config Request configuration (请求配置)
  * @returns {string} Request identifier (请求的唯一标识)
  */
@@ -15,8 +16,9 @@ export const getPendingUrl = (config: AxiosRequestConfig): string =>
   [config.method, config.url, qs.stringify(config.data), qs.stringify(config.params)].join('&');
 
 /**
- * Remove request from pending map (从Map中移除请求)
- * @param {AxiosRequestConfig} config Request configuration (请求配置)
+ * Remove request from pending map
+ * @descCN 从Map中移除请求
+ * @param {AxiosRequestConfig} config Request configuration
  */
 export const removePending = (config: AxiosRequestConfig): void => {
   const url = getPendingUrl(config);
@@ -30,8 +32,9 @@ export const removePending = (config: AxiosRequestConfig): void => {
 };
 
 /**
- * Add request to pending map (添加请求到Map中)
- * @param {AxiosRequestConfig} config Request configuration (请求配置)
+ * Add request to pending map
+ * @descCN 添加请求到Map中
+ * @param {AxiosRequestConfig} config Request configuration
  */
 export const addPending = (config: AxiosRequestConfig): void => {
   removePending(config);
@@ -46,7 +49,8 @@ export const addPending = (config: AxiosRequestConfig): void => {
 };
 
 /**
- * Remove all pending requests (移除所有pending中的请求)
+ * Remove all pending requests
+ * @descCN 移除所有pending中的请求
  */
 export const removeAllPending = (): void => {
   pendingMap.forEach((cancel) => {
@@ -58,7 +62,8 @@ export const removeAllPending = (): void => {
 };
 
 /**
- * Reset pending map (重置Map)
+ * Reset pending map
+ * @descCN 重置Map
  */
 export const reset = (): void => {
   removeAllPending();

@@ -6,7 +6,9 @@ import ViteRestart from 'vite-plugin-restart';
 import TsconfigPaths from 'vite-tsconfig-paths';
 import { configCompressPlugin } from './compress';
 import { configHtmlPlugin } from './html';
+import { configInfoPlugin } from './info';
 import { configSvgIconsPlugin } from './svgPlugin';
+import { configAppUpdatePlugin } from './update';
 import type { PluginOption } from 'vite';
 
 /**
@@ -42,17 +44,20 @@ export const createVitePlugins = (viteEnv: Env.ImportMeta, isBuild: boolean) => 
     ViteRestart({
       restart: ['vite.config.ts'],
     }),
-  ];
 
-  // 加载 html 插件 vite-plugin-html
-  vitePlugins.push(configHtmlPlugin(viteEnv, isBuild));
+    configSvgIconsPlugin(viteEnv, isBuild),
+
+    configHtmlPlugin(viteEnv, isBuild),
+
+    configAppUpdatePlugin(viteEnv),
+
+    configInfoPlugin(),
+  ];
 
   // 是否开启 mock 服务  https://github.com/pengzhanbo/vite-plugin-mock-dev-server
   if (VITE_USE_MOCK) {
     vitePlugins.push(mockDevServerPlugin());
   }
-
-  vitePlugins.push(configSvgIconsPlugin(viteEnv, isBuild));
 
   if (isBuild) {
     // 创建打包压缩配置
