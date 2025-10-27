@@ -7,15 +7,17 @@ const httpsRE = /^https:\/\//;
 /**
  * Generate proxy
  * @descCN 创建代理，用于解析 .env.development 代理配置
- * @param {Env.ImportMeta['VITE_PROXY']} list 代理地址列表
+ * @param list 代理地址列表
  */
 export function createProxy(list: Env.ImportMeta['VITE_PROXY'] = []) {
   const ret: ProxyTargetList = {};
 
-  if (!list.length) return undefined;
+  if (!Array.isArray(list) || !list.length)
+    return undefined;
 
   for (const [prefix, target] of list) {
     const isHttps = httpsRE.test(target);
+
     // https://github.com/http-party/node-http-proxy#options
     ret[prefix] = {
       target,
