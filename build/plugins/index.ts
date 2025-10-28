@@ -1,5 +1,6 @@
 import type { PluginOption } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
+import { tanstackRouter } from '@tanstack/router-plugin/vite';
 import react from '@vitejs/plugin-react';
 import viteRestart from 'vite-plugin-restart';
 import { setupHtmlPluginConfig } from './html';
@@ -15,6 +16,12 @@ import { setupVConsolePlugin } from './vconsole';
  */
 export function createVitePlugins(viteEnv: Env.ImportMeta, lastBuildTime: string) {
   const vitePlugins: PluginOption = [
+    tanstackRouter({
+      target: 'react',
+      autoCodeSplitting: true,
+      routesDirectory: './src/pages',
+      routeFileIgnorePrefix: 'components',
+    }),
 
     react({
       babel: {
