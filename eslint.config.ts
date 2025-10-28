@@ -1,4 +1,5 @@
 import antfu from '@antfu/eslint-config';
+import pluginTailwindcss from 'eslint-plugin-better-tailwindcss';
 
 export default antfu(
   {
@@ -19,6 +20,23 @@ export default antfu(
     rules: {
       'style/arrow-parens': ['error', 'always'], // 箭头函数参数始终添加括号
       'style/brace-style': ['error', '1tbs', { allowSingleLine: true }], // 括号样式
+    },
+  },
+  {
+    plugins: {
+      'better-tailwindcss': pluginTailwindcss,
+    },
+    rules: {
+      // enable all recommended rules to report an error
+      ...pluginTailwindcss.configs['recommended-error'].rules,
+
+      // or configure rules individually
+      'better-tailwindcss/enforce-consistent-line-wrapping': ['warn', { printWidth: 100 }],
+    },
+    settings: {
+      'better-tailwindcss': {
+        entryPoint: 'src/styles/global.css',
+      },
     },
   },
 );
