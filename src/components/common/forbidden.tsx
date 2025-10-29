@@ -1,25 +1,28 @@
 import { Link } from '@tanstack/react-router';
+import { useTranslation } from 'react-i18next';
 import forbidden from '@/assets/svg-icon/forbidden.svg';
 
 function Forbidden() {
+  const { t } = useTranslation();
+
   const elements = [
     {
       id: 'title',
       content: (
         <div className="mb-5 text-xl leading-10 font-bold text-primary">
-          您没有访问权限！
+          {t('system.forbidden')}
         </div>
       ),
     },
     {
       id: 'description',
-      content: <div className="mb-7.5 text-sm leading-5 text-gray-500">请检查URL地址是否正确, 或点击回到首页。</div>,
+      content: <div className="mb-7.5 text-sm leading-5 text-gray-500">{t('system.checkUrl')}</div>,
     },
     {
       id: 'link',
       content: (
         <Link to="/">
-          <button className="btn btn-sm btn-primary">回到首页</button>
+          <button className="btn btn-sm btn-primary">{t('system.goHome')}</button>
         </Link>
       ),
     },

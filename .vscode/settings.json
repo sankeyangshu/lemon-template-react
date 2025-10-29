@@ -57,5 +57,16 @@
   },
   "search.exclude": {
     "**/routeTree.gen.ts": true
+  },
+
+  // i18n-ally settings
+  "i18n-ally.displayLanguage": "zh-cn",
+  "i18n-ally.enabledParsers": ["ts"],
+  "i18n-ally.enabledFrameworks": ["react-i18next"],
+  "i18n-ally.extract.targetPickingStrategy": "most-similar",
+  "i18n-ally.localesPaths": ["src/locales/modules"],
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.parsers.typescript.compilerOptions": {
+    "moduleResolution": "node"
   }
 }

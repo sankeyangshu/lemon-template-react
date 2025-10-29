@@ -1,25 +1,28 @@
 import { Link } from '@tanstack/react-router';
+import { useTranslation } from 'react-i18next';
 import serverError from '@/assets/svg-icon/server-error.svg';
 
 function ServerError() {
+  const { t } = useTranslation();
+
   const elements = [
     {
       id: 'title',
       content: (
         <div className="mb-5 text-xl leading-10 font-bold text-primary">
-          服务器出小差了，请稍后再试！
+          {t('system.serverError')}
         </div>
       ),
     },
     {
       id: 'description',
-      content: <div className="mb-7.5 text-sm leading-5 text-gray-500">请检查URL地址是否正确, 或点击回到首页。</div>,
+      content: <div className="mb-7.5 text-sm leading-5 text-gray-500">{t('system.checkUrl')}</div>,
     },
     {
       id: 'link',
       content: (
         <Link to="/">
-          <button className="btn btn-sm btn-primary">回到首页</button>
+          <button className="btn btn-sm btn-primary">{t('system.goHome')}</button>
         </Link>
       ),
     },
