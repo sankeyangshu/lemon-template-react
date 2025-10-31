@@ -20,7 +20,6 @@ export function createVitePlugins(viteEnv: Env.ImportMeta, lastBuildTime: string
       target: 'react',
       autoCodeSplitting: true,
       routesDirectory: './src/pages',
-      routeFileIgnorePrefix: 'components',
     }),
 
     react({

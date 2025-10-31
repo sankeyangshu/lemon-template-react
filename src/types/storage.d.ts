@@ -5,6 +5,10 @@
 declare namespace StorageType {
   type ThemeMode = import('ahooks/lib/useTheme').ThemeModeType;
 
+  /**
+   * The local storage
+   * @descCN 本地存储
+   */
   interface Local {
     /**
      * The dark mode
