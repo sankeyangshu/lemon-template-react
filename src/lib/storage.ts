@@ -1,26 +1,17 @@
-const storagePrefix = import.meta.env.VITE_STORAGE_PREFIX || '';
-
 /**
  * The storage type
  * @descCN 存储类型
  */
-export type StorageType = 'local' | 'session';
-
-/**
- * add prefix to key
- * @descCN 添加前缀到key
- * @param key key
- * @returns key with prefix
- */
-export const addPrefix = (key: string) => `${storagePrefix}${key}`;
+type StorageType = 'local' | 'session';
 
 /**
  * create storage
  * @descCN 创建storage
- * @param type storage type
+ * @param type storage type local or session
+ * @param storagePrefix storage prefix
  * @returns storage
  */
-export const createStorage = <T extends object>(type: StorageType) => {
+function createStorage<T extends object>(type: StorageType, storagePrefix: string) {
   const stg = type === 'session' ? window.sessionStorage : window.localStorage;
 
   const storage = {
@@ -31,23 +22,32 @@ export const createStorage = <T extends object>(type: StorageType) => {
      * @returns item
      */
     getItem<K extends keyof T>(key: K): T[K] | null {
-      const result = stg.getItem(addPrefix(key as string));
+      const result = stg.getItem(`${storagePrefix}${key as string}`);
 
-      if (result) {
+      if (result !== null) {
         let value: T[K] | null = null;
 
         try {
-          value = JSON.parse(result);
+          value = JSON.parse(result) as T[K];
         } catch {}
 
         if (value) {
-          return value as T[K];
+          return value;
         }
       }
 
-      stg.removeItem(addPrefix(key as string));
+      stg.removeItem(`${storagePrefix}${key as string}`);
 
       return null;
+    },
+    /**
+     * get item key
+     * @descCN 获取item key
+     * @param key key
+     * @returns item key
+     */
+    getItemKey<K extends keyof T>(key: K) {
+      return `${storagePrefix}${key as string}`;
     },
     /**
      * set item to localStorage
@@ -56,7 +56,7 @@ export const createStorage = <T extends object>(type: StorageType) => {
      * @param value value
      */
     setItem<K extends keyof T>(key: K, value: T[K]) {
-      stg.setItem(addPrefix(key as string), JSON.stringify(value));
+      stg.setItem(`${storagePrefix}${key as string}`, JSON.stringify(value));
     },
     /**
      * remove item from localStorage
@@ -64,7 +64,7 @@ export const createStorage = <T extends object>(type: StorageType) => {
      * @param key key
      */
     removeItem(key: keyof T) {
-      stg.removeItem(addPrefix(key as string));
+      stg.removeItem(`${storagePrefix}${key as string}`);
     },
     /**
      * clear all items from localStorage
@@ -76,10 +76,10 @@ export const createStorage = <T extends object>(type: StorageType) => {
   };
 
   return storage;
-};
+}
 
 /**
  * The local storage
  * @descCN 本地存储
  */
-export const localStg = createStorage<StorageType.Local>('local');
+export const localStg = createStorage<StorageType.Local>('local', import.meta.env.VITE_STORAGE_PREFIX ?? '');
