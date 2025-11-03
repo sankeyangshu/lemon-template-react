@@ -1,19 +1,29 @@
-import { LazyAnimate } from './components/Animate';
-import LangProvider from './provider/LangProvider';
-import ThemeProvider from './provider/Theme';
-import UIConfigProvider from './provider/UIprovider';
-import Router from './routers';
+import { createRouter, RouterProvider } from '@tanstack/react-router';
+import NotFound from './components/common/not-found';
+import ServerError from './components/common/server-error';
+import { ThemeProvider } from './components/common/theme-provider';
+import { routeTree } from './routeTree.gen';
+
+// Set up a Router instance
+const router = createRouter({
+  routeTree,
+  defaultPreload: 'intent',
+  scrollRestoration: true,
+  defaultNotFoundComponent: NotFound,
+  defaultErrorComponent: ServerError,
+});
+
+// Register the router instance for type safety
+declare module '@tanstack/react-router' {
+  interface Register {
+    router: typeof router;
+  }
+}
 
 function App() {
   return (
     <ThemeProvider>
-      <LangProvider>
-        <UIConfigProvider>
-          <LazyAnimate>
-            <Router />
-          </LazyAnimate>
-        </UIConfigProvider>
-      </LangProvider>
+      <RouterProvider router={router} />
     </ThemeProvider>
   );
 }

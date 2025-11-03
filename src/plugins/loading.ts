@@ -11,7 +11,7 @@ export function setupLoading() {
       <div class="absolute inset-0 rounded-sm bg-primary" style="animation: jump-loader 0.5s linear infinite;"></div>
       <div class="absolute left-0 top-15 h-[5px] w-12 rounded-[50%] bg-primary/30" style="animation: shadow-loader 0.5s linear infinite;"></div>
     </div>
-    <div class="text-2xl font-medium text-base-content">${i18n.t('system.title')}</div>
+    <div class="text-2xl font-medium text-primary/80">${i18n.t('system.title')}</div>
   </div>
   <style>
     @keyframes jump-loader {
