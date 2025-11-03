@@ -73,7 +73,7 @@ const Tabbar: FC<TabbarProps> = (props) => {
     defaultValue: 0,
     zIndex: 10,
     activeColor: 'var(--color-primary)',
-    inactiveColor: 'var(--color-primary-content)',
+    inactiveColor: 'var(--color-base-content)',
     ...props,
   };
 
@@ -115,7 +115,10 @@ const Tabbar: FC<TabbarProps> = (props) => {
       }}
       >
         <div
-          className={cn('box-border flex h-12.5 w-full bg-base-300', {
+          className={cn(`
+            box-border flex h-12.5 w-full bg-white
+            dark:bg-[#1C1C1E]
+          `, {
             'fixed bottom-0 left-0 w-full px-4': fixed,
             'pb-safe': enableSafeArea(),
           }, className)}

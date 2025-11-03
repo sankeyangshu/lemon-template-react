@@ -142,7 +142,8 @@ const NavBar: FC<NavBarProps> = (props) => {
       <div
         className={cn(`
           relative box-border flex h-11 w-full flex-row items-center justify-between overflow-hidden
-          bg-base-300 px-4 text-sm text-base-content
+          bg-white px-4 text-sm text-base-content
+          dark:bg-[#1C1C1E]
         `, {
           'fixed top-0 left-0 w-full': fixed,
           'pt-safe': safeAreaInsetTop,

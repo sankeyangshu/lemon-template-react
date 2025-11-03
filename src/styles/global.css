@@ -1,0 +1,59 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@plugin "daisyui" {
+  themes:
+    light --default,
+    dark --prefersdark;
+  logs: false;
+}
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+  --color-background: oklch(0.9612 0.0041 271.37);
+}
+
+[data-theme='dark'] {
+  --color-background: oklch(0.1913 0 0);
+}
+
+@layer base {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(0 0 0 / 25%) transparent;
+  }
+
+  html {
+    @apply overflow-x-hidden;
+  }
+
+  body,
+  #root {
+    @apply bg-background h-dvh w-full;
+  }
+
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+
+  /* Prevent focus zoom on mobile devices */
+  @media screen and (max-width: 767px) {
+    input,
+    select,
+    textarea {
+      font-size: 16px !important;
+    }
+  }
+}
+
+@utility pt-safe {
+  padding-top: constant(safe-area-inset-top);
+  padding-top: env(safe-area-inset-top);
+}
+
+@utility pb-safe {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}

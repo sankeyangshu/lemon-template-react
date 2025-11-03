@@ -47,9 +47,7 @@ const TabbarItem: FC<TabbarItemProps> = (props) => {
 
   return (
     <div
-      className={cn(`
-        flex h-full flex-1 flex-col items-center justify-center text-sm text-base-content
-      `, props.className)}
+      className={cn(`flex h-full flex-1 flex-col items-center justify-center text-sm`, props.className)}
       style={{ ...props.style, color: active ? ctx?.activeColor : ctx?.inactiveColor }}
       onClick={handleClick}
     >
