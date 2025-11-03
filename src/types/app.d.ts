@@ -19,7 +19,7 @@ declare namespace App {
      * @descCN 语言选项
      */
     interface LangOption {
-      value: LangType;
+      key: LangType;
       label: string;
     }
 
@@ -43,15 +43,29 @@ declare namespace App {
         errMsgDefault: string;
       };
       system: {
-        title: string;
-        goHome: string;
         checkUrl: string;
-        forbidden: string;
-        notFound: string;
-        serverError: string;
         errorFallback: string;
-        refreshAgain: string;
+        forbidden: string;
+        goHome: string;
         loading: string;
+        notFound: string;
+        refreshAgain: string;
+        serverError: string;
+        title: string;
+      };
+      router: {
+        home: string;
+        example: string;
+        mine: string;
+        themeSetting: string;
+        login: string;
+        register: string;
+        forgotPassword: string;
+        mock: string;
+        echarts: string;
+        icon: string;
+        keepAlive: string;
+        notFound: string;
       };
     }
   }

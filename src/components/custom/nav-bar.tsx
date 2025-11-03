@@ -83,14 +83,16 @@ const NavBar: FC<NavBarProps> = (props) => {
           },
         )}
       >
-        {Boolean(leftArrow) && (
-          <div
-            className="flex flex-row items-center justify-center gap-4"
-            onClick={onClickLeft}
-          >
-            {leftArrow}
-          </div>
-        )}
+        {leftArrow !== undefined && leftArrow !== false
+          ? (
+              <div
+                className="flex flex-row items-center justify-center gap-4"
+                onClick={onClickLeft}
+              >
+                {leftArrow}
+              </div>
+            )
+          : null}
         {leftText}
       </div>
     );
