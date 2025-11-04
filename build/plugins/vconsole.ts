@@ -19,20 +19,20 @@ export function setupVConsolePlugin(viteEnv: Env.ImportMeta) {
       theme: 'light',
     },
     dynamicConfig: {
-      theme: `document.querySelectorAll('.dark').length ? 'dark' : 'light'`,
+      theme: `document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'`,
     },
     // If you need to switch themes without refreshing
     eventListener: `
-      const targetElement = document.querySelector('body'); // Select the element to listen to (选择要监听的元素)
+      const targetElement = document.documentElement; // Select the element to listen to (选择要监听的元素)
       const observerOptions = {
         attributes: true, // Listen for property changes (监听属性变化)
-        attributeFilter: ['class'] // Only monitor class attribute changes (只监听 class 属性变化)
+        attributeFilter: ['data-theme'] // Only monitor class attribute changes (只监听 class 属性变化)
       };
 
       // Define callback functions to handle observed changes (定义回调函数来处理观察到的变化)
       function handleAttributeChange(mutationsList, observer) {
         for(let mutation of mutationsList) {
-          if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+          if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
             if (window && window.vConsole) {
               window.vConsole.dynamicChange.value = new Date().getTime();
             }
