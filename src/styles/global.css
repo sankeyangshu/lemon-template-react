@@ -11,40 +11,70 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @theme {
+  /* 背景颜色 */
   --color-background: oklch(0.9612 0.0041 271.37);
+  /* 云朵移动动画 */
+  --animate-cloud-move: cloud-move 6s infinite;
+  /* 星星闪烁动画 */
+  --animate-star-twinkle: star-twinkle 2s infinite;
+
+  @keyframes cloud-move {
+    0% {
+      transform: translateX(0px);
+    }
+    40% {
+      transform: translateX(4px);
+    }
+    80% {
+      transform: translateX(-4px);
+    }
+    100% {
+      transform: translateX(0px);
+    }
+  }
+
+  @keyframes star-twinkle {
+    0% {
+      transform: scale(1);
+    }
+    40% {
+      transform: scale(1.2);
+    }
+    80% {
+      transform: scale(0.8);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
 }
 
 [data-theme='dark'] {
   --color-background: oklch(0.1913 0 0);
 }
 
-@layer base {
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: oklch(0 0 0 / 25%) transparent;
-  }
+* {
+  scrollbar-width: thin;
+  scrollbar-color: oklch(0 0 0 / 25%) transparent;
+}
 
-  html {
-    @apply overflow-x-hidden;
-  }
+html {
+  overflow-x: hidden;
+}
 
-  body,
-  #root {
-    @apply bg-background h-dvh w-full;
-  }
+body,
+#root {
+  background-color: var(--color-background);
+  height: 100dvh;
+  width: 100%;
+}
 
-  button:not(:disabled),
-  [role='button']:not(:disabled) {
-    cursor: pointer;
-  }
-
-  /* Prevent focus zoom on mobile devices */
-  @media screen and (max-width: 767px) {
-    input,
-    select,
-    textarea {
-      font-size: 16px !important;
-    }
+/* Prevent focus zoom on mobile devices(防止移动端输入框聚焦时放大) */
+@media screen and (max-width: 767px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
   }
 }
 

@@ -84,7 +84,7 @@
     "@types/react-dom": "^19.2.2",
     "@vitejs/plugin-react": "^5.1.0",
     "ansis": "^4.2.0",
-    "babel-plugin-react-compiler": "^19.1.0-rc.3",
+    "babel-plugin-react-compiler": "^1.0.0",
     "boxen": "^8.0.1",
     "bumpp": "^10.3.1",
     "daisyui": "^5.4.2",

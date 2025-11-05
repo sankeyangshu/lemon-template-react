@@ -1,6 +1,8 @@
 import { createContext, use, useEffect, useState } from 'react';
 import { localStg } from '@/lib/storage';
 
+export const DARK_MODE_MEDIA_QUERY = '(prefers-color-scheme: dark)';
+
 type Theme = StorageType.Local['themeMode'];
 
 interface ThemeProviderProps {
@@ -39,7 +41,7 @@ export function ThemeProvider({
     };
 
     if (theme === 'system') {
-      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      const mediaQuery = window.matchMedia(DARK_MODE_MEDIA_QUERY);
       const systemTheme = mediaQuery.matches ? 'dark' : 'light';
       applyTheme(systemTheme);
 
