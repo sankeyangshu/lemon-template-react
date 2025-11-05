@@ -1,12 +1,19 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createRouter, RouterProvider } from '@tanstack/react-router';
 import NotFound from './components/common/not-found';
 import ServerError from './components/common/server-error';
 import { ThemeProvider } from './components/common/theme-provider';
 import { routeTree } from './routeTree.gen';
 
+// Create a client
+const queryClient = new QueryClient();
+
 // Set up a Router instance
 const router = createRouter({
   routeTree,
+  context: {
+    queryClient,
+  },
   defaultPreload: 'intent',
   scrollRestoration: true,
   defaultNotFoundComponent: NotFound,
@@ -23,7 +30,9 @@ declare module '@tanstack/react-router' {
 function App() {
   return (
     <ThemeProvider>
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </ThemeProvider>
   );
 }
