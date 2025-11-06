@@ -17,36 +17,6 @@
   --animate-cloud-move: cloud-move 6s infinite;
   /* 星星闪烁动画 */
   --animate-star-twinkle: star-twinkle 2s infinite;
-
-  @keyframes cloud-move {
-    0% {
-      transform: translateX(0px);
-    }
-    40% {
-      transform: translateX(4px);
-    }
-    80% {
-      transform: translateX(-4px);
-    }
-    100% {
-      transform: translateX(0px);
-    }
-  }
-
-  @keyframes star-twinkle {
-    0% {
-      transform: scale(1);
-    }
-    40% {
-      transform: scale(1.2);
-    }
-    80% {
-      transform: scale(0.8);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
 }
 
 [data-theme='dark'] {
@@ -59,14 +29,20 @@
 }
 
 html {
-  overflow-x: hidden;
+  height: 100dvh;
 }
 
-body,
-#root {
+body {
   background-color: var(--color-background);
-  height: 100dvh;
+  height: 100%;
   width: 100%;
+  overflow: hidden;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
 }
 
 /* Prevent focus zoom on mobile devices(防止移动端输入框聚焦时放大) */
@@ -86,4 +62,34 @@ body,
 @utility pb-safe {
   padding-bottom: constant(safe-area-inset-bottom);
   padding-bottom: env(safe-area-inset-bottom);
+}
+
+@keyframes cloud-move {
+  0% {
+    transform: translateX(0px);
+  }
+  40% {
+    transform: translateX(4px);
+  }
+  80% {
+    transform: translateX(-4px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes star-twinkle {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.2);
+  }
+  80% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

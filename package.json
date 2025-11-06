@@ -59,6 +59,7 @@
     "@tanstack/react-query-devtools": "^5.90.2",
     "@tanstack/react-router": "^1.134.9",
     "@tanstack/react-router-devtools": "^1.134.9",
+    "ahooks": "^3.9.6",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "es-toolkit": "^1.41.0",
