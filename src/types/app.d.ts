@@ -67,6 +67,34 @@ declare namespace App {
         keepAlive: string;
         notFound: string;
       };
+      home: {
+        info: string;
+        react: string;
+        typescript: string;
+        reactUI: string;
+        tailwind: string;
+        zustand: string;
+        router: string;
+        hooks: string;
+        utils: string;
+        icons: string;
+        eslint: string;
+        git: string;
+        theme: string;
+        axios: string;
+        loading: string;
+        auth: string;
+      };
+      example: {
+        exampleComponent: string;
+        language: string;
+        darkMode: string;
+        basicSetting: string;
+        keepAliveTips: string;
+        mockTips: string;
+        noData: string;
+        request: string;
+      };
     }
   }
 }

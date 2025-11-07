@@ -3,7 +3,7 @@ import { useEventListener } from 'ahooks';
 import { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 
-interface OverlayProps {
+export interface OverlayProps {
   /**
    * 是否可见
    */

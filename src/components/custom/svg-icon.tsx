@@ -28,7 +28,7 @@ function symbolId(localIcon: string = 'no-icon') {
 }
 
 const SvgIcon: FC<SvgIconProps> = (props) => {
-  const { icon, localIcon } = props;
+  const { icon, localIcon, className, style } = props;
 
   // If localIcon is passed, render localIcon first
   return localIcon !== undefined || icon === undefined
@@ -37,7 +37,8 @@ const SvgIcon: FC<SvgIconProps> = (props) => {
           height="1em"
           width="1em"
           aria-hidden="true"
-          {...props}
+          className={className}
+          style={style}
         >
           <use
             fill="currentColor"
@@ -48,7 +49,8 @@ const SvgIcon: FC<SvgIconProps> = (props) => {
     : (
         <Icon
           icon={icon}
-          {...props}
+          className={className}
+          style={style}
         />
       );
 };

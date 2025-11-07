@@ -38,6 +38,35 @@ const local: App.I18n.I18nScheme = {
     keepAlive: 'KeepAlive Demo',
     notFound: '404 Page Demo',
   },
+  home: {
+    info: 'Mobile Web Application Template based on React Ecosystem',
+    react: 'React19 + Vite7',
+    typescript: 'TypeScript',
+    reactUI: 'daisyUI component library',
+    tailwind: 'tailwindcss v4 atomic class framework',
+    zustand: 'Zustand state management',
+    router: 'TanStack React Router',
+    hooks: 'React Hooks',
+    utils: 'Built-in Echarts aHooks',
+    icons: 'Integrate multiple icon solutions',
+    eslint: 'Zero configuration ESlint, integrated Prettier',
+    git: 'Use Git Hook for standardized submission',
+    theme: 'Theme configuration, supports dark mode',
+    axios: 'Axios encapsulation',
+    loading: 'First screen loading animation',
+    auth: 'Complete login system',
+  },
+  example: {
+    exampleComponent: 'Example Component',
+    language: 'Language',
+    darkMode: 'Dark Mode',
+    basicSetting: 'Basic Settings',
+    keepAliveTips:
+      'The current component will be cached, and the previous state will be retained when re-entering',
+    mockTips: 'Data from Mock requests',
+    noData: 'No Data',
+    request: 'Request',
+  },
 };
 
 export default local;
