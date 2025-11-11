@@ -23,6 +23,8 @@ const local: App.I18n.I18nScheme = {
     errorFallback: 'Sorry, an error occurred, please try again later!',
     refreshAgain: 'Refresh again',
     loading: 'Loading...',
+    confirm: 'Confirm',
+    cancel: 'Cancel',
   },
   router: {
     home: 'Home',

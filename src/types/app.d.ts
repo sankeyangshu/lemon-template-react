@@ -52,6 +52,8 @@ declare namespace App {
         refreshAgain: string;
         serverError: string;
         title: string;
+        confirm: string;
+        cancel: string;
       };
       router: {
         home: string;

@@ -23,6 +23,8 @@ const local: App.I18n.I18nScheme = {
     errorFallback: '抱歉，出错了，请稍后再试！',
     refreshAgain: '刷新重试',
     loading: '加载中...',
+    confirm: '确认',
+    cancel: '取消',
   },
   router: {
     home: '首页',
