@@ -190,8 +190,9 @@ const Popup: FC<PopupProps & { ref?: Ref<PopupInstanceType> }> = (props) => {
   const [innerVisible, setInnerVisible] = useState(visible);
   const [shouldRender, setShouldRender] = useState(visible);
 
-  const popupStyle: CSSProperties = {
-    zIndex: zIndex.current,
+  const popupStyle = {
+    'zIndex': zIndex.current,
+    '--tw-duration': `${duration}ms`,
     ...style,
   };
 
@@ -306,7 +307,7 @@ const Popup: FC<PopupProps & { ref?: Ref<PopupInstanceType> }> = (props) => {
   const getAnimationClasses = () => {
     const baseClasses: string[] = [];
 
-    if (innerVisible) {
+    if (visible) {
       // 进入动画
       baseClasses.push('animate-in');
 
@@ -337,9 +338,6 @@ const Popup: FC<PopupProps & { ref?: Ref<PopupInstanceType> }> = (props) => {
         baseClasses.push('fade-out', 'slide-out-to-right');
       }
     }
-
-    // 添加持续时间
-    baseClasses.push(`duration-${duration}`);
 
     return baseClasses.join(' ');
   };

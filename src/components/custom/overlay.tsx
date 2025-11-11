@@ -60,16 +60,28 @@ const Overlay: FC<OverlayProps> = (props) => {
   const nodeRef = useRef<HTMLDivElement>(null);
   const [innerVisible, setInnerVisible] = useState(visible);
 
+  // 监听 visible 变化
   useEffect(() => {
     if (visible) {
-      const timer = setTimeout(() => setInnerVisible(true), 0);
-      return () => clearTimeout(timer);
+      requestAnimationFrame(() => {
+        setInnerVisible(true);
+      });
+    } else if (duration === 0) {
+      queueMicrotask(() => {
+        setInnerVisible(false);
+      });
     }
-
-    // 延迟卸载，等动画完成
-    const timer = setTimeout(() => setInnerVisible(false), duration);
-    return () => clearTimeout(timer);
   }, [visible, duration]);
+
+  const shouldRender = visible || innerVisible;
+
+  // 监听动画结束事件
+  const handleAnimationEnd = (e: React.AnimationEvent) => {
+    // 只处理遮罩本身的动画结束事件
+    if (e.target === nodeRef.current && !visible) {
+      setInnerVisible(false);
+    }
+  };
 
   // 阻止滚动
   const preventTouchMove = (event: TouchEvent) => {
@@ -85,11 +97,12 @@ const Overlay: FC<OverlayProps> = (props) => {
 
   useEventListener('touchmove', preventTouchMove, { target: nodeRef, passive: false });
 
-  const styles: CSSProperties = {
+  const styles = {
     ...style,
     zIndex,
-    animationDuration: `${duration}ms`,
-    touchAction: lockScroll ? 'none' : undefined,
+    '--tw-duration': `${duration}ms`,
+    'touchAction': lockScroll ? 'none' : undefined,
+    'animationFillMode': 'both',
   };
 
   const handleClick = (e: React.MouseEvent) => {
@@ -98,23 +111,24 @@ const Overlay: FC<OverlayProps> = (props) => {
     }
   };
 
+  if (!shouldRender) {
+    return null;
+  }
+
   return (
-    innerVisible
-      ? (
-          <div
-            ref={nodeRef}
-            className={cn(
-              'fixed top-0 left-0 size-full bg-[#000000b3]',
-              visible ? 'animate-in fade-in' : 'animate-out fade-out',
-              props.className,
-            )}
-            style={styles}
-            onClick={handleClick}
-          >
-            {children}
-          </div>
-        )
-      : null
+    <div
+      ref={nodeRef}
+      className={cn(
+        'fixed top-0 left-0 size-full bg-[#000000b3]',
+        visible ? 'animate-in fade-in' : 'animate-out fade-out',
+        props.className,
+      )}
+      style={styles}
+      onClick={handleClick}
+      onAnimationEnd={handleAnimationEnd}
+    >
+      {children}
+    </div>
   );
 };
 
