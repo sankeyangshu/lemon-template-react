@@ -1,4 +1,6 @@
 import antfu from '@antfu/eslint-config';
+import pluginQuery from '@tanstack/eslint-plugin-query';
+import pluginRouter from '@tanstack/eslint-plugin-router';
 import pluginTailwindcss from 'eslint-plugin-better-tailwindcss';
 
 export default antfu(
@@ -15,8 +17,6 @@ export default antfu(
     },
     ignores: ['**/routeTree.gen.ts'],
     isInEditor: false,
-  },
-  {
     rules: {
       'style/arrow-parens': ['error', 'always'], // 箭头函数参数始终添加括号
       'style/brace-style': ['error', '1tbs', { allowSingleLine: true }], // 括号样式
@@ -37,6 +37,16 @@ export default antfu(
       'better-tailwindcss': {
         entryPoint: 'src/styles/global.css',
       },
+    },
+  },
+  {
+    plugins: {
+      '@tanstack/router': pluginRouter,
+      '@tanstack/query': pluginQuery,
+    },
+    rules: {
+      ...pluginRouter.configs.recommended.rules,
+      ...pluginQuery.configs.recommended.rules,
     },
   },
 );
