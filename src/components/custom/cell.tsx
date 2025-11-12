@@ -145,8 +145,8 @@ export const Cell: FC<CellProps> = (props) => {
     if (isNotNil(props.label)) {
       return (
         <div className={cn(`
-          mt-1 text-xs leading-4 text-[#707070]
-          dark:text-[#969799]
+          mt-1 text-xs leading-4 text-[#969799]
+          dark:text-[#707070]
         `, props.labelClass)}
         >
           {props.label}

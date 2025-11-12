@@ -199,11 +199,22 @@ function Picker(props: PickerProps & { ref?: React.Ref<PickerInstance> }) {
       formattedColumns.length === 1 ? selectedValues[0] : selectedValues,
       formattedColumns.length === 1 ? selectedIndexes[0] : selectedIndexes,
     );
+    if (onClose) {
+      onClose();
+    }
   };
 
   // 取消
   const handleCancel = () => {
     onCancel?.();
+    if (onClose) {
+      onClose();
+    }
+  };
+
+  // 关闭弹窗
+  const handleClose = () => {
+    onClose?.();
   };
 
   // 停止惯性滚动
@@ -320,7 +331,8 @@ function Picker(props: PickerProps & { ref?: React.Ref<PickerInstance> }) {
       visible={visible}
       position="bottom"
       round
-      onClose={onClose}
+      onClose={handleClose}
+      closeOnClickOverlay={onClose !== undefined}
       safeAreaInsetBottom
     >
       <div
