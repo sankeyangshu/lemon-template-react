@@ -19,8 +19,8 @@ declare namespace App {
      * @descCN 语言选项
      */
     interface LangOption {
-      key: LangType;
-      label: string;
+      value: LangType;
+      text: string;
     }
 
     /**
@@ -40,7 +40,11 @@ declare namespace App {
         errMsg502: string;
         errMsg503: string;
         errMsg504: string;
+        errMsg505: string;
         errMsgDefault: string;
+        requestCancelled: string;
+        networkError: string;
+        requestConfigError: string;
       };
       system: {
         checkUrl: string;

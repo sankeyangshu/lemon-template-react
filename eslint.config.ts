@@ -27,6 +27,8 @@ export default antfu(
       'better-tailwindcss': pluginTailwindcss,
     },
     rules: {
+      // enable all recommended rules to report a warning
+      ...pluginTailwindcss.configs['recommended-warn'].rules,
       // enable all recommended rules to report an error
       ...pluginTailwindcss.configs['recommended-error'].rules,
 

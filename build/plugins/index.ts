@@ -2,6 +2,7 @@ import type { PluginOption } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
 import { tanstackRouter } from '@tanstack/router-plugin/vite';
 import react from '@vitejs/plugin-react';
+import { mockDevServerPlugin } from 'vite-plugin-mock-dev-server';
 import viteRestart from 'vite-plugin-restart';
 import { setupHtmlPluginConfig } from './html';
 import { setupBuildInfoPluginConfig } from './info';
@@ -31,6 +32,8 @@ export function createVitePlugins(viteEnv: Env.ImportMeta, lastBuildTime: string
     tailwindcss(),
 
     ...setupUnPluginIconConfig(viteEnv),
+
+    viteEnv.VITE_USE_MOCK && mockDevServerPlugin(),
 
     setupVConsolePlugin(viteEnv),
 

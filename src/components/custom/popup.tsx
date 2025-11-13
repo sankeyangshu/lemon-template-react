@@ -167,7 +167,7 @@ const Popup: FC<PopupProps & { ref?: Ref<PopupInstanceType> }> = (props) => {
     closeOnClickOverlay = true,
     closeOnPopstate = false,
     safeAreaInsetBottom = false,
-    transition: _transition,
+    transition,
     title,
     description,
     children,
@@ -305,6 +305,11 @@ const Popup: FC<PopupProps & { ref?: Ref<PopupInstanceType> }> = (props) => {
 
   // 获取动画类名
   const getAnimationClasses = () => {
+    // 如果提供了自定义 transition，直接返回
+    if (transition !== undefined) {
+      return transition;
+    }
+
     const baseClasses: string[] = [];
 
     if (visible) {
