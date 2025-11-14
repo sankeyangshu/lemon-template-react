@@ -1,7 +1,8 @@
 /**
  * 成功返回函数
  * @param result 返回结果
- * @param param1 message 消息
+ * @param options 配置项
+ * @param options.message 消息
  * @returns result
  */
 export function resultSuccess<T>(result: Record<string, T>, { message = 'success' } = {}) {

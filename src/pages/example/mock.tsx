@@ -63,7 +63,7 @@ function RouteComponent() {
               )}
         </div>
 
-        <button className="btn mt-7 w-full btn-primary" onClick={() => fetchMessage()} disabled={isPending}>
+        <button type="button" className="btn mt-7 w-full btn-primary" onClick={() => fetchMessage()} disabled={isPending}>
           {isPending
             ? (
                 <>

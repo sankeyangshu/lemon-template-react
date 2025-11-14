@@ -85,6 +85,9 @@ export class HttpError extends Error {
    * @param message 消息
    * @param code 状态码
    * @param options 配置项
+   * @param options.data 错误数据
+   * @param options.url 请求 URL
+   * @param options.method 请求方法
    */
   constructor(
     message: string,

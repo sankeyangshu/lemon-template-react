@@ -22,7 +22,7 @@ function NotFound() {
       id: 'link',
       content: (
         <Link to="/">
-          <button className="btn btn-sm btn-primary">{t('system.goHome')}</button>
+          <button type="button" className="btn btn-sm btn-primary">{t('system.goHome')}</button>
         </Link>
       ),
     },
