@@ -39,7 +39,7 @@ function RouteComponent() {
         leftArrow={(
           <SvgIcon className="text-2xl" icon="mdi:chevron-left" />
         )}
-        onClickLeft={() => void router.history.back()}
+        onClickLeft={() => router.history.back()}
       />
 
       <div className="box-border w-full p-4">
@@ -63,7 +63,7 @@ function RouteComponent() {
               )}
         </div>
 
-        <button className="btn mt-7 w-full btn-primary" onClick={() => void fetchMessage()} disabled={isPending}>
+        <button className="btn mt-7 w-full btn-primary" onClick={() => fetchMessage()} disabled={isPending}>
           {isPending
             ? (
                 <>

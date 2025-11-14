@@ -20,6 +20,11 @@ export default antfu(
     rules: {
       'style/arrow-parens': ['error', 'always'], // 箭头函数参数始终添加括号
       'style/brace-style': ['error', '1tbs', { allowSingleLine: true }], // 括号样式
+      'ts/no-misused-promises': ['error', {
+        checksVoidReturn: {
+          attributes: false,
+        },
+      }],
     },
   },
   {

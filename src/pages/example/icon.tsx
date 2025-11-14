@@ -26,7 +26,7 @@ function RouteComponent() {
         leftArrow={(
           <SvgIcon className="text-2xl" icon="mdi:chevron-left" />
         )}
-        onClickLeft={() => void router.history.back()}
+        onClickLeft={() => router.history.back()}
       />
       <div className="box-border w-full p-4">
         <div className="mb-3 border-l-3 border-solid border-l-primary pl-3 leading-7">
