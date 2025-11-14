@@ -31,7 +31,7 @@ export interface userInfoType {
 // api接口
 const api = {
   example: '/api/example', // 示例接口
-  login: '/auth/login', // 用户登录接口
+  login: '/api/auth/login', // 用户登录接口
 };
 
 /**

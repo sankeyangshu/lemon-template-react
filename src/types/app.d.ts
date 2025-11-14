@@ -101,6 +101,36 @@ declare namespace App {
         noData: string;
         request: string;
       };
+      login: {
+        username: string;
+        password: string;
+        login: string;
+        register: string;
+        registerAccount: string;
+        forgotPassword: string;
+        usernameError: string;
+        passwordError: string;
+        againEnterPassword: string;
+        passwordInconsistent: string;
+        privacyPolicy: string;
+        userAgreement: string;
+        readAgreement: string;
+        and: string;
+        pleaseEnterNewPasswordAgain: string;
+        pleaseEnterNewPassword: string;
+        pleaseEnterVerificationCode: string;
+        code: string;
+        pleaseEnterValidPhone: string;
+        pleaseEnterPhone: string;
+        confirmReset: string;
+      };
+      mine: {
+        logoutTips: string;
+        tips: string;
+        logout: string;
+        systemVersion: string;
+        projectDocs: string;
+      };
     }
   }
 }
