@@ -5,9 +5,9 @@ import { createFileRoute, useNavigate, useRouter } from '@tanstack/react-router'
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import * as z from 'zod';
-import { postLoginAPI } from '@/api/system/user';
 import NavBar from '@/components/custom/nav-bar';
 import SvgIcon from '@/components/custom/svg-icon';
+import { useUserStore } from '@/store/user';
 import PasswordInput from './-components/password-input';
 
 export const Route = createFileRoute('/(auth)/sign-in')({
@@ -18,6 +18,8 @@ function RouteComponent() {
   const { t } = useTranslation();
   const router = useRouter();
   const navigate = useNavigate();
+
+  const loginAPI = useUserStore((state) => state.login);
 
   const formSchema = z.object({
     username: z.string().min(1, { message: t('login.usernameError') }),
@@ -35,11 +37,10 @@ function RouteComponent() {
   });
 
   const { mutate: fetchLogin, isPending } = useMutation({
-    mutationFn: postLoginAPI,
-    onSuccess: (data) => {
-      // TODO: 存储 token，跳转到首页
-      // eslint-disable-next-line no-console
-      console.log('登录成功', data);
+    mutationFn: loginAPI,
+    onSuccess: () => {
+      // 跳转到首页
+      void navigate({ to: '/' });
     },
   });
 
