@@ -2,7 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
 import { setupI18n } from './locales';
-import { setupIconifyOffline, setupLoading } from './plugins';
+import { setupAppVersionNotification, setupIconifyOffline, setupLoading } from './plugins';
 import './styles/global.css';
 import 'virtual:svg-icons-register';
 
@@ -25,6 +25,8 @@ async function bootstrap() {
       <App />
     </StrictMode>,
   );
+
+  setupAppVersionNotification();
 }
 
 void bootstrap();

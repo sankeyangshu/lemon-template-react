@@ -56,6 +56,10 @@ declare namespace App {
         refreshAgain: string;
         serverError: string;
         title: string;
+        updateCancel: string;
+        updateConfirm: string;
+        updateContent: string;
+        updateTitle: string;
         confirm: string;
         cancel: string;
       };

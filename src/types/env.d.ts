@@ -85,9 +85,20 @@ declare namespace Env {
      * @descCN 用于区分不同域的存储
      */
     readonly VITE_STORAGE_PREFIX?: string;
+    /**
+     * Whether to automatically detect application updates
+     * @descCN 是否自动检测应用更新
+     */
+    readonly VITE_AUTOMATICALLY_DETECT_UPDATE: boolean;
   }
 }
 
 interface ImportMeta {
   readonly env: Env.ImportMeta;
 }
+
+/**
+ * Build time of the project
+ * @descCN 项目构建时间
+ */
+declare const BUILD_TIME: string;
