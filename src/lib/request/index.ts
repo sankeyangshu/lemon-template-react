@@ -2,6 +2,7 @@ import type { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse, Inte
 import type { ErrorResponse } from './error';
 import Axios from 'axios';
 import { i18n } from '@/locales';
+import { useUserStore } from '@/store/user';
 import { handleError, HttpError, showError } from './error';
 import { ApiStatus } from './status';
 
@@ -63,11 +64,12 @@ class HttpClient {
     // 默认请求拦截器
     const defaultInterceptor = (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
       /* 在这里写请求拦截器的默认业务逻辑 */
-      // TODO: 添加token
-      // const token = localStorage.getItem('token');
-      // if (token) {
-      //   config.headers.Authorization = `Bearer ${token}`;
-      // }
+      // 添加token
+      const token = useUserStore.getState().token;
+
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
 
       return config;
     };

@@ -153,7 +153,6 @@ function getErrorMessage(status: number) {
  * Handle error
  * @descCN 处理错误
  * @param error 错误对象
- * @returns 错误对象
  */
 export function handleError(error: AxiosError<ErrorResponse>): never {
   // 处理取消的请求
