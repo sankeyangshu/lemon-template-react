@@ -57,7 +57,7 @@ const local: App.I18n.I18nScheme = {
     zustand: 'Zustand 状态管理',
     router: 'TanStack React Router',
     hooks: 'React Hooks',
-    utils: '内置 Echarts aHooks',
+    utils: '内置 Echarts 和 react-uses',
     icons: '集成多种图标方案',
     eslint: '零配置 ESlint，集成Prettier',
     git: '使用 Git Hook 进行规范化提交',

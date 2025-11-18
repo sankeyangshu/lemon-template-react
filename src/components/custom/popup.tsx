@@ -1,6 +1,6 @@
 import type { CSSProperties, FC, MouseEvent, ReactNode, Ref } from 'react';
 import type { OverlayProps } from './overlay';
-import { useEventListener } from 'ahooks';
+import { useEventListener } from '@reactuses/core';
 import { isNotNil } from 'es-toolkit';
 import { useImperativeHandle, useLayoutEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';

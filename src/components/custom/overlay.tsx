@@ -1,5 +1,5 @@
 import type { CSSProperties, FC, ReactNode } from 'react';
-import { useEventListener } from 'ahooks';
+import { useEventListener } from '@reactuses/core';
 import { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -95,7 +95,7 @@ const Overlay: FC<OverlayProps> = (props) => {
     event.stopPropagation();
   };
 
-  useEventListener('touchmove', preventTouchMove, { target: nodeRef, passive: false });
+  useEventListener('touchmove', preventTouchMove, nodeRef, { passive: false });
 
   const styles = {
     ...style,
