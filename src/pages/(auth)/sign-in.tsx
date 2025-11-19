@@ -2,6 +2,7 @@ import type { SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
 import { createFileRoute, useNavigate, useRouter } from '@tanstack/react-router';
+import { isNotNil } from 'es-toolkit';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import * as z from 'zod';
@@ -10,7 +11,12 @@ import SvgIcon from '@/components/custom/svg-icon';
 import { useUserStore } from '@/store/user';
 import PasswordInput from './-components/password-input';
 
+const signInSearchSchema = z.object({
+  redirect: z.string().optional(),
+});
+
 export const Route = createFileRoute('/(auth)/sign-in')({
+  validateSearch: signInSearchSchema,
   component: RouteComponent,
 });
 
@@ -18,6 +24,7 @@ function RouteComponent() {
   const { t } = useTranslation();
   const router = useRouter();
   const navigate = useNavigate();
+  const { redirect } = Route.useSearch();
 
   const loginAPI = useUserStore((state) => state.login);
 
@@ -39,8 +46,17 @@ function RouteComponent() {
   const { mutate: fetchLogin, isPending } = useMutation({
     mutationFn: loginAPI,
     onSuccess: () => {
-      // 跳转到首页
-      void navigate({ to: '/' });
+      // 如果有 redirect 参数，跳转到被拦截的页面并替换当前历史记录
+      if (isNotNil(redirect)) {
+        void navigate({ to: redirect, replace: true });
+      } else {
+        // 否则返回上一页或跳转到首页
+        if (router.history.length > 1) {
+          router.history.back();
+        } else {
+          void navigate({ to: '/' });
+        }
+      }
     },
   });
 

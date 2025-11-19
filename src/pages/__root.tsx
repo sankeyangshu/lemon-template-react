@@ -1,4 +1,5 @@
 import type { QueryClient } from '@tanstack/react-query';
+import type { UserState } from '@/store/user';
 import { TanStackDevtools } from '@tanstack/react-devtools';
 import { ReactQueryDevtoolsPanel } from '@tanstack/react-query-devtools';
 import { createRootRouteWithContext, Outlet } from '@tanstack/react-router';
@@ -7,6 +8,7 @@ import NavigationProgress from '@/components/common/navigation-progress';
 
 interface MyRouterContext {
   queryClient: QueryClient;
+  auth: UserState;
 }
 
 export const Route = createRootRouteWithContext<MyRouterContext>()({

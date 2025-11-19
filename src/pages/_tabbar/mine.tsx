@@ -61,6 +61,7 @@ function RouteComponent() {
               </div>
             )}
             isLink
+            onClick={() => void navigate({ to: '/settings' })}
           />
           <Cell
             title={(
@@ -103,13 +104,10 @@ function RouteComponent() {
           <p className="py-4">{t('mine.logoutTips')}</p>
           <div className="modal-action">
             <form method="dialog">
-              <button
-                type="button"
-                className="btn absolute top-2 right-2 btn-circle btn-ghost btn-sm"
-              >
+              <button className="btn absolute top-2 right-2 btn-circle btn-ghost btn-sm">
                 ✕
               </button>
-              <button type="button" className="btn btn-soft btn-primary" onClick={logout}>{t('system.confirm')}</button>
+              <button className="btn btn-soft btn-primary" onClick={logout}>{t('system.confirm')}</button>
             </form>
           </div>
         </div>
