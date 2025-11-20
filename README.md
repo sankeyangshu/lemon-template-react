@@ -27,7 +27,7 @@ An mobile web apps template based on the React ecosystem.
 
 ## Introduction
 
-🚀🚀🚀 **lemon-template-react** is built using the latest technologies, including `React18`, `Vite6`, `react-vant`, `Zustand`, `TypeScript`, and `UnoCSS`. It integrates features like `Dark Mode`, system theme colors, and Mock data.
+🚀🚀🚀 **lemon-template-react** is built using the latest technologies, including `React19`, `Vite7`, `TanStack Router`, `TanStack Query`, `Daisyui`, `Zustand`, `TypeScript`, and `Tailwindcss V4`. It integrates features like `Dark Mode`, system theme colors, and Mock data.
 
 You can directly start developing your business logic on this template! Hope you enjoy it. 👋👋👋
 
@@ -46,24 +46,26 @@ You can directly start developing your business logic on this template! Hope you
 ## Features
 
 - ⚡️ Developed with React + Hooks
-- ✨ Uses Vite 6 as the development and build tool (includes Gzip packaging, TSX syntax, proxy support, etc.)
+- ✨ Uses Vite7 as the development and build tool (includes Gzip packaging, TSX syntax, proxy support, etc.)
 - 🍕 Fully integrates TypeScript
-- 🍍 Use Zustand for state management, lightweight, simple and easy to use
-- 📦 ahooks High quality and reliable React Hooks library
-- 🎨 react-vant component library
-- 🌀 UnoCSS for instant atomic CSS
+- 🚦 Uses TanStack Router for routing management, providing a type-safe routing system
+- 🔄 Uses TanStack Query for server state management, simplifying data fetching and caching
+- 🍍 Uses Zustand for state management, lightweight, simple and easy to use
+- 📦 @reactuses/core High quality and reliable React Hooks library
+- 🎨 Daisyui component library
+- 🌀 Tailwindcss for instant atomic CSS engine
 - 👏 Integrates multiple icon solutions
 - 🌓 Supports Dark Mode
 - 🌍 Multi-language support with i18n
-- 🔥 ECharts for data visualization, with useECharts Hooks
-- ⚙️ Unit testing using Vitest
+- 🔥 Integrates ECharts for data visualization, with useECharts Hooks encapsulation
+- ⚙️ Uses Vitest for unit testing
 - ☁️ Axios encapsulation
-- 💾 Local Mock data support
-- 📱 Browser compatibility with viewport vw/vh units for layouts
+- 💾 Local Mock data simulation support
+- 📱 Browser compatibility
 - 📥 Gzip compression for packaged resources
-- 🛡️ Splash screen animation for first load
-- 💪 Eslint for code linting, with Prettier for formatting
-- 🌈 Uses simple-git-hooks, lint-staged, and commitlint for commit message standards
+- 🛡️ First screen loading animation
+- 💪 Integrates Eslint code validation standards, with Prettier as the default code formatter
+- 🌈 Uses simple-git-hooks, lint-staged, and commitlint to standardize commit messages
 
 ## Prerequisites
 
@@ -73,12 +75,12 @@ Familiarity with the following concepts will help you use this template effectiv
 - [Vite](https://cn.vitejs.dev/) - Understand `Vite` features
 - [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) - Proficient in using `Zustand`
 - [TypeScript](https://www.typescriptlang.org/) - Master basic `TypeScript` syntax
-- [React-Router](https://reactrouter.com/en/main) - Understand `React-Router` usage
+- [TanStack Router](https://tanstack.com/router/latest/docs/framework/react/overview) - Familiar with `TanStack Router` basic usage
 - [Icones](https://icones.js.org/) - Recommended icon library for the project, but `IconSVG` is also an option
-- [UnoCSS](https://github.com/antfu/unocss) - High-performance and flexible atomic CSS engine
-- [ahooks](https://ahooks.js.org/zh-CN/) - A reliable and high-quality React Hooks library
-- [React Vant](https://react-vant.3lang.dev/) - Lightweight and reliable mobile React component library
-- [ECharts5](https://echarts.apache.org/handbook/zh/get-started/) - Familiar with basic `ECharts` usage
+- [Tailwind CSS](https://tailwindcss.com/) - High-performance and extremely flexible instant atomic CSS engine
+- [@reactuses/core](https://reactuse.com/en-US/) - A high-quality and reliable React Hooks library
+- [Daisyui](https://daisyui.com/docs/intro/) - Tailwind CSS plugin for faster, cleaner, and simpler Tailwind CSS development
+- [ECharts6](https://echarts.apache.org/handbook/zh/get-started/) - Familiar with basic `ECharts` usage
 - [Mock.js](https://github.com/nuysoft/Mock) - Understand basic `Mock.js` syntax
 - [ES6+](http://es6.ruanyifeng.com/) - Proficient in `ES6+` syntax
 
@@ -86,14 +88,14 @@ Familiarity with the following concepts will help you use this template effectiv
 
 Ensure the following tools are installed locally: [Pnpm](https://pnpm.io/), [Node.js](http://nodejs.org/), and [Git](https://git-scm.com/).
 
-- Use [pnpm >= 8.15.4](https://pnpm.io/) to avoid dependency installation and build errors.
-- [Node.js](http://nodejs.org/) version `18.x` or above is required. Recommended: `^18.18.0 || >=20.0.0`.
+- Recommended to use [pnpm>=8.15.4](https://pnpm.io/), otherwise dependencies may not install properly, causing build errors.
+- [Node.js](http://nodejs.org/) version requirement is `18.x` or above. Recommended: `^18.18.0 || >=20.0.0`.
 
 ## VSCode Extensions
 
-If you use [VSCode](https://code.visualstudio.com/) (recommended), install the following extensions for improved efficiency and code formatting:
+If you use [VSCode](https://code.visualstudio.com/) (recommended), install the following extensions for improved development efficiency and code formatting:
 
-- [UnoCSS](https://marketplace.visualstudio.com/items?itemName=antfu.unocss) - UnoCSS support
+- [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) - Tailwind CSS IntelliSense plugin
 - [DotENV](https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv) - `.env` file highlighting
 - [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens) - Better error visualization
 - [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) - Maintain consistent coding styles across IDEs
@@ -106,7 +108,10 @@ If you use [VSCode](https://code.visualstudio.com/) (recommended), install the f
 
 ### Use the Scaffold
 
-> In development
+```bash
+# Copy the command - 'project' is your project name
+pnpm create lemon project -t lemon-react
+```
 
 ### GitHub Template
 
@@ -121,7 +126,7 @@ git clone https://github.com/sankeyangshu/lemon-template-react.git
 # Enter the project directory
 cd lemon-template-react
 
-# Install dependencies (use pnpm)
+# Install dependencies - recommended to use pnpm
 pnpm install
 
 # Start the development server

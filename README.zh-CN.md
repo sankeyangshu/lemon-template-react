@@ -27,7 +27,7 @@
 
 ## 简介
 
-🚀🚀🚀 **lemon-template-react** 使用了最新的`React18`、`Vite6`、`react-vant`、`Zustand`、`Typescript`、`UnoCSS`等主流技术开发，集成 `Dark Mode`（暗黑）模式和系统主题色、Mock数据等功能。
+🚀🚀🚀 **lemon-template-react** 使用了最新的`React19`、`Vite7`、`TanStack Router`、`TanStack Query`、`Daisyui`、`Zustand`、`Typescript`、`Tailwindcss V4`等主流技术开发，集成 `Dark Mode`（暗黑）模式和系统主题色、Mock数据等功能。
 
 你可以在此之上直接开发你的业务代码！希望你能喜欢。👋👋👋
 
@@ -46,12 +46,14 @@
 ## 项目功能
 
 - ⚡️ 使用 React + Hooks 开发
-- ✨ 采用 Vite6 作为项目开发、打包工具（配置 Gzip 打包、TSX 语法、跨域代理…）
+- ✨ 采用 Vite7 作为项目开发、打包工具（配置 Gzip 打包、TSX 语法、跨域代理…）
 - 🍕 整个项目集成了 TypeScript
+- 🚦 使用 TanStack Router 作为路由管理方案，提供类型安全的路由系统
+- 🔄 使用 TanStack Query 进行服务端状态管理，简化数据获取和缓存
 - 🍍 使用 Zustand 做状态管理，轻量、简单、易用
-- 📦 ahooks 高质量可靠的 React Hooks 库
-- 🎨 react-vant 组件库
-- 🌀 UnoCSS 即时原子化 CSS 引擎
+- 📦 @reactuses/core 高质量可靠的 React Hooks 库
+- 🎨 daisyui 组件库
+- 🌀 tailwindcss 即时原子化 CSS 引擎
 - 👏 集成多种图标方案
 - 🌓 支持深色模式
 - 🌍 多语言国际化，支持 i18n国际化方案
@@ -59,7 +61,7 @@
 - ⚙️ 使用 Vitest 进行单元测试
 - ☁️ Axios 封装
 - 💾 本地 Mock 数据模拟的支持
-- 📱 浏览器适配 - 使用 viewport vw/vh 单位布局
+- 📱 浏览器适配
 - 📥 打包资源 gzip 压缩
 - 🛡️ 首屏加载动画
 - 💪 集成 Eslint 代码校验规范，并且该 Eslint 配置默认使用 Prettier 格式化代码，
@@ -73,12 +75,12 @@
 - [Vite](https://cn.vitejs.dev/) - 熟悉 `Vite` 特性
 - [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) - 熟悉 `Zustand` 基本使用
 - [TypeScript](https://www.typescriptlang.org/) - 熟悉 `TypeScript` 基本语法
-- [React-Router](https://reactrouter.com/en/main) - 熟悉 `React-Router`基本使用
+- [TanStack Router](https://tanstack.com/router/latest/docs/framework/react/overview) - 熟悉 `TanStack Router`基本使用
 - [Icones](https://icones.js.org/) - 本项目推荐图标库，当然你也可以使用 `IconSVg`
-- [UnoCSS](https://github.com/antfu/unocss) - 高性能且极具灵活性的即时原子化 CSS 引擎
-- [ahooks](https://ahooks.js.org/zh-CN/) - 一套高质量可靠的 React Hooks 库
-- [React Vant](https://react-vant.3lang.dev/) - 轻量、可靠的移动端 React 组件库
-- [ECharts5](https://echarts.apache.org/handbook/zh/get-started/) - 熟悉 `Echarts` 基本使用
+- [Tailwind CSS](https://tailwindcss.com/) - 高性能且极具灵活性的即时原子化 CSS 引擎
+- [@reactuses/core](https://reactuse.com/zh-Hans/) - 一套高质量可靠的 React Hooks 库
+- [Daisyui](https://daisyui.com/docs/intro/) - Tailwind CSS 插件，更快、更简洁、更简单的Tailwind CSS 开发
+- [ECharts6](https://echarts.apache.org/handbook/zh/get-started/) - 熟悉 `Echarts` 基本使用
 - [Mock.js](https://github.com/nuysoft/Mock) - 了解 `Mockjs` 基本语法
 - [Es6+](http://es6.ruanyifeng.com/) - 熟悉 `ES6` 基本语法
 
@@ -93,7 +95,7 @@
 
 如果你使用的 IDE 是[vscode](https://code.visualstudio.com/)(推荐)的话，可以安装以下工具来提高开发效率及代码格式化
 
-- [UnoCSS](https://marketplace.visualstudio.com/items?itemName=antfu.unocss) - UnoCSS 提示插件
+- [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) - Tailwind CSS 提示插件
 - [DotENV](https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv) - `.env` 文件 高亮
 - [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens) - 更好的错误定位
 - [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) - 不同 IDE 维护一致的编码样式
@@ -106,7 +108,10 @@
 
 ### 使用脚手架
 
-> 开发中
+```bash
+# 复制命令 - project 为你的项目名称
+pnpm create lemon project -t lemon-react
+```
 
 ### GitHub 模板
 
