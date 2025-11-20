@@ -18,5 +18,10 @@ declare namespace StorageType {
      * @descCN 主题模式
      */
     themeMode: 'dark' | 'light' | 'system';
+    /**
+     * The primary color token
+     * @descCN 主题色
+     */
+    primaryColor: 'teal' | 'beige' | 'oceanBlue' | 'emeraldGreen' | 'hotPink' | 'coralRed' | 'salmonPink' | 'orange' | 'violet';
   }
 }

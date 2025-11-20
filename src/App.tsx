@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createRouter, RouterProvider } from '@tanstack/react-router';
 import { useEffect } from 'react';
+import { ColorProvider } from './components/common/color-provider';
 import { LangProvider } from './components/common/lang-provider';
 import NotFound from './components/common/not-found';
 import ServerError from './components/common/server-error';
@@ -44,11 +45,13 @@ function App() {
 
   return (
     <ThemeProvider>
-      <LangProvider>
-        <QueryClientProvider client={queryClient}>
-          <RouterProvider router={router} context={{ auth: userStore }} />
-        </QueryClientProvider>
-      </LangProvider>
+      <ColorProvider>
+        <LangProvider>
+          <QueryClientProvider client={queryClient}>
+            <RouterProvider router={router} context={{ auth: userStore }} />
+          </QueryClientProvider>
+        </LangProvider>
+      </ColorProvider>
     </ThemeProvider>
   );
 }

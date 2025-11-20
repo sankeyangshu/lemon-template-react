@@ -19,6 +19,8 @@ function RouteComponent() {
     'mdi:logout',
   ];
 
+  const svgList = ['logo', 'moon', 'sunny'];
+
   return (
     <>
       <NavBar
@@ -44,9 +46,9 @@ function RouteComponent() {
           <div className="my-1 text-lg font-bold">Local SVG Icon</div>
         </div>
         <div className="flex">
-          <div className="mr-2.5 text-2xl">
-            <SvgIcon localIcon="logo" />
-          </div>
+          {svgList.map((item) => (
+            <SvgIcon key={item} localIcon={item} className="mr-2.5 text-2xl" />
+          ))}
         </div>
       </div>
     </>
