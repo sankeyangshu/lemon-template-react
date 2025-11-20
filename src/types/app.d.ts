@@ -60,6 +60,8 @@ declare namespace App {
         updateConfirm: string;
         updateContent: string;
         updateTitle: string;
+        themeMode: string;
+        systemTheme: string;
         confirm: string;
         cancel: string;
       };

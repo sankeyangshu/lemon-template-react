@@ -1,10 +1,44 @@
 import { DARK_MODE_MEDIA_QUERY, useTheme } from '@/components/common/theme-provider';
 import { cn } from '@/lib/utils';
+import Segmented from './segmented';
+import SvgIcon from './svg-icon';
 
-function SwitchDark() {
+interface SwitchDarkProps {
+  mode?: 'Switch' | 'Segmented';
+}
+
+const icons: Record<StorageType.Local['themeMode'], string> = {
+  light: 'sunny',
+  dark: 'moon',
+  system: 'sun-moon',
+};
+
+const options = Object.keys(icons).map((key) => ({
+  label: (
+    <div className="flex w-17.5 justify-center">
+      <SvgIcon className="text-2xl text-base-content" localIcon={icons[key as StorageType.Local['themeMode']]} />
+    </div>
+  ),
+  value: key,
+}));
+
+function SwitchDark(props: SwitchDarkProps) {
+  const { mode } = props;
+
   const { theme, setTheme } = useTheme();
 
   const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia(DARK_MODE_MEDIA_QUERY).matches);
+
+  if (mode === 'Segmented') {
+    return (
+      <Segmented
+        options={options}
+        value={theme}
+        onChange={(val) => setTheme(val as StorageType.Local['themeMode'])}
+        className="h-14"
+      />
+    );
+  }
 
   return (
     <label className="relative inline-block h-[30px] w-[53px]">

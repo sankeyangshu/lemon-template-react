@@ -30,6 +30,8 @@ const local: App.I18n.I18nScheme = {
     updateConfirm: '立即刷新',
     updateContent: '检测到系统有新版本发布，是否立即刷新页面？',
     updateTitle: '系统版本更新通知',
+    themeMode: '主题模式',
+    systemTheme: '系统主题色',
     loading: '加载中...',
     confirm: '确认',
     cancel: '取消',

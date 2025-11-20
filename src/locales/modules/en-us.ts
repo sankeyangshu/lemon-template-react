@@ -30,6 +30,8 @@ const local: App.I18n.I18nScheme = {
     updateConfirm: 'Refresh immediately',
     updateContent: 'A new version of the system has been detected. Do you want to refresh the page immediately?',
     updateTitle: 'System Version Update Notification',
+    themeMode: 'Theme Mode',
+    systemTheme: 'System Theme Color',
     loading: 'Loading...',
     confirm: 'Confirm',
     cancel: 'Cancel',
