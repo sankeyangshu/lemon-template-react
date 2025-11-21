@@ -4,6 +4,7 @@ import { tanstackRouter } from '@tanstack/router-plugin/vite';
 import react from '@vitejs/plugin-react';
 import { mockDevServerPlugin } from 'vite-plugin-mock-dev-server';
 import viteRestart from 'vite-plugin-restart';
+import tsconfigPaths from 'vite-tsconfig-paths';
 import { setupHtmlPluginConfig } from './html';
 import { setupBuildInfoPluginConfig } from './info';
 import { setupUnPluginIconConfig } from './unplugin';
@@ -30,6 +31,8 @@ export function createVitePlugins(viteEnv: Env.ImportMeta, lastBuildTime: string
     }),
 
     tailwindcss(),
+
+    tsconfigPaths(),
 
     ...setupUnPluginIconConfig(viteEnv),
 

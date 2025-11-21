@@ -1,6 +1,5 @@
 import type { ConfigEnv, UserConfig } from 'vite';
 import process from 'node:process';
-import { fileURLToPath } from 'node:url';
 import { defineConfig, loadEnv } from 'vite';
 import { createProxy, getLastBuildTime, wrapperEnv } from './build/config';
 import { createVitePlugins } from './build/plugins';
@@ -20,14 +19,6 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
 
     // 加载插件
     plugins: createVitePlugins(viteEnv, lastBuildTime),
-
-    // 配置路径别名
-    resolve: {
-      alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url)),
-        '~root': fileURLToPath(new URL('.', import.meta.url)),
-      },
-    },
 
     // 跨域代理
     server: {

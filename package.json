@@ -119,6 +119,7 @@
     "vite-plugin-restart": "^2.0.0",
     "vite-plugin-svg-icons": "^2.0.1",
     "vite-plugin-vconsole": "^2.1.1",
+    "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^4.0.12"
   },
   "simple-git-hooks": {
