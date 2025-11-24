@@ -33,6 +33,7 @@ const local: App.I18n.I18nScheme = {
     themeMode: '主题模式',
     systemTheme: '系统主题色',
     loading: '加载中...',
+    noMore: '没有更多内容了',
     confirm: '确认',
     cancel: '取消',
   },
@@ -47,7 +48,7 @@ const local: App.I18n.I18nScheme = {
     mock: 'Mock 指南',
     echarts: 'Echarts 演示',
     icon: 'Icon 示例',
-    keepAlive: 'KeepAlive 演示',
+    pagination: '分页 演示',
     notFound: '404页 演示',
   },
   home: {

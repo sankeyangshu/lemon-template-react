@@ -64,6 +64,7 @@ declare namespace App {
         systemTheme: string;
         confirm: string;
         cancel: string;
+        noMore: string;
       };
       router: {
         home: string;
@@ -76,7 +77,7 @@ declare namespace App {
         mock: string;
         echarts: string;
         icon: string;
-        keepAlive: string;
+        pagination: string;
         notFound: string;
       };
       home: {

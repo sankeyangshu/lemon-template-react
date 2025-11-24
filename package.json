@@ -63,6 +63,7 @@
     "@tanstack/react-query-devtools": "^5.90.2",
     "@tanstack/react-router": "^1.139.0",
     "@tanstack/react-router-devtools": "^1.139.0",
+    "@tanstack/react-virtual": "^3.13.12",
     "axios": "^1.13.2",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",

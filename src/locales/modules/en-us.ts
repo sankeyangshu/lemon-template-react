@@ -33,6 +33,7 @@ const local: App.I18n.I18nScheme = {
     themeMode: 'Theme Mode',
     systemTheme: 'System Theme Color',
     loading: 'Loading...',
+    noMore: 'No more content',
     confirm: 'Confirm',
     cancel: 'Cancel',
   },
@@ -47,7 +48,7 @@ const local: App.I18n.I18nScheme = {
     mock: 'Mock Demo',
     echarts: 'Echarts Demo',
     icon: 'Icon Demo',
-    keepAlive: 'KeepAlive Demo',
+    pagination: 'Pagination Demo',
     notFound: '404 Page Demo',
   },
   home: {

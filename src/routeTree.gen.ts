@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './pages/__root'
 import { Route as TabbarRouteRouteImport } from './pages/_tabbar/route'
 import { Route as AuthenticatedRouteRouteImport } from './pages/_authenticated/route'
 import { Route as IndexRouteImport } from './pages/index'
+import { Route as ExamplePaginationRouteImport } from './pages/example/pagination'
 import { Route as ExampleMockRouteImport } from './pages/example/mock'
 import { Route as ExampleIconRouteImport } from './pages/example/icon'
 import { Route as ExampleEchartsRouteImport } from './pages/example/echarts'
@@ -37,6 +38,11 @@ const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExamplePaginationRoute = ExamplePaginationRouteImport.update({
+  id: '/example/pagination',
+  path: '/example/pagination',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExampleMockRoute = ExampleMockRouteImport.update({
@@ -120,6 +126,7 @@ export interface FileRoutesByFullPath {
   '/example/echarts': typeof ExampleEchartsRoute
   '/example/icon': typeof ExampleIconRoute
   '/example/mock': typeof ExampleMockRoute
+  '/example/pagination': typeof ExamplePaginationRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -136,6 +143,7 @@ export interface FileRoutesByTo {
   '/example/echarts': typeof ExampleEchartsRoute
   '/example/icon': typeof ExampleIconRoute
   '/example/mock': typeof ExampleMockRoute
+  '/example/pagination': typeof ExamplePaginationRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -155,6 +163,7 @@ export interface FileRoutesById {
   '/example/echarts': typeof ExampleEchartsRoute
   '/example/icon': typeof ExampleIconRoute
   '/example/mock': typeof ExampleMockRoute
+  '/example/pagination': typeof ExamplePaginationRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -173,6 +182,7 @@ export interface FileRouteTypes {
     | '/example/echarts'
     | '/example/icon'
     | '/example/mock'
+    | '/example/pagination'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -189,6 +199,7 @@ export interface FileRouteTypes {
     | '/example/echarts'
     | '/example/icon'
     | '/example/mock'
+    | '/example/pagination'
   id:
     | '__root__'
     | '/'
@@ -207,6 +218,7 @@ export interface FileRouteTypes {
     | '/example/echarts'
     | '/example/icon'
     | '/example/mock'
+    | '/example/pagination'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -222,6 +234,7 @@ export interface RootRouteChildren {
   ExampleEchartsRoute: typeof ExampleEchartsRoute
   ExampleIconRoute: typeof ExampleIconRoute
   ExampleMockRoute: typeof ExampleMockRoute
+  ExamplePaginationRoute: typeof ExamplePaginationRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -245,6 +258,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/example/pagination': {
+      id: '/example/pagination'
+      path: '/example/pagination'
+      fullPath: '/example/pagination'
+      preLoaderRoute: typeof ExamplePaginationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/example/mock': {
@@ -381,6 +401,7 @@ const rootRouteChildren: RootRouteChildren = {
   ExampleEchartsRoute: ExampleEchartsRoute,
   ExampleIconRoute: ExampleIconRoute,
   ExampleMockRoute: ExampleMockRoute,
+  ExamplePaginationRoute: ExamplePaginationRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

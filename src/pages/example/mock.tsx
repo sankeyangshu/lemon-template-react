@@ -3,7 +3,7 @@ import { createFileRoute, useRouter } from '@tanstack/react-router';
 import { formatDate } from 'date-fns';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { getExampleAPI } from '@/api/system/user';
+import { getExampleAPI } from '@/api/system/demo';
 import Empty from '@/components/custom/empty';
 import NavBar from '@/components/custom/nav-bar';
 import SvgIcon from '@/components/custom/svg-icon';

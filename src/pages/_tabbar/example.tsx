@@ -19,8 +19,8 @@ function RouteComponent() {
     { title: `💿 ${t('router.mock')}`, path: '/example/mock' },
     { title: `📊 ${t('router.echarts')}`, path: '/example/echarts' },
     { title: `🎨 ${t('router.icon')}`, path: '/example/icon' },
+    { title: `🧡 ${t('router.pagination')}`, path: '/example/pagination' },
     { title: `🙅 ${t('router.notFound')}`, path: '/404' },
-    { title: `🧡 ${t('router.keepAlive')}`, path: '/keepAlive' },
   ];
 
   const { locale, localeOptions, setLocale } = useLanguage();

@@ -21,7 +21,7 @@ function RouteComponent() {
     },
     {
       path: '/example',
-      icon: 'mdi:teddy-bear',
+      icon: 'mdi:code-not-equal-variant',
       label: t('router.example'),
     },
     {
