@@ -4,7 +4,6 @@ import App from './App';
 import { setupI18n } from './locales';
 import { setupAppVersionNotification, setupIconifyOffline, setupLoading } from './plugins';
 import './styles/global.css';
-import 'virtual:svg-icons-register';
 
 async function bootstrap() {
   await setupI18n();

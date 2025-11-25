@@ -7,7 +7,7 @@ import viteRestart from 'vite-plugin-restart';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { setupHtmlPluginConfig } from './html';
 import { setupBuildInfoPluginConfig } from './info';
-import { setupUnPluginIconConfig } from './unplugin';
+import { setupUnPluginSvgIconConfig } from './unplugin';
 import { setupVConsolePlugin } from './vconsole';
 
 /**
@@ -34,7 +34,7 @@ export function createVitePlugins(viteEnv: Env.ImportMeta, lastBuildTime: string
 
     tsconfigPaths(),
 
-    ...setupUnPluginIconConfig(viteEnv),
+    setupUnPluginSvgIconConfig(viteEnv),
 
     viteEnv.VITE_USE_MOCK && mockDevServerPlugin(),
 

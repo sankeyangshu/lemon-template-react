@@ -1,3 +1,4 @@
+import type { SvgName } from '~virtual/svg-component';
 import { createFileRoute, useRouter } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
 import NavBar from '@/components/custom/nav-bar';
@@ -19,7 +20,7 @@ function RouteComponent() {
     'mdi:logout',
   ];
 
-  const svgList = ['logo', 'moon', 'sunny'];
+  const svgList: SvgName[] = ['icon-logo', 'icon-moon', 'icon-sunny'];
 
   return (
     <>

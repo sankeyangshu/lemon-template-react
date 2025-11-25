@@ -76,7 +76,7 @@ function RouteComponent() {
         onClickLeft={() => router.history.back()}
       />
       <div className="mt-5 mb-7.5">
-        <SvgIcon className="size-25" localIcon="logo" />
+        <SvgIcon className="size-25!" localIcon="icon-logo" />
       </div>
 
       <form className="grid w-full gap-y-4" onSubmit={handleSubmit(onSubmit)}>

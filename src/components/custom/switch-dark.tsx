@@ -1,3 +1,4 @@
+import type { SvgName } from '~virtual/svg-component';
 import { DARK_MODE_MEDIA_QUERY, useTheme } from '@/components/common/theme-provider';
 import { cn } from '@/lib/utils';
 import Segmented from './segmented';
@@ -7,10 +8,10 @@ interface SwitchDarkProps {
   mode?: 'Switch' | 'Segmented';
 }
 
-const icons: Record<StorageType.Local['themeMode'], string> = {
-  light: 'sunny',
-  dark: 'moon',
-  system: 'sun-moon',
+const icons: Record<StorageType.Local['themeMode'], SvgName> = {
+  light: 'icon-sunny',
+  dark: 'icon-moon',
+  system: 'icon-sun-moon',
 };
 
 const options = Object.keys(icons).map((key) => ({

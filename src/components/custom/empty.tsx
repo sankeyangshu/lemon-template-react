@@ -1,4 +1,5 @@
 import type { CSSProperties, FC, ReactNode } from 'react';
+import type { SvgName } from '~virtual/svg-component';
 import { isNotNil } from 'es-toolkit';
 import { isValidElement } from 'react';
 import { cn } from '@/lib/utils';
@@ -38,7 +39,10 @@ const Empty: FC<EmptyProps> = (props) => {
     }
 
     if (PRESET_IMAGES.includes(image as string)) {
-      return <SvgIcon localIcon={`empty-${image as string}`} className="size-full" />;
+      const { VITE_ICON_PREFIX: prefix } = import.meta.env;
+      const localIcon = `${prefix}-empty-${image as string}` as SvgName;
+
+      return <SvgIcon localIcon={localIcon} className="size-full!" />;
     }
 
     return <img src={image as string} alt="" />;

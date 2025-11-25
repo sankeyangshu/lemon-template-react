@@ -87,7 +87,7 @@ function RouteComponent() {
   return (
     <div className="box-border px-3">
       <div className="mx-auto mt-25 mb-10 size-25">
-        <SvgIcon localIcon="logo" className="size-full"></SvgIcon>
+        <SvgIcon localIcon="icon-logo" className="size-full!"></SvgIcon>
       </div>
       <div className="my-2.5 box-border w-full rounded-xl px-5 py-3 text-lg">
         <a

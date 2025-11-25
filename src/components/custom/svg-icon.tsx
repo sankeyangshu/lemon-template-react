@@ -1,6 +1,9 @@
 import type { IconifyIcon } from '@iconify/react';
 import type { CSSProperties, FC } from 'react';
+import type { SvgName } from '~virtual/svg-component';
 import { Icon } from '@iconify/react';
+import { isNotNil } from 'es-toolkit';
+import LocalSvgIcon from '~virtual/svg-component';
 
 interface SvgIconProps {
   /**
@@ -14,45 +17,33 @@ interface SvgIconProps {
   /**
    * 本地 SVG 图标名称
    */
-  localIcon?: string;
+  localIcon?: SvgName;
   /**
    * 样式
    */
   style?: CSSProperties;
 }
 
-function symbolId(localIcon: string = 'no-icon') {
-  const { VITE_ICON_LOCAL_PREFIX: prefix } = import.meta.env;
-
-  return `#${prefix}-${localIcon}`;
-}
-
 const SvgIcon: FC<SvgIconProps> = (props) => {
   const { icon, localIcon, className, style } = props;
 
-  // If localIcon is passed, render localIcon first
-  return localIcon !== undefined || icon === undefined
-    ? (
-        <svg
-          height="1em"
-          width="1em"
-          aria-hidden="true"
-          className={className}
-          style={style}
-        >
-          <use
-            fill="currentColor"
-            href={symbolId(localIcon)}
-          />
-        </svg>
-      )
-    : (
-        <Icon
-          icon={icon}
-          className={className}
-          style={style}
-        />
-      );
+  if (isNotNil(localIcon)) {
+    return (
+      <LocalSvgIcon name={localIcon} className={className} style={style} />
+    );
+  }
+
+  if (isNotNil(icon)) {
+    return (
+      <Icon
+        icon={icon}
+        className={className}
+        style={style}
+      />
+    );
+  }
+
+  return null;
 };
 
 export default SvgIcon;

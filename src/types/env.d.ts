@@ -33,11 +33,6 @@ declare namespace Env {
      * The prefix of the local icon
      * @descCN 本地图标前缀
      */
-    readonly VITE_ICON_LOCAL_PREFIX: 'icon-local';
-    /**
-     * The prefix of the iconify icon
-     * @descCN iconify 图标前缀
-     */
     readonly VITE_ICON_PREFIX: 'icon';
     /**
      * Whether to automatically open the application
