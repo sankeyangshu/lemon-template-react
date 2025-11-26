@@ -20,6 +20,7 @@ export function setupUnPluginSvgIconConfig(viteEnv: Env.ImportMeta) {
     prefix: VITE_ICON_PREFIX,
     componentName: 'LocalSvgIcon',
     treeShaking: false,
+    preserveColor: /.*\.svg$/, // 保留多色图标的原始颜色
     symbolIdFormatter: (svgName: string, prefix: string): string => {
       const nameArr = svgName.split('/');
       if (prefix)
