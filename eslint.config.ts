@@ -20,6 +20,8 @@ export default antfu(
     rules: {
       'style/arrow-parens': ['error', 'always'], // 箭头函数参数始终添加括号
       'style/brace-style': ['error', '1tbs', { allowSingleLine: true }], // 括号样式
+      'pnpm/json-enforce-catalog': 'off',
+      'pnpm/yaml-enforce-settings': 'off',
     },
   },
   {
@@ -35,8 +37,6 @@ export default antfu(
       'better-tailwindcss': pluginTailwindcss,
     },
     rules: {
-      // enable all recommended rules to report a warning
-      ...pluginTailwindcss.configs['recommended-warn'].rules,
       // enable all recommended rules to report an error
       ...pluginTailwindcss.configs['recommended-error'].rules,
 
