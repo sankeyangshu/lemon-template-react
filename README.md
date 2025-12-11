@@ -1,10 +1,10 @@
 <div align="center">
-<a href="https://github.com/sankeyangshu/lemon-template-react">
-  <img alt="Lemon-Template-React" width="200" height="200" src="./public/logo.png">
+<a href="https://github.com/sankeyangshu/lemon-mobile-react">
+  <img alt="Lemon-Mobile-React" width="200" height="200" src="./public/logo.png">
 </a>
 
 <h1 align="center">
-  lemon-template-react
+  lemon-mobile-react
 </h1>
 
 English / [简体中文](./README.zh-CN.md)
@@ -12,14 +12,14 @@ English / [简体中文](./README.zh-CN.md)
 An mobile web apps template based on the React ecosystem.
 
 <p>
-  <img src="https://img.shields.io/github/license/sankeyangshu/lemon-template-react" alt="license" />
-  <img src="https://img.shields.io/github/package-json/v/sankeyangshu/lemon-template-react" alt="version" />
-  <img src="https://img.shields.io/github/languages/top/sankeyangshu/lemon-template-react" alt="languages" />
-  <img src="https://img.shields.io/github/repo-size/sankeyangshu/lemon-template-react" alt="repo-size" />
-  <img src="https://img.shields.io/github/issues-closed/sankeyangshu/lemon-template-react" alt="issues" />
+  <img src="https://img.shields.io/github/license/sankeyangshu/lemon-mobile-react" alt="license" />
+  <img src="https://img.shields.io/github/package-json/v/sankeyangshu/lemon-mobile-react" alt="version" />
+  <img src="https://img.shields.io/github/languages/top/sankeyangshu/lemon-mobile-react" alt="languages" />
+  <img src="https://img.shields.io/github/repo-size/sankeyangshu/lemon-mobile-react" alt="repo-size" />
+  <img src="https://img.shields.io/github/issues-closed/sankeyangshu/lemon-mobile-react" alt="issues" />
 </p>
 
-[Docs](https://sankeyangshu.github.io/lemon-template-docs/react/) / [Feedback](https://github.com/sankeyangshu/lemon-template-react/issues)
+[Docs](https://sankeyangshu.github.io/lemon-template-docs/react/) / [Feedback](https://github.com/sankeyangshu/lemon-mobile-react/issues)
 
 </div>
 
@@ -27,7 +27,7 @@ An mobile web apps template based on the React ecosystem.
 
 ## Introduction
 
-🚀🚀🚀 **lemon-template-react** is built using the latest technologies, including `React19`, `Vite7`, `TanStack Router`, `TanStack Query`, `Daisyui`, `Zustand`, `TypeScript`, and `Tailwindcss V4`. It integrates features like `Dark Mode`, system theme colors, and Mock data.
+🚀🚀🚀 **lemon-mobile-react** is built using the latest technologies, including `React19`, `Vite7`, `TanStack Router`, `TanStack Query`, `Daisyui`, `Zustand`, `TypeScript`, and `Tailwindcss V4`. It integrates features like `Dark Mode`, system theme colors, and Mock data.
 
 You can directly start developing your business logic on this template! Hope you enjoy it. 👋👋👋
 
@@ -36,7 +36,7 @@ You can directly start developing your business logic on this template! Hope you
 
 ## Preview
 
-👓 [Click Demo](https://lemon-template-react.vercel.app) (Switch to mobile view on PC browsers)
+👓 [Click Demo](https://lemon-mobile-react.vercel.app) (Switch to mobile view on PC browsers)
 
 ## Other Templates
 
@@ -106,7 +106,7 @@ If you use [VSCode](https://code.visualstudio.com/) (recommended), install the f
 
 ## Usage
 
-### Use the Scaffold
+### Use the CLI
 
 ```bash
 # Copy the command - 'project' is your project name
@@ -115,16 +115,16 @@ pnpm create lemon project -t lemon-react
 
 ### GitHub Template
 
-[Use this template to create a repository](https://github.com/sankeyangshu/lemon-template-react/generate)
+[Use this template to create a repository](https://github.com/sankeyangshu/lemon-mobile-react/generate)
 
 ### Clone
 
 ```bash
 # Clone the project
-git clone https://github.com/sankeyangshu/lemon-template-react.git
+git clone https://github.com/sankeyangshu/lemon-mobile-react.git
 
 # Enter the project directory
-cd lemon-template-react
+cd lemon-mobile-react
 
 # Install dependencies - recommended to use pnpm
 pnpm install
@@ -156,7 +156,7 @@ The project enforces Git commit messages using `simple-git-hooks` and `commitlin
 
 ## Community
 
-You can use [issues](https://github.com/sankeyangshu/lemon-template-react/issues) to report problems or submit a Pull Request.
+You can use [issues](https://github.com/sankeyangshu/lemon-mobile-react/issues) to report problems or submit a Pull Request.
 
 ## Browser Support
 

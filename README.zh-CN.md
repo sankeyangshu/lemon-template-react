@@ -1,10 +1,10 @@
 <div align="center">
-<a href="https://github.com/sankeyangshu/lemon-template-react">
-  <img alt="Lemon-Template-React" width="200" height="200" src="./public/logo.png">
+<a href="https://github.com/sankeyangshu/lemon-mobile-react">
+  <img alt="Lemon-Mobile-React" width="200" height="200" src="./public/logo.png">
 </a>
 
 <h1 align="center">
-  lemon-template-react
+  lemon-mobile-react
 </h1>
 
 [English](./README.md) / 简体中文
@@ -12,14 +12,14 @@
 一个基于 React 生态系统的移动 web 应用模板。
 
 <p >
-  <img src="https://img.shields.io/github/license/sankeyangshu/lemon-template-react" alt="license" />
-  <img src="https://img.shields.io/github/package-json/v/sankeyangshu/lemon-template-react" alt="version" />
-  <img src="https://img.shields.io/github/languages/top/sankeyangshu/lemon-template-react" alt="languages" />
-  <img src="https://img.shields.io/github/repo-size/sankeyangshu/lemon-template-react" alt="repo-size" />
-  <img src="https://img.shields.io/github/issues-closed/sankeyangshu/lemon-template-react" alt="issues" />
+  <img src="https://img.shields.io/github/license/sankeyangshu/lemon-mobile-react" alt="license" />
+  <img src="https://img.shields.io/github/package-json/v/sankeyangshu/lemon-mobile-react" alt="version" />
+  <img src="https://img.shields.io/github/languages/top/sankeyangshu/lemon-mobile-react" alt="languages" />
+  <img src="https://img.shields.io/github/repo-size/sankeyangshu/lemon-mobile-react" alt="repo-size" />
+  <img src="https://img.shields.io/github/issues-closed/sankeyangshu/lemon-mobile-react" alt="issues" />
 </p>
 
-[文档](https://sankeyangshu.github.io/lemon-template-docs/zh/react/) / [反馈](https://github.com/sankeyangshu/lemon-template-react/issues)
+[文档](https://sankeyangshu.github.io/lemon-template-docs/zh/react/) / [反馈](https://github.com/sankeyangshu/lemon-mobile-react/issues)
 
 </div>
 
@@ -27,7 +27,7 @@
 
 ## 简介
 
-🚀🚀🚀 **lemon-template-react** 使用了最新的`React19`、`Vite7`、`TanStack Router`、`TanStack Query`、`Daisyui`、`Zustand`、`Typescript`、`Tailwindcss V4`等主流技术开发，集成 `Dark Mode`（暗黑）模式和系统主题色、Mock数据等功能。
+🚀🚀🚀 **lemon-mobile-react** 使用了最新的`React19`、`Vite7`、`TanStack Router`、`TanStack Query`、`Daisyui`、`Zustand`、`Typescript`、`Tailwindcss V4`等主流技术开发，集成 `Dark Mode`（暗黑）模式和系统主题色、Mock数据等功能。
 
 你可以在此之上直接开发你的业务代码！希望你能喜欢。👋👋👋
 
@@ -36,7 +36,7 @@
 
 ## 在线预览
 
-👓 [点击这里](https://lemon-template-react.vercel.app)（PC浏览器请切换手机端模式）
+👓 [点击这里](https://lemon-mobile-react.vercel.app)（PC浏览器请切换手机端模式）
 
 ## 其他模版
 
@@ -115,16 +115,16 @@ pnpm create lemon project -t lemon-react
 
 ### GitHub 模板
 
-[使用这个模板创建仓库](https://github.com/sankeyangshu/lemon-template-react/generate)
+[使用这个模板创建仓库](https://github.com/sankeyangshu/lemon-mobile-react/generate)
 
 ### 克隆使用
 
 ```bash
 # 克隆项目
-git clone https://github.com/sankeyangshu/lemon-template-react.git
+git clone https://github.com/sankeyangshu/lemon-mobile-react.git
 
 # 进入项目目录
-cd lemon-template-react
+cd lemon-mobile-react
 
 # 安装依赖 - 推荐使用pnpm
 pnpm install
@@ -156,7 +156,7 @@ pnpm build
 
 ## 社区
 
-您可以使用 [issue](https://github.com/sankeyangshu/lemon-template-react/issues) 来反馈问题，或者提交一个 Pull Request。
+您可以使用 [issue](https://github.com/sankeyangshu/lemon-mobile-react/issues) 来反馈问题，或者提交一个 Pull Request。
 
 ## 浏览器支持
 
