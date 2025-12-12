@@ -19,7 +19,7 @@
   <img src="https://img.shields.io/github/issues-closed/sankeyangshu/lemon-mobile-react" alt="issues" />
 </p>
 
-[文档](https://sankeyangshu.github.io/lemon-template-docs/zh/react/) / [反馈](https://github.com/sankeyangshu/lemon-mobile-react/issues)
+[文档](https://lemon-template-docs.vercel.app/mobile-react/) / [反馈](https://github.com/sankeyangshu/lemon-mobile-react/issues)
 
 </div>
 
@@ -40,32 +40,32 @@
 
 ## 其他模版
 
-- [lemon-template-vue](https://github.com/sankeyangshu/lemon-template-vue) - 基于 Vue 3 生态系统的移动 web 应用模板
-- [lemon-template-uniapp](https://github.com/sankeyangshu/lemon-template-uniapp) - 基于 UniApp 生态系统的移动小程序应用模板
+- [lemon-mobile-vue](https://github.com/sankeyangshu/lemon-mobile-vue) - 基于 Vue 3 生态系统的移动 web 应用模板
+- [lemon-mobile-uniapp](https://github.com/sankeyangshu/lemon-mobile-uniapp) - 基于 UniApp 生态系统的移动小程序应用模板
 
 ## 项目功能
 
-- ⚡️ 使用 React + Hooks 开发
-- ✨ 采用 Vite7 作为项目开发、打包工具（配置 Gzip 打包、TSX 语法、跨域代理…）
-- 🍕 整个项目集成了 TypeScript
-- 🚦 使用 TanStack Router 作为路由管理方案，提供类型安全的路由系统
-- 🔄 使用 TanStack Query 进行服务端状态管理，简化数据获取和缓存
-- 🍍 使用 Zustand 做状态管理，轻量、简单、易用
-- 📦 @reactuses/core 高质量可靠的 React Hooks 库
-- 🎨 daisyui 组件库
-- 🌀 tailwindcss 即时原子化 CSS 引擎
+- ⚡️ 使用 `React` + `Hooks` 开发
+- ✨ 采用 `Vite7` 作为项目开发、打包工具（配置 `Gzip` 打包、`TSX` 语法、跨域代理…）
+- 🍕 整个项目集成了 `TypeScript`
+- 🚦 使用 `TanStack Router` 作为路由管理方案，提供类型安全的路由系统
+- 🔄 使用 `TanStack Query` 进行服务端状态管理，简化数据获取和缓存
+- 🍍 使用 `Zustand` 做状态管理，轻量、简单、易用
+- 📦 `@reactuses/core` 高质量可靠的 React Hooks 库
+- 🎨 `daisyui` 组件库
+- 🌀 `tailwindcss` 即时原子化 CSS 引擎
 - 👏 集成多种图标方案
 - 🌓 支持深色模式
-- 🌍 多语言国际化，支持 i18n国际化方案
-- 🔥 集成 Echarts 数据可视化图表，封装 useECharts Hooks
-- ⚙️ 使用 Vitest 进行单元测试
-- ☁️ Axios 封装
-- 💾 本地 Mock 数据模拟的支持
+- 🌍 多语言国际化，支持 `i18n` 国际化方案
+- 🔥 集成 `Echarts` 数据可视化图表，封装 `useECharts Hooks`
+- ⚙️ 使用 `Vitest` 进行单元测试
+- ☁️ `Axios` 封装
+- 💾 本地 `Mock` 数据模拟的支持
 - 📱 浏览器适配
-- 📥 打包资源 gzip 压缩
+- 📥 打包资源 `gzip` 压缩
 - 🛡️ 首屏加载动画
-- 💪 集成 Eslint 代码校验规范，并且该 Eslint 配置默认使用 Prettier 格式化代码，
-- 🌈 使用 simple-git-hooks、lint-staged、commitlint 规范提交信息
+- 💪 集成 `Eslint` 代码校验规范，并且该 `Eslint` 配置默认使用 `Prettier` 格式化代码，
+- 🌈 使用 `simple-git-hooks`、`lint-staged`、`commitlint` 规范提交信息
 
 ## 基础知识
 
@@ -76,7 +76,7 @@
 - [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) - 熟悉 `Zustand` 基本使用
 - [TypeScript](https://www.typescriptlang.org/) - 熟悉 `TypeScript` 基本语法
 - [TanStack Router](https://tanstack.com/router/latest/docs/framework/react/overview) - 熟悉 `TanStack Router`基本使用
-- [Icones](https://icones.js.org/) - 本项目推荐图标库，当然你也可以使用 `IconSVg`
+- [Icones](https://icones.js.org/) - 本项目推荐图标库，当然你也可以使用 `SVG Icon`
 - [Tailwind CSS](https://tailwindcss.com/) - 高性能且极具灵活性的即时原子化 CSS 引擎
 - [@reactuses/core](https://reactuse.com/zh-Hans/) - 一套高质量可靠的 React Hooks 库
 - [Daisyui](https://daisyui.com/docs/intro/) - Tailwind CSS 插件，更快、更简洁、更简单的Tailwind CSS 开发
@@ -110,7 +110,7 @@
 
 ```bash
 # 复制命令 - project 为你的项目名称
-pnpm create lemon project -t lemon-react
+pnpm create lemon project -t mobile-react
 ```
 
 ### GitHub 模板

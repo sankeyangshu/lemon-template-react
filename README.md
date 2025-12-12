@@ -19,7 +19,7 @@ An mobile web apps template based on the React ecosystem.
   <img src="https://img.shields.io/github/issues-closed/sankeyangshu/lemon-mobile-react" alt="issues" />
 </p>
 
-[Docs](https://sankeyangshu.github.io/lemon-template-docs/react/) / [Feedback](https://github.com/sankeyangshu/lemon-mobile-react/issues)
+[Docs](https://lemon-template-docs.vercel.app/mobile-react/) / [Feedback](https://github.com/sankeyangshu/lemon-mobile-react/issues)
 
 </div>
 
@@ -40,32 +40,32 @@ You can directly start developing your business logic on this template! Hope you
 
 ## Other Templates
 
-- [lemon-template-vue](https://github.com/sankeyangshu/lemon-template-vue) - A mobile web apps template based on the Vue 3 ecosystem
-- [lemon-template-uniapp](https://github.com/sankeyangshu/lemon-template-uniapp) - An mobile web apps template based on the UniApp ecosystem
+- [lemon-mobile-vue](https://github.com/sankeyangshu/lemon-mobile-vue) - A mobile web apps template based on the Vue 3 ecosystem
+- [lemon-mobile-uniapp](https://github.com/sankeyangshu/lemon-mobile-uniapp) - An mobile web apps template based on the UniApp ecosystem
 
 ## Features
 
-- ⚡️ Developed with React + Hooks
-- ✨ Uses Vite7 as the development and build tool (includes Gzip packaging, TSX syntax, proxy support, etc.)
-- 🍕 Fully integrates TypeScript
-- 🚦 Uses TanStack Router for routing management, providing a type-safe routing system
-- 🔄 Uses TanStack Query for server state management, simplifying data fetching and caching
-- 🍍 Uses Zustand for state management, lightweight, simple and easy to use
-- 📦 @reactuses/core High quality and reliable React Hooks library
-- 🎨 Daisyui component library
-- 🌀 Tailwindcss for instant atomic CSS engine
+- ⚡️ Developed with `React` + `Hooks`
+- ✨ Uses `Vite7` as the development and build tool (includes `Gzip` packaging, `TSX` syntax, proxy support, etc.)
+- 🍕 Fully integrates `TypeScript`
+- 🚦 Uses `TanStack Router` for routing management, providing a type-safe routing system
+- 🔄 Uses `TanStack Query` for server state management, simplifying data fetching and caching
+- 🍍 Uses `Zustand` for state management, lightweight, simple and easy to use
+- 📦 `@reactuses/core` High quality and reliable React Hooks library
+- 🎨 `Daisyui` component library
+- 🌀 `Tailwindcss` for instant atomic CSS engine
 - 👏 Integrates multiple icon solutions
 - 🌓 Supports Dark Mode
-- 🌍 Multi-language support with i18n
-- 🔥 Integrates ECharts for data visualization, with useECharts Hooks encapsulation
-- ⚙️ Uses Vitest for unit testing
-- ☁️ Axios encapsulation
-- 💾 Local Mock data simulation support
+- 🌍 Multi-language support with `i18n`
+- 🔥 Integrates `ECharts` for data visualization, with `useECharts` Hooks encapsulation
+- ⚙️ Uses `Vitest` for unit testing
+- ☁️ `Axios` encapsulation
+- 💾 Local `Mock` data simulation support
 - 📱 Browser compatibility
-- 📥 Gzip compression for packaged resources
+- 📥 `Gzip` compression for packaged resources
 - 🛡️ First screen loading animation
-- 💪 Integrates Eslint code validation standards, with Prettier as the default code formatter
-- 🌈 Uses simple-git-hooks, lint-staged, and commitlint to standardize commit messages
+- 💪 Integrates `Eslint` code validation standards, with `Prettier` as the default code formatter
+- 🌈 Uses `simple-git-hooks`, `lint-staged`, and `commitlint` to standardize commit messages
 
 ## Prerequisites
 
@@ -76,7 +76,7 @@ Familiarity with the following concepts will help you use this template effectiv
 - [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) - Proficient in using `Zustand`
 - [TypeScript](https://www.typescriptlang.org/) - Master basic `TypeScript` syntax
 - [TanStack Router](https://tanstack.com/router/latest/docs/framework/react/overview) - Familiar with `TanStack Router` basic usage
-- [Icones](https://icones.js.org/) - Recommended icon library for the project, but `IconSVG` is also an option
+- [Icones](https://icones.js.org/) - Recommended icon library for the project, but `SVG Icon` is also an option
 - [Tailwind CSS](https://tailwindcss.com/) - High-performance and extremely flexible instant atomic CSS engine
 - [@reactuses/core](https://reactuse.com/en-US/) - A high-quality and reliable React Hooks library
 - [Daisyui](https://daisyui.com/docs/intro/) - Tailwind CSS plugin for faster, cleaner, and simpler Tailwind CSS development
@@ -110,7 +110,7 @@ If you use [VSCode](https://code.visualstudio.com/) (recommended), install the f
 
 ```bash
 # Copy the command - 'project' is your project name
-pnpm create lemon project -t lemon-react
+pnpm create lemon project -t mobile-react
 ```
 
 ### GitHub Template
