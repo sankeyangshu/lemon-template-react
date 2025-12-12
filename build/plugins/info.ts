@@ -4,7 +4,7 @@ import boxen from 'boxen';
 import gradient from 'gradient-string';
 
 const welcomeMessage = gradient(['#EACA44', 'magenta']).multiline(
-  `您好! 欢迎使用 lemon-react 开源项目\n我们为您精心准备了精美的保姆级文档\nhttps://sankeyangshu.github.io/lemon-template-docs/react/`,
+  `您好! 欢迎使用 lemon-mobile-react 开源项目\n我们为您精心准备了精美的保姆级文档\nhttps://lemon-template-docs.vercel.app/mobile-react/`,
 );
 
 const boxenOptions: BoxenOptions = {

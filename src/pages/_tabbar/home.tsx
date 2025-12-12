@@ -92,9 +92,9 @@ function RouteComponent() {
       <div className="my-2.5 box-border w-full rounded-xl px-5 py-3 text-lg">
         <a
           className="flex items-center justify-center leading-9"
-          href="https://github.com/sankeyangshu/lemon-template-react"
+          href="https://github.com/sankeyangshu/lemon-mobile-react"
         >
-          <div className="font-bold">Lemon-Template-React</div>
+          <div className="font-bold">Lemon-Mobile-React</div>
           <SvgIcon icon="mdi:github" className="ml-2 text-2xl" />
         </a>
         <div className="mt-3 mb-1.5 text-center text-sm leading-6">{t('home.info')}</div>

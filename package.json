@@ -1,5 +1,5 @@
 {
-  "name": "lemon-template-react",
+  "name": "lemon-mobile-react",
   "type": "module",
   "version": "2.1.0",
   "private": true,
@@ -11,13 +11,13 @@
     "url": "https://github.com/sankeyangshu"
   },
   "license": "MIT",
-  "homepage": "https://github.com/sankeyangshu/lemon-template-react#readme",
+  "homepage": "https://github.com/sankeyangshu/lemon-mobile-react#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sankeyangshu/lemon-template-react.git"
+    "url": "git+https://github.com/sankeyangshu/lemon-mobile-react.git"
   },
   "bugs": {
-    "url": "https://github.com/sankeyangshu/lemon-template-react/issues"
+    "url": "https://github.com/sankeyangshu/lemon-mobile-react/issues"
   },
   "keywords": [
     "react",

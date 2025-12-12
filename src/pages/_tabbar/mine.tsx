@@ -72,7 +72,7 @@ function RouteComponent() {
             )}
             isLink
             onClick={() =>
-              window.open('https://sankeyangshu.github.io/lemon-template-docs/react/', '_blank')}
+              window.open('https://lemon-template-docs.vercel.app/mobile-react/', '_blank')}
           />
           <Cell
             title={(
