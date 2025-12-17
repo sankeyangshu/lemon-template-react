@@ -20,7 +20,6 @@ export default antfu(
     rules: {
       'style/arrow-parens': ['error', 'always'], // 箭头函数参数始终添加括号
       'style/brace-style': ['error', '1tbs', { allowSingleLine: true }], // 括号样式
-      'pnpm/json-enforce-catalog': 'off',
       'pnpm/yaml-enforce-settings': 'off',
     },
   },
