@@ -2,16 +2,16 @@
  * The storage type
  * @descCN 存储类型
  */
-type StorageType = 'local' | 'session';
+type Storage = 'local' | 'session';
 
 /**
  * create storage
  * @descCN 创建storage
- * @param type storage type local or session
+ * @param type storage type 'local' or 'session'
  * @param storagePrefix storage prefix
  * @returns storage
  */
-function createStorage<T extends object>(type: StorageType, storagePrefix: string) {
+function createStorage<T extends object>(type: Storage, storagePrefix: string) {
   const stg = type === 'session' ? window.sessionStorage : window.localStorage;
 
   const storage = {
