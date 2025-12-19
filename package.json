@@ -4,7 +4,7 @@
   "version": "2.1.0",
   "private": true,
   "packageManager": "pnpm@10.26.0",
-  "description": "An mobile web apps template based on the React ecosystem",
+  "description": "A mobile web app template based on the React ecosystem",
   "author": {
     "name": "sankeyangshu",
     "email": "sankeyangshu@gmail.com",

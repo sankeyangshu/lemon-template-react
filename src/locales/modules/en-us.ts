@@ -52,7 +52,7 @@ const local: App.I18n.I18nScheme = {
     notFound: '404 Page Demo',
   },
   home: {
-    info: 'Mobile Web Application Template based on React Ecosystem',
+    info: 'Mobile Web App Template based on the React ecosystem',
     react: 'React19 + Vite7',
     typescript: 'TypeScript',
     reactUI: 'daisyUI component library',

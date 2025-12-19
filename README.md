@@ -9,7 +9,7 @@
 
 English / [简体中文](./README.zh-CN.md)
 
-An mobile web apps template based on the React ecosystem.
+A mobile web app template based on the React ecosystem.
 
 <p>
   <img src="https://img.shields.io/github/license/sankeyangshu/lemon-mobile-react" alt="license" />
@@ -40,8 +40,8 @@ You can directly start developing your business logic on this template! Hope you
 
 ## Other Templates
 
-- [lemon-mobile-vue](https://github.com/sankeyangshu/lemon-mobile-vue) - A mobile web apps template based on the Vue 3 ecosystem
-- [lemon-mobile-uniapp](https://github.com/sankeyangshu/lemon-mobile-uniapp) - An mobile web apps template based on the UniApp ecosystem
+- [lemon-mobile-vue](https://github.com/sankeyangshu/lemon-mobile-vue) - A mobile web app template based on the Vue 3 ecosystem
+- [lemon-mobile-uniapp](https://github.com/sankeyangshu/lemon-mobile-uniapp) - A mobile web app template based on the UniApp ecosystem
 
 ## Features
 
