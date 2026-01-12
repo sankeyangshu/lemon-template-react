@@ -10,17 +10,26 @@
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-@theme {
+:root {
   /* 背景颜色 */
-  --color-background: oklch(0.9612 0.0041 271.37);
+  --background: oklch(0.9612 0.0041 271.37);
   /* 云朵移动动画 */
-  --animate-cloud-move: cloud-move 6s infinite;
+  --cloud-move: cloud-move 6s infinite;
   /* 星星闪烁动画 */
-  --animate-star-twinkle: star-twinkle 2s infinite;
+  --star-twinkle: star-twinkle 2s infinite;
 }
 
 [data-theme='dark'] {
-  --color-background: oklch(0.1913 0 0);
+  --background: oklch(0.1913 0 0);
+}
+
+@theme inline {
+  /* 背景颜色 */
+  --color-background: var(--background);
+  /* 云朵移动动画 */
+  --animate-cloud-move: var(--cloud-move);
+  /* 星星闪烁动画 */
+  --animate-star-twinkle: var(--star-twinkle);
 }
 
 * {
