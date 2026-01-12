@@ -16,6 +16,10 @@ const signInSearchSchema = z.object({
 });
 
 export const Route = createFileRoute('/(auth)/sign-in')({
+  staticData: {
+    title: '登录',
+    i18nKey: 'router.login',
+  },
   validateSearch: signInSearchSchema,
   component: RouteComponent,
 });

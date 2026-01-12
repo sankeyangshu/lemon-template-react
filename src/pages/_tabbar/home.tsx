@@ -4,6 +4,10 @@ import { useTranslation } from 'react-i18next';
 import SvgIcon from '@/components/custom/svg-icon';
 
 export const Route = createFileRoute('/_tabbar/home')({
+  staticData: {
+    title: '首页',
+    i18nKey: 'router.home',
+  },
   component: RouteComponent,
 });
 

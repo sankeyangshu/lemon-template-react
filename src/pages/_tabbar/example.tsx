@@ -7,6 +7,10 @@ import Picker from '@/components/custom/picker';
 import SwitchDark from '@/components/custom/switch-dark';
 
 export const Route = createFileRoute('/_tabbar/example')({
+  staticData: {
+    title: '示例',
+    i18nKey: 'router.example',
+  },
   component: RouteComponent,
 });
 

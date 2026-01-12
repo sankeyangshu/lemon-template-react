@@ -7,6 +7,10 @@ import SvgIcon from '@/components/custom/svg-icon';
 import { useECharts } from '@/hooks/use-chart';
 
 export const Route = createFileRoute('/example/echarts')({
+  staticData: {
+    title: 'ECharts 示例',
+    i18nKey: 'router.echarts',
+  },
   component: RouteComponent,
 });
 

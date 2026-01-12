@@ -7,6 +7,10 @@ import SvgIcon from '@/components/custom/svg-icon';
 import SwitchDark from '@/components/custom/switch-dark';
 
 export const Route = createFileRoute('/_authenticated/settings')({
+  staticData: {
+    title: '主题设置',
+    i18nKey: 'router.themeSetting',
+  },
   component: RouteComponent,
 });
 

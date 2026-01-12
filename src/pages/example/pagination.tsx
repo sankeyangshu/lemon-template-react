@@ -13,6 +13,10 @@ import NavBar from '@/components/custom/nav-bar';
 import SvgIcon from '@/components/custom/svg-icon';
 
 export const Route = createFileRoute('/example/pagination')({
+  staticData: {
+    title: '分页示例',
+    i18nKey: 'router.pagination',
+  },
   component: RouteComponent,
 });
 

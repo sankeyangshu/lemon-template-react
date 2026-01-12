@@ -5,6 +5,10 @@ import NavBar from '@/components/custom/nav-bar';
 import SvgIcon from '@/components/custom/svg-icon';
 
 export const Route = createFileRoute('/example/icon')({
+  staticData: {
+    title: '图标示例',
+    i18nKey: 'router.icon',
+  },
   component: RouteComponent,
 });
 

@@ -11,6 +11,10 @@ import Toast from '@/components/custom/toast';
 import PasswordInput from './-components/password-input';
 
 export const Route = createFileRoute('/(auth)/sign-up')({
+  staticData: {
+    title: '注册',
+    i18nKey: 'router.register',
+  },
   component: RouteComponent,
 });
 

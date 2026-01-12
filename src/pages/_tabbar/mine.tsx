@@ -8,6 +8,10 @@ import SvgIcon from '@/components/custom/svg-icon';
 import { useUserStore } from '@/store/user';
 
 export const Route = createFileRoute('/_tabbar/mine')({
+  staticData: {
+    title: '我的',
+    i18nKey: 'router.mine',
+  },
   component: RouteComponent,
 });
 

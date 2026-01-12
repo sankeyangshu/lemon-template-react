@@ -9,6 +9,10 @@ import NavBar from '@/components/custom/nav-bar';
 import SvgIcon from '@/components/custom/svg-icon';
 
 export const Route = createFileRoute('/example/mock')({
+  staticData: {
+    title: 'Mock 示例',
+    i18nKey: 'router.mock',
+  },
   component: RouteComponent,
 });
 

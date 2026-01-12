@@ -10,6 +10,10 @@ import SvgIcon from '@/components/custom/svg-icon';
 import PasswordInput from './-components/password-input';
 
 export const Route = createFileRoute('/(auth)/forgot-password')({
+  staticData: {
+    title: '忘记密码',
+    i18nKey: 'router.forgotPassword',
+  },
   component: RouteComponent,
 });
 
