@@ -50,6 +50,8 @@ export async function getExampleAPI() {
 /**
  * 获取文章列表
  * @param data 文章列表请求参数
+ * @param data.pageNum 页码
+ * @param data.pageSize 每页数量
  * @returns 文章列表
  */
 export async function postArticleListAPI(data: { pageNum: number; pageSize: number }) {

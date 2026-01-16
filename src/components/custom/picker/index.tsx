@@ -317,7 +317,7 @@ function Picker(props: PickerProps & { ref?: React.Ref<PickerInstance> }) {
       `}
       >
         <div className={`
-          h-8 w-8 animate-spin rounded-full border-2 border-primary border-t-transparent
+          size-8 animate-spin rounded-full border-2 border-primary border-t-transparent
         `}
         />
       </div>
@@ -355,7 +355,7 @@ function Picker(props: PickerProps & { ref?: React.Ref<PickerInstance> }) {
           {/* 选中框 */}
           <div
             className={`
-              pointer-events-none absolute top-1/2 right-0 left-0 z-20 -translate-y-1/2 border-y
+              pointer-events-none absolute inset-x-0 top-1/2 z-20 -translate-y-1/2 border-y
               border-[#EBEDF0]
               dark:border-[#3a3a3c]
             `}

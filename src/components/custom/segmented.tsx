@@ -88,7 +88,7 @@ const Segmented: FC<SegmentedProps> = (props) => {
           >
             {isNotNil(option.icon)
               ? (
-                  <span className="mr-1 flex h-2.5 w-2.5 items-center justify-center">
+                  <span className="mr-1 flex size-2.5 items-center justify-center">
                     {option.icon}
                   </span>
                 )

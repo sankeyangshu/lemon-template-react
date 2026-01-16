@@ -47,15 +47,15 @@ function SwitchDark(props: SwitchDarkProps) {
         type="checkbox"
         checked={isDark}
         onChange={() => setTheme(isDark ? 'light' : 'dark')}
-        className="peer h-0 w-0 opacity-0"
+        className="peer size-0 opacity-0"
       />
 
       {/* Slider 背景 */}
       <div
         className={cn(
           `
-            absolute top-0 right-0 bottom-0 left-0 z-0 cursor-pointer overflow-hidden rounded-[30px]
-            bg-[#2196f3] transition-all duration-400
+            absolute inset-0 z-0 cursor-pointer overflow-hidden rounded-[30px] bg-[#2196f3]
+            transition-all duration-400
             peer-checked:bg-black
             peer-focus:shadow-[0_0_1px_#2196f3]
           `,
@@ -64,14 +64,14 @@ function SwitchDark(props: SwitchDarkProps) {
         {/* 太阳/月亮主体 */}
         <div
           className={cn(
-            'absolute bottom-1 left-1 h-[22px] w-[22px] rounded-full transition-all duration-400',
+            'absolute bottom-1 left-1 size-[22px] rounded-full transition-all duration-400',
             isDark ? 'translate-x-[23px] bg-gray-200' : 'bg-yellow-400',
           )}
         >
           {/* 月亮斑点 */}
           <svg
             className={cn(
-              'absolute top-[2.5px] left-[8.5px] z-4 h-[5px] w-[5px] fill-gray-500',
+              'absolute top-[2.5px] left-[8.5px] z-4 size-[5px] fill-gray-500',
               'transition-opacity duration-400',
               isDark ? 'opacity-100' : 'opacity-0',
             )}
@@ -81,7 +81,7 @@ function SwitchDark(props: SwitchDarkProps) {
           </svg>
           <svg
             className={cn(
-              'absolute top-[8.5px] left-[1.5px] z-4 h-[8.5px] w-[8.5px] fill-gray-500',
+              'absolute top-[8.5px] left-[1.5px] z-4 size-[8.5px] fill-gray-500',
               'transition-opacity duration-400',
               isDark ? 'opacity-100' : 'opacity-0',
             )}
@@ -91,7 +91,7 @@ function SwitchDark(props: SwitchDarkProps) {
           </svg>
           <svg
             className={cn(
-              'absolute top-[15px] left-[13.5px] z-4 h-[2.5px] w-[2.5px] fill-gray-500',
+              'absolute top-[15px] left-[13.5px] z-4 size-[2.5px] fill-gray-500',
               'transition-opacity duration-400',
               isDark ? 'opacity-100' : 'opacity-0',
             )}
@@ -102,25 +102,19 @@ function SwitchDark(props: SwitchDarkProps) {
 
           {/* 光线 */}
           <svg
-            className={`
-              absolute top-[-7px] left-[-7px] z-[-1] h-[36px] w-[36px] fill-white opacity-10
-            `}
+            className="absolute top-[-7px] left-[-7px] z-[-1] size-[36px] fill-white opacity-10"
             viewBox="0 0 100 100"
           >
             <circle cx="50" cy="50" r="50"></circle>
           </svg>
           <svg
-            className={`
-              absolute top-[-50%] left-[-50%] z-[-1] h-[46px] w-[46px] fill-white opacity-10
-            `}
+            className="absolute top-[-50%] left-[-50%] z-[-1] size-[46px] fill-white opacity-10"
             viewBox="0 0 100 100"
           >
             <circle cx="50" cy="50" r="50"></circle>
           </svg>
           <svg
-            className={`
-              absolute top-[-15px] left-[-15px] z-[-1] h-[50px] w-[50px] fill-white opacity-10
-            `}
+            className="absolute top-[-15px] left-[-15px] z-[-1] size-[50px] fill-white opacity-10"
             viewBox="0 0 100 100"
           >
             <circle cx="50" cy="50" r="50"></circle>

@@ -52,7 +52,7 @@ function RouteComponent() {
         </div>
 
         <div className={`
-          mt-5 flex h-75 items-center justify-center bg-white p-5 text-base leading-7.5
+          mt-5 flex h-75 items-center justify-center bg-white p-5 text-base/7.5
           dark:bg-[#1c1c1e]
         `}
         >

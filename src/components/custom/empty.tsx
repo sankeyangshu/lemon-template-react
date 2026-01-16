@@ -52,7 +52,7 @@ const Empty: FC<EmptyProps> = (props) => {
     if (isNotNil(description)) {
       return (
         <div className={cn(`
-          mt-4 px-15 text-sm leading-5 text-[#969799]
+          mt-4 px-15 text-sm/5 text-[#969799]
           dark:text-[#707070]
         `)}
         >

@@ -288,7 +288,7 @@ const Popup: FC<PopupProps & { ref?: Ref<PopupInstanceType> }> = (props) => {
   // 渲染标题
   const renderTitle = () => {
     if (isNotNil(title)) {
-      return <div className="mx-3 my-5 text-center text-base leading-4 font-medium">{title}</div>;
+      return <div className="mx-3 my-5 text-center text-base/4 font-medium">{title}</div>;
     }
 
     return null;
@@ -371,7 +371,7 @@ const Popup: FC<PopupProps & { ref?: Ref<PopupInstanceType> }> = (props) => {
             'rounded-t-2xl': round && position === 'bottom',
             'rounded-r-2xl': round && position === 'left',
             'rounded-l-2xl': round && position === 'right',
-            'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2': position === 'center',
+            'top-1/2 left-1/2 -translate-1/2': position === 'center',
             'top-0 left-0 w-full': position === 'top',
             'bottom-0 left-0 w-full': position === 'bottom',
             'bottom-0 left-0 h-full': position === 'left',

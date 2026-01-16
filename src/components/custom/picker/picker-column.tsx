@@ -385,7 +385,7 @@ function PickerColumn(props: PickerColumnComponentProps) {
           `,
           {
             'cursor-not-allowed opacity-30': disabled,
-            'font-semibold !text-gray-900 dark:!text-gray-50': isSelected,
+            'font-semibold text-gray-900! dark:text-gray-50!': isSelected,
           },
         ),
         onClick: () => {

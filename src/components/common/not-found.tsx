@@ -9,14 +9,14 @@ function NotFound() {
     {
       id: 'title',
       content: (
-        <div className="mb-5 text-xl leading-10 font-bold text-primary">
+        <div className="mb-5 text-xl/10 font-bold text-primary">
           {t('system.notFound')}
         </div>
       ),
     },
     {
       id: 'description',
-      content: <div className="mb-7.5 text-sm leading-5 text-gray-500">{t('system.checkUrl')}</div>,
+      content: <div className="mb-7.5 text-sm/5 text-gray-500">{t('system.checkUrl')}</div>,
     },
     {
       id: 'link',

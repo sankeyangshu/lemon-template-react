@@ -115,7 +115,7 @@ export const CellGroup: FC<CellGroupProps> = (props) => {
   const renderTitle = () => {
     if (isNotNil(title)) {
       return (
-        <div className="px-4 pt-4 pb-2 text-sm leading-4 text-base-content">
+        <div className="px-4 pt-4 pb-2 text-sm/4 text-base-content">
           {title}
         </div>
       );
@@ -145,7 +145,7 @@ export const Cell: FC<CellProps> = (props) => {
     if (isNotNil(props.label)) {
       return (
         <div className={cn(`
-          mt-1 text-xs leading-4 text-[#969799]
+          mt-1 text-xs/4 text-[#969799]
           dark:text-[#707070]
         `, props.labelClass)}
         >
@@ -192,7 +192,7 @@ export const Cell: FC<CellProps> = (props) => {
       const iconElement = props.icon as ReactElement<{ className?: string }>;
 
       return cloneElement(iconElement, {
-        className: cn('mr-2 inline-flex h-6 items-center justify-center text-base leading-6', iconElement?.props?.className),
+        className: cn('mr-2 inline-flex h-6 items-center justify-center text-base/6', iconElement?.props?.className),
       });
     }
 
@@ -205,7 +205,7 @@ export const Cell: FC<CellProps> = (props) => {
     }
 
     if (props.isLink) {
-      const className = cn('ml-2 inline-flex h-6 items-center justify-center text-base leading-6');
+      const className = cn('ml-2 inline-flex h-6 items-center justify-center text-base/6');
 
       if (props.arrowDirection === 'left') {
         return <SvgIcon className={className} icon="mdi:chevron-left" />;
@@ -236,13 +236,15 @@ export const Cell: FC<CellProps> = (props) => {
   return (
     <div
       className={cn(`
-        relative box-border flex w-full overflow-hidden bg-white px-4 py-2.5 text-sm leading-6
+        relative box-border flex w-full overflow-hidden bg-white px-4 py-2.5 text-sm/6
         text-base-content
         after:pointer-events-none after:absolute after:inset-x-4 after:bottom-0 after:h-px
         after:origin-bottom after:scale-y-50 after:bg-[#EBEDF0]
         first:rounded-t-lg
-        last:rounded-b-lg last:after:hidden
-        dark:bg-[#1C1C1E] dark:after:bg-[#3a3a3c]
+        last:rounded-b-lg
+        last:after:hidden
+        dark:bg-[#1C1C1E]
+        dark:after:bg-[#3a3a3c]
       `, {
         'cursor-pointer active:bg-[#F2F3F5] dark:active:bg-[#3a3a3c]': clickable,
         'items-center': center,

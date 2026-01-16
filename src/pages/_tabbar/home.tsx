@@ -101,7 +101,7 @@ function RouteComponent() {
           <div className="font-bold">Lemon-Mobile-React</div>
           <SvgIcon icon="mdi:github" className="ml-2 text-2xl" />
         </a>
-        <div className="mt-3 mb-1.5 text-center text-sm leading-6">{t('home.info')}</div>
+        <div className="mt-3 mb-1.5 text-center text-sm/6">{t('home.info')}</div>
       </div>
 
       <div className="mt-4 grid gap-3 pb-6 text-center text-sm">

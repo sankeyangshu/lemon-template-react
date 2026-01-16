@@ -32,7 +32,7 @@ const Card: FC<{ article: Article }> = ({ article }) => {
         <img
           src={article.coverImage}
           alt={article.title}
-          className="h-full w-full object-cover"
+          className="size-full object-cover"
         />
       </div>
       {/* 文章内容 */}

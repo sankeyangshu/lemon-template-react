@@ -205,9 +205,9 @@ const BaseToast: FC<ToastProps & { visible?: boolean }> = (props) => {
         `,
         {
           // 有图标时的样式
-          'min-h-22 w-22 max-w-[70vw] rounded-lg p-4 text-sm leading-5': hasIcon,
+          'min-h-22 w-22 max-w-[70vw] rounded-lg p-4 text-sm/5': hasIcon,
           // 纯文本时的样式
-          'max-w-[70vw] min-w-24 rounded-lg px-3 py-2 text-sm leading-5': !hasIcon,
+          'max-w-[70vw] min-w-24 rounded-lg px-3 py-2 text-sm/5': !hasIcon,
         },
         className,
       )}
