@@ -1,10 +1,10 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useLanguage } from '@/components/common/lang-provider';
 import { Cell, CellGroup } from '@/components/custom/cell';
 import Picker from '@/components/custom/picker';
 import SwitchDark from '@/components/custom/switch-dark';
+import { useLanguage } from '@/provider/lang';
 
 export const Route = createFileRoute('/_tabbar/example')({
   staticData: {

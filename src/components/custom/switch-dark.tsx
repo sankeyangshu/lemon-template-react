@@ -1,6 +1,6 @@
 import type { SvgName } from '~virtual/svg-component';
-import { DARK_MODE_MEDIA_QUERY, useTheme } from '@/components/common/theme-provider';
 import { cn } from '@/lib/utils';
+import { DARK_MODE_MEDIA_QUERY, useTheme } from '@/provider/theme';
 import Segmented from './segmented';
 import SvgIcon from './svg-icon';
 

@@ -1,10 +1,10 @@
-import type { PrimaryColor } from '@/components/common/color-provider';
+import type { PrimaryColor } from '@/provider/color';
 import { createFileRoute, useRouter } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
-import { PRIMARY_COLORS, useThemeColor } from '@/components/common/color-provider';
 import NavBar from '@/components/custom/nav-bar';
 import SvgIcon from '@/components/custom/svg-icon';
 import SwitchDark from '@/components/custom/switch-dark';
+import { PRIMARY_COLORS, useThemeColor } from '@/provider/color';
 
 export const Route = createFileRoute('/_authenticated/settings')({
   staticData: {

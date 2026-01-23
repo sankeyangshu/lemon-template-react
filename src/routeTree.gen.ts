@@ -242,14 +242,14 @@ declare module '@tanstack/react-router' {
     '/_tabbar': {
       id: '/_tabbar'
       path: ''
-      fullPath: ''
+      fullPath: '/'
       preLoaderRoute: typeof TabbarRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated': {
       id: '/_authenticated'
       path: ''
-      fullPath: ''
+      fullPath: '/'
       preLoaderRoute: typeof AuthenticatedRouteRouteImport
       parentRoute: typeof rootRouteImport
     }

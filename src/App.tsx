@@ -1,11 +1,11 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createRouter, RouterProvider } from '@tanstack/react-router';
 import { useEffect } from 'react';
-import { ColorProvider } from './components/common/color-provider';
-import { LangProvider } from './components/common/lang-provider';
 import NotFound from './components/common/not-found';
 import ServerError from './components/common/server-error';
-import { ThemeProvider } from './components/common/theme-provider';
+import { ColorProvider } from './provider/color';
+import { LangProvider } from './provider/lang';
+import { ThemeProvider } from './provider/theme';
 import { routeTree } from './routeTree.gen';
 import { useUserStore } from './store/user';
 

@@ -25,11 +25,13 @@ export default antfu(
   },
   {
     files: ['**/*.ts', '**/*.tsx'],
-    rules: { 'ts/no-misused-promises': ['error', {
-      checksVoidReturn: {
-        attributes: false,
-      },
-    }] },
+    rules: {
+      'ts/no-misused-promises': ['error', {
+        checksVoidReturn: {
+          attributes: false,
+        },
+      }],
+    },
   },
   {
     plugins: {

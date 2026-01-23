@@ -2,8 +2,8 @@ import type { EChartsCoreOption, EChartsInitOpts, SetOptionOpts } from 'echarts'
 import type { RefObject } from 'react';
 import { useDebounceFn, useElementSize } from '@reactuses/core';
 import { useEffect, useRef, useState } from 'react';
-import { DARK_MODE_MEDIA_QUERY, useTheme } from '@/components/common/theme-provider';
 import { echarts } from '@/plugins';
+import { DARK_MODE_MEDIA_QUERY, useTheme } from '@/provider/theme';
 
 interface ConfigProps {
   /**
